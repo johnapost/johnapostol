@@ -1,0 +1,20 @@
+{
+  "name": "johnapostol",
+  "version": "0.1.0",
+  "description": "John Apostol",
+  "main": "pages/index.js",
+  "repository": "git@github.com:johnapost/johnapostol.git",
+  "author": "John Apostol",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "next": "^4.1.4",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  }
+}
