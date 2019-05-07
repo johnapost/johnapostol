@@ -8,7 +8,7 @@ export default class MyDocument extends Document {
 
   public render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           <style>{`body { margin: 0 } /* custom! */`}</style>
         </Head>
