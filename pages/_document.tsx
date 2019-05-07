@@ -9,13 +9,16 @@ export default class MyDocument extends Document {
   public render() {
     return (
       <Html lang="en">
-        <Head>
-          <style>{`body { margin: 0 } /* custom! */`}</style>
-        </Head>
-        <body className="custom_class">
+        <Head />
+        <body>
           <Main />
           <NextScript />
         </body>
+        <style jsx>{`
+          body {
+            padding-top: 5rem;
+          }
+        `}</style>
       </Html>
     );
   }
