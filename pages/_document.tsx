@@ -1,4 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
+import GoogleAnalytics from "../components/GoogleAnalytics";
 
 export default class MyDocument extends Document {
   public static async getInitialProps(ctx: any) {
@@ -9,7 +10,9 @@ export default class MyDocument extends Document {
   public render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          {process.env.NODE_ENV === "production" && <GoogleAnalytics />}
+        </Head>
         <body>
           <Main />
           <NextScript />
