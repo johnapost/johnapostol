@@ -38,7 +38,7 @@ export default ({ children, level }: IProps) => {
         <style jsx>{`
           div {
             color: rgba(0, 0, 0, 0.44);
-            font-size: 0.9rem;
+            font-size: 1rem;
           }
         `}</style>
       </>

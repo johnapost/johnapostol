@@ -1,10 +1,12 @@
 import ReactMarkdown from "react-markdown";
 import Heading from "../components/Heading";
 import Layout from "../components/Layout";
+import Paragraph from "../components/Paragraph";
 import post from "../posts/2019-05-07.md";
 
 const renderers = {
-  heading: Heading
+  heading: Heading,
+  paragraph: Paragraph
 };
 
 export default () => (
