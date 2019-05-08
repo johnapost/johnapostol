@@ -12,6 +12,10 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {process.env.NODE_ENV === "production" && <GoogleAnalytics />}
+          <link
+            href="https://fonts.googleapis.com/css?family=Lato:700|Merriweather:300,300i,400,400i,700,700i"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <Main />
@@ -96,6 +100,11 @@ export default class MyDocument extends Document {
         <style jsx global>{`
           body {
             padding-top: 5rem;
+            margin: 0;
+          }
+
+          article {
+            font-family: "Merriweather", serif;
           }
         `}</style>
       </Html>
