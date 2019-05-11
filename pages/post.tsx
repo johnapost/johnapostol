@@ -1,4 +1,3 @@
-import { withAmp } from "next/amp";
 import ReactMarkdown from "react-markdown";
 import Heading from "../components/Heading";
 import Layout from "../components/Layout";
@@ -10,7 +9,7 @@ const renderers = {
   paragraph: Paragraph
 };
 
-const Post = () => (
+export default () => (
   <Layout>
     <article>
       <div className="md-wrapper">
@@ -33,5 +32,3 @@ const Post = () => (
     `}</style>
   </Layout>
 );
-
-export default withAmp(Post);

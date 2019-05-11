@@ -1,10 +1,12 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
+import flush from "styled-jsx/server";
 import GoogleAnalytics from "../components/GoogleAnalytics";
 
 export default class MyDocument extends Document {
   public static async getInitialProps(ctx: any) {
     const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
+    const styles = flush();
+    return { ...initialProps, styles };
   }
 
   public render() {
