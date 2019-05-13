@@ -3,6 +3,17 @@ module.exports = withTypescript({
   target: 'serverless',
   pageExtensions: ['tsx'],
   webpack(config, options) {
-    return config
+    return {
+      ...config,
+      module: {
+        rules: [
+          ...config.module.rules,
+          {
+            test: /\.md$/,
+            use: 'raw-loader'
+          }
+        ]
+      }
+    }
   }
 })
