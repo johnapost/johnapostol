@@ -1,3 +1,5 @@
+import ColumnWrapper from "./ColumnWrapper";
+
 interface IProps {
   alt: string;
   src: string;
@@ -23,5 +25,19 @@ export default ({ alt, src }: IProps) => {
     );
   }
 
-  return <img alt={alt} src={src} />;
+  if (alt.startsWith("center")) {
+    return (
+      <ColumnWrapper>
+        <img alt={alt} src={src} />
+        <style jsx>{`
+          img {
+            margin-top: 44px;
+            width: 100%;
+          }
+        `}</style>
+      </ColumnWrapper>
+    );
+  }
+
+  return null;
 };

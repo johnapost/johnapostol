@@ -24,6 +24,8 @@ export default ({ children }: IProps) => {
       <style jsx>{`
         p {
           font-size: 1.3rem;
+          margin: 29px 0 0;
+          padding: 0;
         }
       `}</style>
     </ColumnWrapper>
