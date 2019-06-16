@@ -1,12 +1,17 @@
 {
   "name": "johnapostol",
   "version": "0.1.0",
-  "description": "John Apostol",
-  "main": "pages/index.js",
-  "repository": "git@github.com:johnapost/johnapostol.git",
-  "author": "John Apostol",
-  "license": "MIT",
   "private": true,
+  "description": "John Apostol",
+  "repository": "git@github.com:johnapost/johnapostol.git",
+  "license": "MIT",
+  "author": "John Apostol",
+  "main": "pages/index.js",
+  "scripts": {
+    "dev": "next",
+    "now-build": "next build",
+    "start": "next start"
+  },
   "dependencies": {
     "@zeit/next-typescript": "1.1.1",
     "next": "8.1.0",
@@ -14,18 +19,16 @@
     "react-dom": "16.8.6",
     "react-markdown": "4.0.8"
   },
-  "scripts": {
-    "dev": "next",
-    "now-build": "next build",
-    "start": "next start"
-  },
   "devDependencies": {
     "@types/next": "8.0.5",
     "@types/react": "16.8.19",
     "@types/react-dom": "16.8.4",
     "@types/styled-jsx": "2.2.8",
+    "imagemin-mozjpeg": "8.0.0",
+    "next-optimized-images": "2.5.0",
     "prettier": "1.17.1",
     "raw-loader": "3.0.0",
+    "sort-package-json": "1.22.1",
     "tslint": "5.17.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-plugin-prettier": "2.0.1",

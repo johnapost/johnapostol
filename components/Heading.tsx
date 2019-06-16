@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import ColumnWrapper from "./ColumnWrapper";
 
 interface IProps {
   children: ReactElement[];
@@ -33,7 +34,7 @@ export default ({ children, level }: IProps) => {
     const [year, month, date] = fullDate.split("-");
     const formattedDate = `${months[Number(month) - 1]} ${date}, ${year}`;
     return (
-      <>
+      <ColumnWrapper>
         <div className="container">
           <img src="../static/me.jpg" />
           <div>
@@ -71,14 +72,14 @@ export default ({ children, level }: IProps) => {
             color: rgba(0, 0, 0, 0.44);
           }
         `}</style>
-      </>
+      </ColumnWrapper>
     );
   }
 
   // For post titles
   if (level === 1) {
     return (
-      <>
+      <ColumnWrapper>
         <h1>{children}</h1>
         <style jsx>{`
           h1 {
@@ -88,13 +89,13 @@ export default ({ children, level }: IProps) => {
             margin-bottom: 1rem;
           }
         `}</style>
-      </>
+      </ColumnWrapper>
     );
   }
 
   if (level === 2) {
     return (
-      <>
+      <ColumnWrapper>
         <h3>{children}</h3>
         <style jsx>{`
           h3 {
@@ -104,13 +105,13 @@ export default ({ children, level }: IProps) => {
             margin-bottom: 1rem;
           }
         `}</style>
-      </>
+      </ColumnWrapper>
     );
   }
 
   if (level === 3) {
     return (
-      <>
+      <ColumnWrapper>
         <h4>{children}</h4>
         <style jsx>{`
           h4 {
@@ -120,7 +121,7 @@ export default ({ children, level }: IProps) => {
             margin-bottom: 1rem;
           }
         `}</style>
-      </>
+      </ColumnWrapper>
     );
   }
 

@@ -104,10 +104,6 @@ export default class MyDocument extends Document {
             padding-top: 5rem;
             margin: 0;
           }
-
-          article {
-            font-family: "Merriweather", serif;
-          }
         `}</style>
       </Html>
     );
