@@ -1,7 +1,6 @@
 import ReactMarkdown from "react-markdown";
 import Heading from "../components/Heading";
 import Image from "../components/Image";
-import Layout from "../components/Layout";
 import Paragraph from "../components/Paragraph";
 import post from "../posts/2019-05-07.md";
 
@@ -13,17 +12,17 @@ export default () => {
   };
 
   return (
-    <Layout>
+    <main role="main">
       <article>
         <ReactMarkdown source={post} renderers={renderers} />
       </article>
       <style jsx>{`
         article {
-          font-family: "Merriweather", serif;
+          font-family: "Lato", serif;
           display: grid;
           grid-template-columns: 1fr 740px 1fr;
         }
       `}</style>
-    </Layout>
+    </main>
   );
 };

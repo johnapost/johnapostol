@@ -19,7 +19,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body>
+        <body style={{ margin: 0 }}>
           <Main />
           <NextScript />
         </body>
@@ -97,12 +97,6 @@ export default class MyDocument extends Document {
           th {
             padding: 0;
             text-align: left;
-          }
-        `}</style>
-        <style jsx global>{`
-          body {
-            padding-top: 5rem;
-            margin: 0;
           }
         `}</style>
       </Html>
