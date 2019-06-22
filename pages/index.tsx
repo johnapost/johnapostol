@@ -17,21 +17,21 @@ const posts = [
 export default () => (
   <main role="main">
     <Cover />
-    <div className="external">
-      <span>
-        <GitHub />
-      </span>
-      <span>
-        <Medium />
-      </span>
-      <span>
-        <LinkedIn />
-      </span>
-      <span>
-        <Resume />
-      </span>
-    </div>
     <div className="intro">
+      <div className="external">
+        <span>
+          <GitHub />
+        </span>
+        <span>
+          <Medium />
+        </span>
+        <span>
+          <LinkedIn />
+        </span>
+        <span>
+          <Resume />
+        </span>
+      </div>
       <Paragraph>Hi there!</Paragraph>
       <Paragraph>
         I'm a software person in Austin, Texas. I mostly write web apps, but I
@@ -54,7 +54,6 @@ export default () => (
 
       .intro {
         font-family: "Merriweather", serif;
-        display: grid;
       }
 
       hr {
@@ -72,6 +71,7 @@ export default () => (
 
       @media (min-width: 900px) {
         .intro {
+          display: grid;
           grid-template-columns: 1fr 740px 1fr;
         }
       }
