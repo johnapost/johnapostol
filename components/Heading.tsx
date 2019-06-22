@@ -83,7 +83,7 @@ export default ({ children, level }: IProps) => {
         <h1>{children}</h1>
         <style jsx>{`
           h1 {
-            font-family: "Merriweather", sans-serif;
+            font-family: "Lato", sans-serif;
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
@@ -99,7 +99,7 @@ export default ({ children, level }: IProps) => {
         <h3>{children}</h3>
         <style jsx>{`
           h3 {
-            font-family: "Lato", sans-serif;
+            font-family: "Merriweather", sans-serif;
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 1rem;
@@ -115,7 +115,7 @@ export default ({ children, level }: IProps) => {
         <h4>{children}</h4>
         <style jsx>{`
           h4 {
-            font-family: "Lato", sans-serif;
+            font-family: "Merriweather", sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1rem;

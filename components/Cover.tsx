@@ -1,7 +1,8 @@
 export default () => (
   <div className="outside">
     <div className="inside">
-      <h2 className="shadow">John Apostol</h2>
+      <h1 className="shadow">John Apostol</h1>
+      <span className="shadow">always learning, never satisfied</span>
     </div>
     <style jsx>{`
       .outside {
@@ -12,9 +13,10 @@ export default () => (
       }
 
       .outside::before {
-        background: radial-gradient(circle, transparent 50%, #000000 150%),
+        background: radial-gradient(circle, transparent 25%, #000000 150%),
           url("static/cover.jpg") center center;
         background-size: cover;
+        background-color: rgba(0, 0, 0, 0.3);
         content: "";
         position: absolute;
         height: 100%;
@@ -25,7 +27,7 @@ export default () => (
         align-items: center;
         display: flex;
         flex-direction: column;
-        font-family: "Merriweather", serif;
+        font-family: "Lato", serif;
         height: 100%;
         justify-content: center;
         position: relative;
@@ -33,13 +35,20 @@ export default () => (
       }
 
       .shadow {
-        margin: 0.5rem 0;
-        padding: 0 2rem 0;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        text-shadow: 0 2px rgba(0, 0, 0, 0.15);
       }
 
-      h2 {
+      h1 {
+        margin: 0.5rem 0;
+        padding: 0.5rem 1.1rem;
         color: #ffffff;
+        text-align: left;
+        border: 2px solid #ffffff;
+      }
+
+      span {
+        color: #ffffff;
+        font-size: 0.95rem;
       }
     `}</style>
   </div>

@@ -18,7 +18,7 @@ export default () => {
       </article>
       <style jsx>{`
         article {
-          font-family: "Lato", serif;
+          font-family: "Merriweather", serif;
           display: grid;
           grid-template-columns: 1fr 740px 1fr;
         }
