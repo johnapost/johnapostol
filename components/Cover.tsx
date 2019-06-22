@@ -1,12 +1,12 @@
 export default () => (
   <div className="outside">
     <div className="inside">
-      <h1 className="shadow">John Apostol</h1>
-      <h2 className="shadow">Software and Life</h2>
+      <h2 className="shadow">John Apostol</h2>
     </div>
     <style jsx>{`
       .outside {
-        height: 80vh;
+        box-sizing: border-box;
+        height: 30vh;
         position: relative;
         width: 100vw;
       }
@@ -23,23 +23,23 @@ export default () => (
 
       .inside {
         align-items: center;
-        color: #ffffff;
         display: flex;
-        height: 100%;
-        width: 100%;
         flex-direction: column;
-        justify-content: flex-start;
         font-family: "Merriweather", serif;
+        height: 100%;
+        justify-content: center;
         position: relative;
-      }
-
-      h1 {
-        margin: 0;
-        padding-top: 4rem;
+        width: 100%;
       }
 
       .shadow {
+        margin: 0.5rem 0;
+        padding: 0 2rem 0;
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      }
+
+      h2 {
+        color: #ffffff;
       }
     `}</style>
   </div>

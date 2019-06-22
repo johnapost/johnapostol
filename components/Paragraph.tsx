@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import ColumnWrapper from "./ColumnWrapper";
 
 interface IProps {
-  children: ReactElement[];
+  children: ReactElement[] | string;
 }
 
 export default ({ children }: IProps) => {
@@ -11,6 +11,7 @@ export default ({ children }: IProps) => {
   // Render images without a wrapper
   if (
     children.length === 1 &&
+    typeof firstChild !== "string" &&
     firstChild &&
     firstChild.props &&
     firstChild.props.src
