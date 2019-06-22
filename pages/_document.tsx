@@ -18,6 +18,7 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Lato:700|Merriweather:300,300i,400,400i,700,700i"
             rel="stylesheet"
           />
+          <meta name="viewport" content="width=device-width" />
         </Head>
         <body style={{ margin: 0 }}>
           <Main />
