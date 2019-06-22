@@ -1,6 +1,10 @@
 import Cover from "../components/Cover";
+import GitHub from "../components/GitHub";
+import LinkedIn from "../components/LinkedIn";
+import Medium from "../components/Medium";
 import Paragraph from "../components/Paragraph";
 import PostList from "../components/PostList";
+import Resume from "../components/Resume";
 
 const posts = [
   {
@@ -13,6 +17,20 @@ const posts = [
 export default () => (
   <main role="main">
     <Cover />
+    <div className="external">
+      <span>
+        <GitHub />
+      </span>
+      <span>
+        <Medium />
+      </span>
+      <span>
+        <LinkedIn />
+      </span>
+      <span>
+        <Resume />
+      </span>
+    </div>
     <div className="intro">
       <Paragraph>Hi there!</Paragraph>
       <Paragraph>
@@ -23,6 +41,17 @@ export default () => (
     <hr />
     <PostList posts={posts} />
     <style jsx>{`
+      .external {
+        color: #362640;
+        display: flex;
+        justify-content: center;
+        margin: 1rem 0 0;
+      }
+
+      .external span + span {
+        margin-left: 10px;
+      }
+
       .intro {
         font-family: "Merriweather", serif;
         display: grid;
@@ -36,8 +65,8 @@ export default () => (
           transparent
         );
         border: 0;
-        height: 1px;
-        margin: 4rem auto;
+        height: 2px;
+        margin: 3rem auto;
         width: 80%;
       }
 

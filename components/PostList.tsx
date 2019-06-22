@@ -1,3 +1,5 @@
+import ColumnWrapper from "./ColumnWrapper";
+
 interface IPost {
   date: Date;
   tags: string[];
@@ -11,22 +13,18 @@ interface IProps {
 export default ({ posts }: IProps) => (
   <>
     {posts.map(({ title, date, tags }) => (
-      <div className="post">
+      <ColumnWrapper key={`${title}-${date.getTime()}`}>
         <div className="post-heading">
           {date.toDateString()}
           {tags.length && " "}
           {tags.map(tag => (
-            <span>{tag}</span>
+            <span key={tag}>{tag}</span>
           ))}
         </div>
         <div className="title">{title}</div>
-      </div>
+      </ColumnWrapper>
     ))}
     <style jsx>{`
-      .post {
-        padding: 0 20px;
-      }
-
       .title {
         font-family: "Lato", sans-serif;
       }
