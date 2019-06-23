@@ -2,7 +2,7 @@ import ReactMarkdown from "react-markdown";
 import Heading from "../components/Heading";
 import Image from "../components/Image";
 import Paragraph from "../components/Paragraph";
-import post from "../posts/2019-05-07.md";
+import post from "../static/2019-05-07/post.md";
 
 export default () => {
   const renderers = {

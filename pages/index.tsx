@@ -4,33 +4,36 @@ import LinkedIn from "../components/LinkedIn";
 import Medium from "../components/Medium";
 import Paragraph from "../components/Paragraph";
 import PostList from "../components/PostList";
+import IPost from "../components/PostList";
 import Resume from "../components/Resume";
 
-const posts = [
-  {
-    date: new Date("2019-05-07"),
-    tags: ["software"],
-    title: "Perfect Now vs Later"
-  }
-];
+export interface IPost {
+  date: string;
+  tags: string[];
+  title: string;
+}
 
-export default () => (
+interface IProps {
+  posts: Array<typeof IPost>;
+}
+
+const Index = ({ posts }: IProps) => (
   <main role="main">
     <Cover />
     <div className="intro">
       <div className="external">
-        <span>
+        <a href="https://github.com/johnapost">
           <GitHub />
-        </span>
-        <span>
+        </a>
+        <a href="https://medium.com/@johnapost">
           <Medium />
-        </span>
-        <span>
+        </a>
+        <a href="https://www.linkedin.com/in/johnapost/">
           <LinkedIn />
-        </span>
-        <span>
+        </a>
+        <a>
           <Resume />
-        </span>
+        </a>
       </div>
       <Paragraph>Hi there!</Paragraph>
       <Paragraph>
@@ -48,7 +51,11 @@ export default () => (
         margin: 1rem 0 0;
       }
 
-      .external span + span {
+      a {
+        display: inline-block;
+      }
+
+      .external a + a {
         margin-left: 10px;
       }
 
@@ -78,3 +85,17 @@ export default () => (
     `}</style>
   </main>
 );
+
+Index.getInitialProps = () => {
+  const posts = [
+    {
+      date: "2019-05-07",
+      tags: ["software"],
+      title: "Perfect Now vs Later"
+    }
+  ];
+
+  return { posts };
+};
+
+export default Index;
