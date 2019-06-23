@@ -42,6 +42,7 @@ const Index = ({ posts }: IProps) => (
       </Paragraph>
     </div>
     <hr />
+    {process.env.baseUrl ? process.env.baseUrl : "no baseUrl"}
     <PostList posts={posts} />
     <style jsx>{`
       .external {

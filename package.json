@@ -8,12 +8,14 @@
   "author": "John Apostol",
   "main": "pages/index.js",
   "scripts": {
+    "build:posts": "processmd posts/*.md --outputDir static/posts --summaryOutput static/posts/summary.json",
     "dev": "next",
     "now-build": "next build",
     "start": "next start"
   },
   "dependencies": {
     "@zeit/next-typescript": "1.1.1",
+    "isomorphic-unfetch": "^3.0.0",
     "next": "8.1.0",
     "react": "16.8.6",
     "react-dom": "16.8.6",
@@ -27,6 +29,7 @@
     "imagemin-mozjpeg": "8.0.0",
     "next-optimized-images": "2.5.1",
     "prettier": "1.18.2",
+    "processmd": "^4.4.2",
     "raw-loader": "3.0.0",
     "sort-package-json": "1.22.1",
     "tslint": "5.17.0",

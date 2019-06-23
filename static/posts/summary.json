@@ -1,0 +1,15 @@
+{
+  "fileMap": {
+    "static/posts/2019-05-07.json": {
+      "title": "Perfect Now vs Perfect Later",
+      "dir": "static/posts",
+      "base": "2019-05-07.json",
+      "ext": ".json",
+      "sourceBase": "2019-05-07.md",
+      "sourceExt": ".md"
+    }
+  },
+  "sourceFileArray": [
+    "posts/2019-05-07.md"
+  ]
+}
