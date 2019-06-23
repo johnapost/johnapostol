@@ -1,6 +1,10 @@
 {
   "fileMap": {
     "static/posts/2019-05-07.json": {
+      "date": "2020-05-07",
+      "tags": [
+        "software"
+      ],
       "title": "Perfect Now vs Perfect Later",
       "dir": "static/posts",
       "base": "2019-05-07.json",

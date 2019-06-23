@@ -1,6 +1,5 @@
-import { NextContext, NextFunctionComponent } from "next";
-
 import fetch from "isomorphic-unfetch";
+import { NextContext } from "next";
 import ReactMarkdown from "react-markdown";
 import Heading from "../components/Heading";
 import Image from "../components/Image";
@@ -10,7 +9,7 @@ interface IProps {
   post: string;
 }
 
-const Post: NextFunctionComponent<IProps> = ({ post }) => {
+const Post = ({ post }: IProps) => {
   const renderers = {
     heading: Heading,
     image: Image,
@@ -34,11 +33,15 @@ const Post: NextFunctionComponent<IProps> = ({ post }) => {
 };
 
 Post.getInitialProps = async ({ req }: NextContext) => {
-  // const baseUrl = req ? `${req.protocol}://${req.get("Host")}` : "";
-  // return {
-  //   post: await (await fetch(`${baseUrl}/static/2019-05-07/post.json`)).json()
-  // };
-  return { post: null };
+  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
+  const baseUrl = req ? `${protocol}://${req.headers.host}` : "";
+  const post = (await (await fetch(
+    `${baseUrl}/static/posts/2019-05-07.json`
+  )).json()).bodyContent;
+
+  return {
+    post
+  };
 };
 
 export default Post;

@@ -1,3 +1,5 @@
+import fetch from "isomorphic-unfetch";
+import { NextContext } from "next";
 import Cover from "../components/Cover";
 import GitHub from "../components/GitHub";
 import LinkedIn from "../components/LinkedIn";
@@ -42,7 +44,6 @@ const Index = ({ posts }: IProps) => (
       </Paragraph>
     </div>
     <hr />
-    {process.env.baseUrl ? process.env.baseUrl : "no baseUrl"}
     <PostList posts={posts} />
     <style jsx>{`
       .external {
@@ -87,14 +88,21 @@ const Index = ({ posts }: IProps) => (
   </main>
 );
 
-Index.getInitialProps = () => {
-  const posts = [
-    {
-      date: "2019-05-07",
-      tags: ["software"],
-      title: "Perfect Now vs Later"
-    }
-  ];
+Index.getInitialProps = async ({ req }: NextContext) => {
+  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
+  const baseUrl = req ? `${protocol}://${req.headers.host}` : "";
+  const { sourceFileArray, fileMap } = await (await fetch(
+    `${baseUrl}/static/posts/summary.json`
+  )).json();
+
+  const recent = sourceFileArray.slice(-5).reverse();
+  const posts = recent.map((sourceFile: string) => {
+    const destFile = sourceFile
+      .replace("posts/", "static/posts/")
+      .replace(".md", ".json");
+
+    return fileMap[destFile];
+  });
 
   return { posts };
 };
