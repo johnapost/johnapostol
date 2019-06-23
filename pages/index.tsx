@@ -83,6 +83,10 @@ const Index = ({ posts }: IProps) => (
           display: grid;
           grid-template-columns: 1fr 740px 1fr;
         }
+
+        .intro:before {
+          content: "";
+        }
       }
     `}</style>
   </main>

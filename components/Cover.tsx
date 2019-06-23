@@ -12,7 +12,7 @@ export default () => (
         width: 100vw;
       }
 
-      .outside::before {
+      .outside:before {
         background: radial-gradient(circle, transparent 25%, #000000 150%),
           url("static/cover.jpg") center center;
         background-size: cover;
