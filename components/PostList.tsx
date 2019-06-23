@@ -1,4 +1,5 @@
 import IPost from "../pages/index";
+import formatDate from "../utils/formatDate";
 import ColumnWrapper from "./ColumnWrapper";
 
 interface IProps {
@@ -9,10 +10,11 @@ export default ({ posts }: IProps) => (
   <>
     {posts.map(({ title, date, tags }) => {
       const dateObj = new Date(date);
+      const formattedDate = formatDate(date);
       return (
         <ColumnWrapper key={`${title}-${dateObj.getTime()}`}>
           <div className="post-heading">
-            {dateObj.toDateString()}
+            {formattedDate}
             {tags.length && " "}
             {tags.map((tag: string) => (
               <span key={tag}>{tag}</span>

@@ -1,25 +1,11 @@
 import { ReactElement } from "react";
+import formatDate from "../utils/formatDate";
 import ColumnWrapper from "./ColumnWrapper";
 
 interface IProps {
   children: ReactElement[];
   level: number;
 }
-
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December"
-];
 
 export default ({ children, level }: IProps) => {
   const [firstChild] = children;
@@ -31,8 +17,7 @@ export default ({ children, level }: IProps) => {
     firstChild.props.value.startsWith("Date: ")
   ) {
     const fullDate = firstChild.props.value.split("Date: ")[1];
-    const [year, month, date] = fullDate.split("-");
-    const formattedDate = `${months[Number(month) - 1]} ${date}, ${year}`;
+    const formattedDate = formatDate(fullDate);
     return (
       <ColumnWrapper>
         <div className="container">
