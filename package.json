@@ -9,9 +9,7 @@
   "main": "pages/index.js",
   "scripts": {
     "build:posts": "processmd posts/*.md --outputDir static/posts --summaryOutput static/posts/summary.json",
-    "watch:posts": "processmd posts/*.md --outputDir static/posts --summaryOutput static/posts/summary.json --watch",
     "dev": "next",
-    "now-build": "npm run build:posts && next build",
     "start": "next start"
   },
   "dependencies": {
