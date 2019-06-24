@@ -39,6 +39,7 @@ export default () => (
       }
 
       h1 {
+        font-size: 2rem;
         margin: 0.5rem 0;
         padding: 0.5rem 1.1rem;
         color: #ffffff;
@@ -48,7 +49,7 @@ export default () => (
 
       span {
         color: #ffffff;
-        font-size: 0.95rem;
+        font-size: 1rem;
       }
     `}</style>
   </div>

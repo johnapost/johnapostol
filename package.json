@@ -16,6 +16,8 @@
     "@zeit/next-typescript": "1.1.1",
     "isomorphic-unfetch": "3.0.0",
     "next": "8.1.0",
+    "next-compose-plugins": "2.2.0",
+    "next-optimized-images": "2.5.1",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-markdown": "4.0.8"
@@ -26,7 +28,6 @@
     "@types/react-dom": "16.8.4",
     "@types/styled-jsx": "2.2.8",
     "imagemin-mozjpeg": "8.0.0",
-    "next-optimized-images": "2.5.1",
     "prettier": "1.18.2",
     "processmd": "4.4.2",
     "sort-package-json": "1.22.1",

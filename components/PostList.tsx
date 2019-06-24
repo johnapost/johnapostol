@@ -9,11 +9,10 @@ interface IProps {
 export default ({ posts }: IProps) => (
   <>
     {posts.map(({ title, date, tags }) => {
-      const dateObj = new Date(date);
       const formattedDate = formatDate(date);
       return (
-        <div className="grid">
-          <ColumnWrapper key={`${title}-${dateObj.getTime()}`}>
+        <div className="grid" key={`${title}-${formattedDate}`}>
+          <ColumnWrapper>
             <div className="post-heading">
               {formattedDate}
               {tags.length && " "}

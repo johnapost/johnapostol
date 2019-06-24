@@ -1,9 +1,8 @@
-const withTypescript = require('@zeit/next-typescript');
-const withOptimizedImages = require('next-optimized-images');
+const optimizedImages = require('next-optimized-images');
+const typescript = require('@zeit/next-typescript');
+const withPlugins = require('next-compose-plugins')
 
-module.exports = withOptimizedImages(
-  withTypescript({
-    target: 'serverless',
-    pageExtensions: ['tsx']
-  })
-)
+module.exports = withPlugins([
+  [optimizedImages, { handleImages: ['jpeg'], optimizeImagesInDev: true }],
+  [typescript, { target: 'serverless',pageExtensions: ['tsx'] }]
+])
