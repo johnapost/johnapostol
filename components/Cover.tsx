@@ -14,7 +14,7 @@ export default () => (
 
       .outside:before {
         background: radial-gradient(circle, transparent 25%, #000000 150%),
-          url("static/cover.jpg") center center;
+          url(${require("../static/cover.jpg")}) center center;
         background-size: cover;
         background-color: rgba(0, 0, 0, 0.3);
         content: "";
