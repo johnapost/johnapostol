@@ -29,7 +29,6 @@
     "next-optimized-images": "2.5.1",
     "prettier": "1.18.2",
     "processmd": "4.4.2",
-    "raw-loader": "3.0.0",
     "sort-package-json": "1.22.1",
     "tslint": "5.17.0",
     "tslint-config-prettier": "1.18.0",
