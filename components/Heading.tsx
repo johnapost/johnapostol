@@ -21,7 +21,7 @@ export default ({ children, level }: IProps) => {
     return (
       <ColumnWrapper>
         <div className="container">
-          <img src="../static/me.jpg" />
+          <img src={require("../static/me.jpg")} />
           <div>
             <div className="author">John Apostol</div>
             <div className="date">{formattedDate}</div>

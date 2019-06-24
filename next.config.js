@@ -3,6 +3,6 @@ const typescript = require('@zeit/next-typescript');
 const withPlugins = require('next-compose-plugins')
 
 module.exports = withPlugins([
-  [optimizedImages, { handleImages: ['jpeg'], optimizeImagesInDev: true }],
-  [typescript, { target: 'serverless',pageExtensions: ['tsx'] }]
+  [optimizedImages, { handleImages: ['jpg'], optimizeImagesInDev: true }],
+  [typescript, { target: 'serverless', pageExtensions: ['tsx'] }]
 ])

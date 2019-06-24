@@ -9,7 +9,7 @@ export default ({ alt, src }: IProps) => {
   if (alt.startsWith("wide")) {
     return (
       <div className="full-width">
-        <img alt={alt} src={src} />
+        <img alt={alt} src={require(`../${src}`)} />
         <style jsx>{`
           .full-width {
             grid-column: 1 / 4;
@@ -28,7 +28,7 @@ export default ({ alt, src }: IProps) => {
   if (alt.startsWith("center")) {
     return (
       <ColumnWrapper>
-        <img alt={alt} src={src} />
+        <img alt={alt} src={require(`../${src}`)} />
         <style jsx>{`
           img {
             margin-top: 44px;
