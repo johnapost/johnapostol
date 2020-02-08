@@ -5,18 +5,11 @@ import GitHub from "../components/GitHub";
 import LinkedIn from "../components/LinkedIn";
 import Medium from "../components/Medium";
 import Paragraph from "../components/Paragraph";
-import PostList from "../components/PostList";
-import IPost from "../components/PostList";
+import PostList, { IPost } from "../components/PostList";
 import Resume from "../components/Resume";
 
-export interface IPost {
-  date: string;
-  tags: string[];
-  title: string;
-}
-
 interface IProps {
-  posts: Array<typeof IPost>;
+  posts: IPost[];
 }
 
 const Index = ({ posts }: IProps) => (
