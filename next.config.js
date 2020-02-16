@@ -13,14 +13,19 @@ module.exports = withPlugins([
   }]
 ], {
   exportPathMap: () => {
-    const posts = {
-      '/post/2019-05-07': {
-        page: '/post',
-        query: {
-          slug: '2019-05-07'
+    const posts = Object.entries(summary.fileMap)
+      .reduce((accum, [key, {
+        date,
+        slug
+      }]) => ({
+        [`/post/${slug}`]: {
+          page: '/post',
+          query: {
+            date,
+            slug
+          }
         }
-      }
-    }
+      }), {})
 
     return {
       '/': {

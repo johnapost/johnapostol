@@ -5,6 +5,7 @@ import Paragraph from "./Paragraph";
 export interface IPost {
   date: string;
   preview: string;
+  slug: string;
   tags: string[];
   title: string;
 }
@@ -15,14 +16,14 @@ interface IProps {
 
 export default ({ posts }: IProps) => (
   <>
-    {posts.map(({ title, date, tags, preview }) => {
+    {posts.map(({ title, date, slug, tags, preview }) => {
       const formattedDate = formatDate(date);
       return (
         <div className="grid" key={`${title}-${formattedDate}`}>
           <ColumnWrapper>
             <div className="post-heading">{formattedDate}</div>
             <div className="title">
-              <a href={`/post/${date}`}>{title}</a>
+              <a href={`/post/${slug}`}>{title}</a>
             </div>
             <div>
               {tags.length && (

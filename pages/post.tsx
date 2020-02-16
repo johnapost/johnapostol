@@ -33,12 +33,12 @@ const Post = ({ post }: IProps) => {
   );
 };
 
-Post.getInitialProps = async ({ req, query: { slug } }: NextContext) => {
+Post.getInitialProps = async ({ req, query: { date } }: NextContext) => {
   const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
   const baseUrl = req ? `${protocol}://${req.headers.host}` : "";
 
   const post = (await (await fetch(
-    `${baseUrl}/static/posts/${slug}.json`
+    `${baseUrl}/static/posts/${date}.json`
   )).json()).bodyContent;
 
   return { post };
