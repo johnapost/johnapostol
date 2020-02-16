@@ -1,4 +1,6 @@
-export default () => (
+import React from "react";
+
+const Cover = (): JSX.Element => (
   <div className="outside">
     <div className="inside">
       <h1 className="shadow">John Apostol</h1>
@@ -56,3 +58,5 @@ export default () => (
     `}</style>
   </div>
 );
+
+export default Cover;

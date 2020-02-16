@@ -1,10 +1,10 @@
-import { ReactElement } from "react";
+import React, { ReactElement } from "react";
 
-interface IProps {
+interface Props {
   children: ReactElement | ReactElement[];
 }
 
-export default ({ children }: IProps) => (
+const ColumnWrapper = ({ children }: Props): JSX.Element => (
   <div className="column-wrapper">
     {children}
     <style jsx>{`
@@ -15,3 +15,5 @@ export default ({ children }: IProps) => (
     `}</style>
   </div>
 );
+
+export default ColumnWrapper;
