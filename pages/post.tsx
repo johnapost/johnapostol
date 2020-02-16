@@ -1,5 +1,4 @@
-import { NextPage } from "next";
-import fetch from "isomorphic-unfetch";
+import { NextPageContext } from "next";
 import ReactMarkdown from "react-markdown";
 import Heading from "../components/Heading";
 import Image from "../components/Image";
@@ -9,7 +8,7 @@ interface IProps {
   post: string;
 }
 
-const Post: NextPage<IProps> = ({ post }) => {
+const Post = ({ post }: IProps) => {
   const renderers = {
     heading: Heading,
     image: Image,
@@ -32,13 +31,8 @@ const Post: NextPage<IProps> = ({ post }) => {
   );
 };
 
-Post.getInitialProps = async ({ req, query: { date } }) => {
-  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
-  const baseUrl = req ? `${protocol}://${req.headers.host}` : "";
-
-  const post = (
-    await (await fetch(`${baseUrl}/static/posts/${date}.json`)).json()
-  ).bodyContent;
+Post.getInitialProps = async ({ query: { date } }: NextPageContext) => {
+  const post = (await import(`../content/${date}.json`)).bodyContent;
 
   return { post };
 };

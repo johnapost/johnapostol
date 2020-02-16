@@ -8,7 +8,8 @@
   "author": "John Apostol",
   "main": "pages/index.js",
   "scripts": {
-    "build:posts": "processmd posts/*.md --outputDir static/posts --summaryOutput static/posts/summary.json",
+    "build:posts": "processmd posts/*.md --outputDir content --summaryOutput content/summary.json",
+    "build": "next build",
     "dev": "next",
     "start": "next start"
   },
