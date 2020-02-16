@@ -1,14 +1,15 @@
-import { NextPageContext } from "next";
+import React from "react";
+import { NextPage } from "next";
 import ReactMarkdown from "react-markdown";
 import Heading from "../components/Heading";
 import Image from "../components/Image";
 import Paragraph from "../components/Paragraph";
 
-interface IProps {
+interface Props {
   post: string;
 }
 
-const Post = ({ post }: IProps) => {
+const Post: NextPage<Props> = ({ post }: Props) => {
   const renderers = {
     heading: Heading,
     image: Image,
@@ -31,7 +32,7 @@ const Post = ({ post }: IProps) => {
   );
 };
 
-Post.getInitialProps = async ({ query: { date } }: NextPageContext) => {
+Post.getInitialProps = async ({ query: { date } }): Promise<Props> => {
   const post = (await import(`../content/${date}.json`)).bodyContent;
 
   return { post };

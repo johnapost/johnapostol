@@ -1,23 +1,25 @@
+import React from "react";
+import { NextPage } from "next";
 import Cover from "../components/Cover";
 import GitHub from "../components/GitHub";
 import LinkedIn from "../components/LinkedIn";
 import Medium from "../components/Medium";
 import Paragraph from "../components/Paragraph";
-import PostList, { IPost } from "../components/PostList";
+import PostList, { Post } from "../components/PostList";
 import Resume from "../components/Resume";
 
-interface IProps {
-  posts: IPost[];
-}
+type Props = {
+  posts: Post[];
+};
 
-interface Summary {
+type Summary = {
   sourceFileArray: string[];
   fileMap: {
-    [id: string]: object;
+    [id: string]: Post;
   };
-}
+};
 
-const Index = ({ posts }: IProps) => (
+const Index: NextPage<Props> = ({ posts }: Props) => (
   <main role="main">
     <Cover />
     <div className="intro">
@@ -37,8 +39,8 @@ const Index = ({ posts }: IProps) => (
       </div>
       <Paragraph>Hi there!</Paragraph>
       <Paragraph>
-        I'm a software person living in Austin, Texas. I mostly code web apps,
-        but I also write about writing code.
+        I&apos;m a software person living in Austin, Texas. I mostly code web
+        apps, but I also write about writing code.
       </Paragraph>
     </div>
     <hr />
@@ -90,7 +92,7 @@ const Index = ({ posts }: IProps) => (
   </main>
 );
 
-Index.getInitialProps = async () => {
+Index.getInitialProps = async (): Promise<Props> => {
   const summary: Summary = await import("../content/summary.json");
   const { sourceFileArray, fileMap } = summary;
 

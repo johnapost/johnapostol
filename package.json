@@ -26,13 +26,16 @@
     "@types/react": "16.9.19",
     "@types/react-dom": "16.9.5",
     "@types/styled-jsx": "2.2.8",
+    "@typescript-eslint/eslint-plugin": "2.19.2",
+    "@typescript-eslint/parser": "2.19.2",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-react": "7.18.3",
     "imagemin-mozjpeg": "8.0.0",
     "prettier": "1.19.1",
     "processmd": "4.5.0",
     "sort-package-json": "1.39.1",
-    "tslint": "6.0.0",
-    "tslint-config-prettier": "1.18.0",
-    "tslint-plugin-prettier": "2.1.0",
     "typescript": "3.7.5"
   }
 }
