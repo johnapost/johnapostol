@@ -35,6 +35,6 @@ module.exports = withPlugins(
         };
       },
       exportTrailingSlash: true
-    }
+    },
   ],
 );
