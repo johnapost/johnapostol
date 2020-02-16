@@ -1,25 +1,11 @@
 import { ReactElement } from "react";
+import formatDate from "../utils/formatDate";
 import ColumnWrapper from "./ColumnWrapper";
 
 interface IProps {
   children: ReactElement[];
   level: number;
 }
-
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December"
-];
 
 export default ({ children, level }: IProps) => {
   const [firstChild] = children;
@@ -31,12 +17,11 @@ export default ({ children, level }: IProps) => {
     firstChild.props.value.startsWith("Date: ")
   ) {
     const fullDate = firstChild.props.value.split("Date: ")[1];
-    const [year, month, date] = fullDate.split("-");
-    const formattedDate = `${months[Number(month) - 1]} ${date}, ${year}`;
+    const formattedDate = formatDate(fullDate);
     return (
       <ColumnWrapper>
         <div className="container">
-          <img src="../static/me.jpg" />
+          <img src={require("../static/me.jpg")} />
           <div>
             <div className="author">John Apostol</div>
             <div className="date">{formattedDate}</div>
@@ -83,7 +68,7 @@ export default ({ children, level }: IProps) => {
         <h1>{children}</h1>
         <style jsx>{`
           h1 {
-            font-family: "Merriweather", sans-serif;
+            font-family: "Lato", sans-serif;
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
@@ -99,7 +84,7 @@ export default ({ children, level }: IProps) => {
         <h3>{children}</h3>
         <style jsx>{`
           h3 {
-            font-family: "Lato", sans-serif;
+            font-family: "Merriweather", serif;
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 1rem;
@@ -115,7 +100,7 @@ export default ({ children, level }: IProps) => {
         <h4>{children}</h4>
         <style jsx>{`
           h4 {
-            font-family: "Lato", sans-serif;
+            font-family: "Merriweather", serif;
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1rem;

@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 
 interface IProps {
-  children: ReactElement[];
+  children: ReactElement | ReactElement[];
 }
 
 export default ({ children }: IProps) => (

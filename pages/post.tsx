@@ -1,11 +1,16 @@
+import fetch from "isomorphic-unfetch";
+import { NextContext } from "next";
+import { withRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
 import Heading from "../components/Heading";
 import Image from "../components/Image";
-import Layout from "../components/Layout";
 import Paragraph from "../components/Paragraph";
-import post from "../posts/2019-05-07.md";
 
-export default () => {
+interface IProps {
+  post: string;
+}
+
+const Post = ({ post }: IProps) => {
   const renderers = {
     heading: Heading,
     image: Image,
@@ -13,7 +18,7 @@ export default () => {
   };
 
   return (
-    <Layout>
+    <main role="main">
       <article>
         <ReactMarkdown source={post} renderers={renderers} />
       </article>
@@ -24,6 +29,19 @@ export default () => {
           grid-template-columns: 1fr 740px 1fr;
         }
       `}</style>
-    </Layout>
+    </main>
   );
 };
+
+Post.getInitialProps = async ({ req, query: { date } }: NextContext) => {
+  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
+  const baseUrl = req ? `${protocol}://${req.headers.host}` : "";
+
+  const post = (await (await fetch(
+    `${baseUrl}/static/posts/${date}.json`
+  )).json()).bodyContent;
+
+  return { post };
+};
+
+export default withRouter(Post);

@@ -1,23 +1,37 @@
-const withTypescript = require('@zeit/next-typescript');
-const withOptimizedImages = require('next-optimized-images');
+const optimizedImages = require('next-optimized-images');
+const typescript = require('@zeit/next-typescript');
+const withPlugins = require('next-compose-plugins')
+const summary = require('./static/posts/summary.json')
 
-module.exports = withOptimizedImages(
-  withTypescript({
+module.exports = withPlugins([
+  [optimizedImages, {
+    handleImages: ['jpg']
+  }],
+  [typescript, {
     target: 'serverless',
-    pageExtensions: ['tsx'],
-    webpack(config, options) {
-      return {
-        ...config,
-        module: {
-          rules: [
-            ...config.module.rules,
-            {
-              test: /\.md$/,
-              use: 'raw-loader'
-            }
-          ]
+    pageExtensions: ['tsx']
+  }]
+], {
+  exportPathMap: () => {
+    const posts = Object.entries(summary.fileMap)
+      .reduce((accum, [key, {
+        date,
+        slug
+      }]) => ({
+        [`/post/${slug}`]: {
+          page: '/post',
+          query: {
+            date,
+            slug
+          }
         }
-      }
+      }), {})
+
+    return {
+      '/': {
+        page: '/'
+      },
+      ...posts
     }
-  })
-)
+  }
+})
