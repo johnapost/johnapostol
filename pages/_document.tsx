@@ -1,15 +1,25 @@
-import Document, { Head, Html, Main, NextScript } from "next/document";
+import React from "react";
+import Document, {
+  Head,
+  Html,
+  Main,
+  NextScript,
+  DocumentContext,
+  DocumentInitialProps
+} from "next/document";
 import flush from "styled-jsx/server";
 import GoogleAnalytics from "../components/GoogleAnalytics";
 
 export default class MyDocument extends Document {
-  public static async getInitialProps(ctx: any) {
+  public static async getInitialProps(
+    ctx: DocumentContext
+  ): Promise<DocumentInitialProps> {
     const initialProps = await Document.getInitialProps(ctx);
     const styles = flush();
     return { ...initialProps, styles };
   }
 
-  public render() {
+  public render(): JSX.Element {
     return (
       <Html lang="en">
         <Head>
