@@ -21,7 +21,9 @@ export default ({ posts }: IProps) => (
         <div className="grid" key={`${title}-${formattedDate}`}>
           <ColumnWrapper>
             <div className="post-heading">{formattedDate}</div>
-            <div className="title">{title}</div>
+            <div className="title">
+              <a href={`/post/${date}`}>{title}</a>
+            </div>
             <div>
               {tags.length && (
                 <div className="tags">
@@ -62,6 +64,7 @@ export default ({ posts }: IProps) => (
       }
 
       .title {
+        color: #362640;
         font-family: "Lato", sans-serif;
         font-size: 1.5rem;
         margin-top: 5px;

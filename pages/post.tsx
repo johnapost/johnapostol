@@ -1,5 +1,6 @@
 import fetch from "isomorphic-unfetch";
 import { NextContext } from "next";
+import { withRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
 import Heading from "../components/Heading";
 import Image from "../components/Image";
@@ -32,16 +33,15 @@ const Post = ({ post }: IProps) => {
   );
 };
 
-Post.getInitialProps = async ({ req }: NextContext) => {
+Post.getInitialProps = async ({ req, query: { slug } }: NextContext) => {
   const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
   const baseUrl = req ? `${protocol}://${req.headers.host}` : "";
+
   const post = (await (await fetch(
-    `${baseUrl}/static/posts/2019-05-07.json`
+    `${baseUrl}/static/posts/${slug}.json`
   )).json()).bodyContent;
 
-  return {
-    post
-  };
+  return { post };
 };
 
-export default Post;
+export default withRouter(Post);
