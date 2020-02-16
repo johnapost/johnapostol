@@ -1,5 +1,5 @@
+import { NextPage } from "next";
 import fetch from "isomorphic-unfetch";
-import { NextContext } from "next";
 import Cover from "../components/Cover";
 import GitHub from "../components/GitHub";
 import LinkedIn from "../components/LinkedIn";
@@ -12,7 +12,7 @@ interface IProps {
   posts: IPost[];
 }
 
-const Index = ({ posts }: IProps) => (
+const Index: NextPage<IProps> = ({ posts }) => (
   <main role="main">
     <Cover />
     <div className="intro">
@@ -85,12 +85,12 @@ const Index = ({ posts }: IProps) => (
   </main>
 );
 
-Index.getInitialProps = async ({ req }: NextContext) => {
+Index.getInitialProps = async ({ req }) => {
   const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
   const baseUrl = req ? `${protocol}://${req.headers.host}` : "";
-  const { sourceFileArray, fileMap } = await (await fetch(
-    `${baseUrl}/static/posts/summary.json`
-  )).json();
+  const { sourceFileArray, fileMap } = await (
+    await fetch(`${baseUrl}/static/posts/summary.json`)
+  ).json();
 
   const recent = sourceFileArray.slice(-5).reverse();
   const posts = recent.map((sourceFile: string) => {
