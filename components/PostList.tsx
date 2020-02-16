@@ -1,8 +1,10 @@
 import formatDate from "../utils/formatDate";
 import ColumnWrapper from "./ColumnWrapper";
+import Paragraph from "./Paragraph";
 
 export interface IPost {
   date: string;
+  preview: string;
   tags: string[];
   title: string;
 }
@@ -13,7 +15,7 @@ interface IProps {
 
 export default ({ posts }: IProps) => (
   <>
-    {posts.map(({ title, date, tags }) => {
+    {posts.map(({ title, date, tags, preview }) => {
       const formattedDate = formatDate(date);
       return (
         <div className="grid" key={`${title}-${formattedDate}`}>
@@ -30,6 +32,7 @@ export default ({ posts }: IProps) => (
               )}
             </div>
           </ColumnWrapper>
+          <Paragraph>{preview}</Paragraph>
         </div>
       );
     })}

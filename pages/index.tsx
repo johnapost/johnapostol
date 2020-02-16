@@ -32,8 +32,8 @@ const Index = ({ posts }: IProps) => (
       </div>
       <Paragraph>Hi there!</Paragraph>
       <Paragraph>
-        I'm a software person in Austin, Texas. I mostly write web apps, but I
-        also write about writing code. This is where I put those writings.
+        I'm a software person living in Austin, Texas. I mostly code web apps,
+        but I also write about writing code.
       </Paragraph>
     </div>
     <hr />
