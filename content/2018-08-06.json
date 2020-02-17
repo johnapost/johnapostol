@@ -1,0 +1,17 @@
+{
+  "date": "2018-08-06",
+  "hero": "static/2019-05-07/hero.jpg",
+  "preview": "It works, it’s reliable, it’s fast, and it feels great!",
+  "slug": "a-sensible-approach-to-developing-product-features",
+  "tags": [
+    "software"
+  ],
+  "bodyContent": "# A Sensible Approach to Developing Product Features\n# Date: 2018-08-06\n\n![wide: alt text](static/2019-05-07/hero.jpg)\n\nWriting software for people is satisfying! Each feature is an opportunity to create a well-measured solution to a problem. In modern software development, we aren't just asked to solve these problems. We are also expected to delight our users.\n\nI've found that when our job is to delight users, we can get lost in details. Mapping data from a database to UI elements on the screen is easier than ever. We're tempted to rush through simple problems to spend extra time on more flashy interaction effects or ultra-efficient code.\n\nSometimes that results in unreliable code with a pretty veneer.",
+  "bodyHtml": "<h1>A Sensible Approach to Developing Product Features</h1>\n<h1>Date: 2018-08-06</h1>\n<p><img src=\"static/2019-05-07/hero.jpg\" alt=\"wide: alt text\"></p>\n<p>Writing software for people is satisfying! Each feature is an opportunity to create a well-measured solution to a problem. In modern software development, we aren't just asked to solve these problems. We are also expected to delight our users.</p>\n<p>I've found that when our job is to delight users, we can get lost in details. Mapping data from a database to UI elements on the screen is easier than ever. We're tempted to rush through simple problems to spend extra time on more flashy interaction effects or ultra-efficient code.</p>\n<p>Sometimes that results in unreliable code with a pretty veneer.</p>\n",
+  "title": "A Sensible Approach to Developing Product Features",
+  "dir": "content",
+  "base": "2018-08-06.json",
+  "ext": ".json",
+  "sourceBase": "2018-08-06.md",
+  "sourceExt": ".md"
+}

@@ -1,5 +1,20 @@
 {
   "fileMap": {
+    "content/2018-08-06.json": {
+      "date": "2018-08-06",
+      "hero": "static/2019-05-07/hero.jpg",
+      "preview": "It works, it’s reliable, it’s fast, and it feels great!",
+      "slug": "a-sensible-approach-to-developing-product-features",
+      "tags": [
+        "software"
+      ],
+      "title": "A Sensible Approach to Developing Product Features",
+      "dir": "content",
+      "base": "2018-08-06.json",
+      "ext": ".json",
+      "sourceBase": "2018-08-06.md",
+      "sourceExt": ".md"
+    },
     "content/2019-05-07.json": {
       "date": "2019-05-07",
       "hero": "public/static/2019-05-07/hero.jpg",
@@ -17,6 +32,7 @@
     }
   },
   "sourceFileArray": [
+    "posts/2018-08-06.md",
     "posts/2019-05-07.md"
   ]
 }
