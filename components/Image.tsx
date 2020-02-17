@@ -6,7 +6,7 @@ interface Props {
   src: string;
 }
 
-const Image = ({ alt, src }: Props): JSX.Element => {
+const Image = ({ alt, src }: Props): JSX.Element | null => {
   if (alt.startsWith("wide")) {
     return (
       <div className="full-width">
