@@ -1,11 +1,12 @@
+import React from "react";
 import ColumnWrapper from "./ColumnWrapper";
 
-interface IProps {
+interface Props {
   alt: string;
   src: string;
 }
 
-export default ({ alt, src }: IProps) => {
+const Image = ({ alt, src }: Props): JSX.Element | null => {
   if (alt.startsWith("wide")) {
     return (
       <div className="full-width">
@@ -41,3 +42,5 @@ export default ({ alt, src }: IProps) => {
 
   return null;
 };
+
+export default Image;

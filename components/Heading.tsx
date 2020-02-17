@@ -1,13 +1,13 @@
-import { ReactElement } from "react";
+import React, { ReactElement } from "react";
 import formatDate from "../utils/formatDate";
 import ColumnWrapper from "./ColumnWrapper";
 
-interface IProps {
+interface Props {
   children: ReactElement[];
   level: number;
 }
 
-export default ({ children, level }: IProps) => {
+const Heading = ({ children, level }: Props): JSX.Element => {
   const [firstChild] = children;
 
   // For post date
@@ -112,3 +112,5 @@ export default ({ children, level }: IProps) => {
 
   return <div />;
 };
+
+export default Heading;

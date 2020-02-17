@@ -1,20 +1,20 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 const optimizedImages = require("next-optimized-images");
 const withPlugins = require("next-compose-plugins");
-const summary = require("./static/posts/summary.json");
+const summary = require("./content/summary.json");
 
-module.exports = withPlugins(
+module.exports = withPlugins([
   [
-    [
-      optimizedImages,
-      {
-        handleImages: ["jpg"]
-      }
-    ]
+    optimizedImages,
+    {
+      handleImages: ["jpg"]
+    }
   ],
   {
     exportPathMap: () => {
       const posts = Object.entries(summary.fileMap).reduce(
-        (accum, [key, { date, slug }]) => ({
+        (accum, [, { date, slug }]) => ({
           [`/post/${slug}`]: {
             page: "/post",
             query: {
@@ -32,6 +32,7 @@ module.exports = withPlugins(
         },
         ...posts
       };
-    }
+    },
+    exportTrailingSlash: true
   }
-);
+]);

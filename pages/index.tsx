@@ -1,18 +1,25 @@
+import React from "react";
 import { NextPage } from "next";
-import fetch from "isomorphic-unfetch";
 import Cover from "../components/Cover";
 import GitHub from "../components/GitHub";
 import LinkedIn from "../components/LinkedIn";
 import Medium from "../components/Medium";
 import Paragraph from "../components/Paragraph";
-import PostList, { IPost } from "../components/PostList";
+import PostList, { Post } from "../components/PostList";
 import Resume from "../components/Resume";
 
-interface IProps {
-  posts: IPost[];
-}
+type Props = {
+  posts: Post[];
+};
 
-const Index: NextPage<IProps> = ({ posts }) => (
+type Summary = {
+  sourceFileArray: string[];
+  fileMap: {
+    [id: string]: Post;
+  };
+};
+
+const Index: NextPage<Props> = ({ posts }: Props) => (
   <main role="main">
     <Cover />
     <div className="intro">
@@ -32,8 +39,8 @@ const Index: NextPage<IProps> = ({ posts }) => (
       </div>
       <Paragraph>Hi there!</Paragraph>
       <Paragraph>
-        I'm a software person living in Austin, Texas. I mostly code web apps,
-        but I also write about writing code.
+        I&apos;m a software person living in Austin, Texas. I mostly code web
+        apps, but I also write about writing code.
       </Paragraph>
     </div>
     <hr />
@@ -85,17 +92,14 @@ const Index: NextPage<IProps> = ({ posts }) => (
   </main>
 );
 
-Index.getInitialProps = async ({ req }) => {
-  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
-  const baseUrl = req ? `${protocol}://${req.headers.host}` : "";
-  const { sourceFileArray, fileMap } = await (
-    await fetch(`${baseUrl}/static/posts/summary.json`)
-  ).json();
+Index.getInitialProps = async (): Promise<Props> => {
+  const summary: Summary = await import("../content/summary.json");
+  const { sourceFileArray, fileMap } = summary;
 
   const recent = sourceFileArray.slice(-5).reverse();
   const posts = recent.map((sourceFile: string) => {
     const destFile = sourceFile
-      .replace("posts/", "static/posts/")
+      .replace("posts/", "content/")
       .replace(".md", ".json");
 
     return fileMap[destFile];

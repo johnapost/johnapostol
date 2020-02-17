@@ -1,4 +1,6 @@
-export default () => (
+import React from "react";
+
+const GoogleAnalytics = (): JSX.Element => (
   <>
     <script
       async
@@ -17,3 +19,5 @@ export default () => (
     />
   </>
 );
+
+export default GoogleAnalytics;

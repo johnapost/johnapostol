@@ -1,11 +1,11 @@
-import { ReactElement } from "react";
+import React, { ReactElement } from "react";
 import ColumnWrapper from "./ColumnWrapper";
 
-interface IProps {
+interface Props {
   children: ReactElement[] | string;
 }
 
-export default ({ children }: IProps) => {
+const Paragraph = ({ children }: Props): JSX.Element => {
   const [firstChild] = children;
 
   // Render images without a wrapper
@@ -32,3 +32,5 @@ export default ({ children }: IProps) => {
     </ColumnWrapper>
   );
 };
+
+export default Paragraph;

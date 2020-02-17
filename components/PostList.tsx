@@ -1,20 +1,22 @@
+import React from "react";
+import { NextPage } from "next";
 import formatDate from "../utils/formatDate";
 import ColumnWrapper from "./ColumnWrapper";
 import Paragraph from "./Paragraph";
 
-export interface IPost {
+export type Post = {
   date: string;
   preview: string;
   slug: string;
   tags: string[];
   title: string;
-}
+};
 
-interface IProps {
-  posts: IPost[];
-}
+type Props = {
+  posts: Post[];
+};
 
-export default ({ posts }: IProps) => (
+const PostList: NextPage<Props> = ({ posts }: Props) => (
   <>
     {posts.map(({ title, date, slug, tags, preview }) => {
       const formattedDate = formatDate(date);
@@ -80,3 +82,5 @@ export default ({ posts }: IProps) => (
     `}</style>
   </>
 );
+
+export default PostList;

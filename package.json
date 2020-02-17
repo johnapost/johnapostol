@@ -8,9 +8,26 @@
   "author": "John Apostol",
   "main": "pages/index.js",
   "scripts": {
-    "build:posts": "processmd posts/*.md --outputDir static/posts --summaryOutput static/posts/summary.json",
+    "build": "next build && next export",
+    "build:posts": "processmd posts/*.md --outputDir content --summaryOutput content/summary.json",
     "dev": "next",
+    "lint": "eslint '*/**/*.{js,ts,tsx}'",
     "start": "next start"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "package.json": [
+      "sort-package-json",
+      "git add"
+    ]
   },
   "dependencies": {
     "isomorphic-unfetch": "3.0.0",
@@ -25,13 +42,18 @@
     "@types/react": "16.9.19",
     "@types/react-dom": "16.9.5",
     "@types/styled-jsx": "2.2.8",
+    "@typescript-eslint/eslint-plugin": "2.19.2",
+    "@typescript-eslint/parser": "2.19.2",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-react": "7.18.3",
+    "husky": "^4.2.3",
     "imagemin-mozjpeg": "8.0.0",
+    "lint-staged": "^10.0.7",
     "prettier": "1.19.1",
     "processmd": "4.5.0",
     "sort-package-json": "1.39.1",
-    "tslint": "6.0.0",
-    "tslint-config-prettier": "1.18.0",
-    "tslint-plugin-prettier": "2.1.0",
     "typescript": "3.7.5"
   }
 }
