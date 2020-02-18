@@ -6,11 +6,16 @@ interface Props {
   src: string;
 }
 
-const Image = ({ alt, src }: Props): JSX.Element | null => {
-  if (alt.startsWith("wide")) {
+const Image = ({ alt: size, src }: Props): JSX.Element | null => {
+  const imageAlt = size.split(": ")[1];
+
+  if (size.startsWith("wide")) {
     return (
       <div className="full-width">
-        <img alt={alt} src={require(`../${src}`)} />
+        <figure>
+          <img alt={imageAlt} src={require(`../${src}`)} />
+          <figcaption dangerouslySetInnerHTML={{ __html: imageAlt }} />
+        </figure>
         <style jsx>{`
           .full-width {
             grid-column: 1 / 4;
@@ -21,19 +26,34 @@ const Image = ({ alt, src }: Props): JSX.Element | null => {
             margin-bottom: 80px;
             width: 100%;
           }
+
+          figcaption {
+            font-size: 0.8rem;
+            line-height: 22.4px;
+            text-align: center;
+          }
         `}</style>
       </div>
     );
   }
 
-  if (alt.startsWith("center")) {
+  if (size.startsWith("center")) {
     return (
       <ColumnWrapper>
-        <img alt={alt} src={require(`../${src}`)} />
+        <figure>
+          <img alt={imageAlt} src={require(`../${src}`)} />
+          <figcaption dangerouslySetInnerHTML={{ __html: imageAlt }} />
+        </figure>
         <style jsx>{`
           img {
             margin-top: 44px;
             width: 100%;
+          }
+
+          figcaption {
+            font-size: 0.8rem;
+            line-height: 22.4px;
+            text-align: center;
           }
         `}</style>
       </ColumnWrapper>
