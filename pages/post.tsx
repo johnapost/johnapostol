@@ -4,22 +4,30 @@ import ReactMarkdown from "react-markdown";
 import Heading from "../components/Heading";
 import Image from "../components/Image";
 import Paragraph from "../components/Paragraph";
+import ThematicBreak from "../components/ThematicBreak";
+import Blockquote from "../components/Blockquote";
+import PostHeading from "../components/PostHeading";
 
 interface Props {
-  post: string;
+  postBody: string;
+  date: string;
+  title: string;
 }
 
-const Post: NextPage<Props> = ({ post }: Props) => {
+const Post: NextPage<Props> = ({ postBody, date, title }: Props) => {
   const renderers = {
+    blockquote: Blockquote,
     heading: Heading,
     image: Image,
-    paragraph: Paragraph
+    paragraph: Paragraph,
+    thematicBreak: ThematicBreak
   };
 
   return (
     <main role="main">
       <article>
-        <ReactMarkdown source={post} renderers={renderers} />
+        <PostHeading date={date} title={title} />
+        <ReactMarkdown source={postBody} renderers={renderers} />
       </article>
       <style jsx>{`
         article {
@@ -32,10 +40,14 @@ const Post: NextPage<Props> = ({ post }: Props) => {
   );
 };
 
-Post.getInitialProps = async ({ query: { date } }): Promise<Props> => {
-  const post = (await import(`../content/${date}.json`)).bodyContent;
+Post.getInitialProps = async ({
+  query: { date: queryDate }
+}): Promise<Props> => {
+  const { bodyContent, date, title } = await import(
+    `../content/${queryDate}.json`
+  );
 
-  return { post };
+  return { postBody: bodyContent, date, title };
 };
 
 export default Post;

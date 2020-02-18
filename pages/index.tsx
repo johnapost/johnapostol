@@ -7,9 +7,10 @@ import LinkedIn from "../components/LinkedIn";
 import Medium from "../components/Medium";
 import Paragraph from "../components/Paragraph";
 import ColumnWrapper from "../components/ColumnWrapper";
-import { Post } from "../components/PostList";
+import PostList, { Post } from "../components/PostList";
 import Resume from "../components/Resume";
 import Footer from "../components/Footer";
+import ThematicBreak from "../components/ThematicBreak";
 
 type Props = {
   posts: Post[];
@@ -22,7 +23,7 @@ type Summary = {
   };
 };
 
-const Index: NextPage<Props> = () => (
+const Index: NextPage<Props> = ({ posts }: Props) => (
   <main role="main">
     <Head>
       <meta
@@ -58,6 +59,8 @@ const Index: NextPage<Props> = () => (
         Above all, I love working with brilliant, collaborative people who can
         balance idealism with pragmatism.
       </Paragraph>
+      <ThematicBreak />
+      <PostList posts={posts} />
     </div>
     <hr />
     <Footer />
@@ -80,30 +83,17 @@ const Index: NextPage<Props> = () => (
         margin-left: 10px;
       }
 
-      .intro {
+      .grid {
         font-family: "Merriweather", serif;
       }
 
-      hr {
-        background-image: linear-gradient(
-          to right,
-          transparent,
-          #362640,
-          transparent
-        );
-        border: 0;
-        height: 2px;
-        margin: 3rem auto;
-        width: 80%;
-      }
-
       @media (min-width: 900px) {
-        .intro {
+        .grid {
           display: grid;
           grid-template-columns: 1fr 740px 1fr;
         }
 
-        .intro:before {
+        .grid:before {
           content: "";
         }
       }

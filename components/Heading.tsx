@@ -1,9 +1,9 @@
-import React, { ReactElement } from "react";
-import formatDate from "../utils/formatDate";
+import React from "react";
 import ColumnWrapper from "./ColumnWrapper";
+import formatDate from "../utils/formatDate";
 
 interface Props {
-  children: ReactElement[];
+  children: JSX.Element[];
   level: number;
 }
 

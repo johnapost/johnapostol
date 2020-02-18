@@ -1,11 +1,12 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import ColumnWrapper from "./ColumnWrapper";
 
 interface Props {
-  children: ReactElement[] | string;
+  children: JSX.Element[] | string;
+  noWrap?: boolean;
 }
 
-const Paragraph = ({ children }: Props): JSX.Element => {
+const Paragraph = ({ children, noWrap }: Props): JSX.Element => {
   const [firstChild] = children;
 
   // Render images without a wrapper
@@ -19,8 +20,8 @@ const Paragraph = ({ children }: Props): JSX.Element => {
     return <>{children}</>;
   }
 
-  return (
-    <ColumnWrapper>
+  const inner = (
+    <>
       <p>{children}</p>
       <style jsx>{`
         p {
@@ -30,8 +31,12 @@ const Paragraph = ({ children }: Props): JSX.Element => {
           padding: 0;
         }
       `}</style>
-    </ColumnWrapper>
+    </>
   );
+
+  if (noWrap) return inner;
+
+  return <ColumnWrapper>{inner}</ColumnWrapper>;
 };
 
 export default Paragraph;

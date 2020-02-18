@@ -1,7 +1,7 @@
-import React, { ReactElement } from "react";
+import React from "react";
 
 interface Props {
-  children: ReactElement | ReactElement[];
+  children: JSX.Element | JSX.Element[];
 }
 
 const ColumnWrapper = ({ children }: Props): JSX.Element => (
