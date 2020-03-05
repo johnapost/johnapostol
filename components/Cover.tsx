@@ -15,10 +15,11 @@ const Cover = (): JSX.Element => (
       }
 
       .outside:before {
-        background: radial-gradient(circle, transparent 20%, #000000 125%),
-          url(${require("../public/static/cover.jpg")}) center top;
+        background: radial-gradient(circle, transparent 50%, #000000 150%),
+          url(${require("../public/static/cover-small.jpg")}) center top;
         background-size: cover;
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(0, 0, 0, 0.2);
+        filter: blur(0.6px);
         content: "";
         position: absolute;
         height: 100%;
