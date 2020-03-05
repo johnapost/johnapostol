@@ -16,7 +16,7 @@ const Cover = (): JSX.Element => (
 
       .outside:before {
         background: radial-gradient(circle, transparent 20%, #000000 125%),
-          url(${require("../static/cover.jpg")}) center top;
+          url(${require("../public/static/cover.jpg")}) center top;
         background-size: cover;
         background-color: rgba(0, 0, 0, 0.3);
         content: "";

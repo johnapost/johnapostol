@@ -21,7 +21,7 @@ const Heading = ({ children, level }: Props): JSX.Element => {
     return (
       <ColumnWrapper>
         <div className="container">
-          <img src={require("../static/me.jpg")} />
+          <img src={require("../public/static/me.jpg")} />
           <div>
             <div className="author">John Apostol</div>
             <div className="date">{formattedDate}</div>
