@@ -1,5 +1,6 @@
 import React from "react";
 import { NextPage } from "next";
+import Head from "next/head";
 import Cover from "../components/Cover";
 import GitHub from "../components/GitHub";
 import LinkedIn from "../components/LinkedIn";
@@ -23,6 +24,13 @@ type Summary = {
 
 const Index: NextPage<Props> = () => (
   <main role="main">
+    <Head>
+      <meta
+        name="description"
+        content="Thoughts and code from John Apostol, lifelong software learner"
+      />
+      <title>John Apostol - lifelong software learner</title>
+    </Head>
     <Cover />
     <div className="intro">
       <ColumnWrapper>
