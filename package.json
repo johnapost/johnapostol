@@ -50,7 +50,7 @@
     "eslint-plugin-react": "7.18.3",
     "husky": "4.2.3",
     "imagemin-mozjpeg": "8.0.0",
-    "lint-staged": "10.0.7",
+    "lint-staged": "10.0.8",
     "prettier": "1.19.1",
     "processmd": "4.5.0",
     "sort-package-json": "1.39.1",
