@@ -54,6 +54,6 @@
     "prettier": "1.19.1",
     "processmd": "4.5.0",
     "sort-package-json": "1.39.1",
-    "typescript": "3.7.5"
+    "typescript": "3.8.3"
   }
 }
