@@ -14,7 +14,7 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
     <ColumnWrapper>
       <h1>{title}</h1>
       <div className="container">
-        <img src={require("../static/me.jpg")} />
+        <img src={require("../public/static/me.jpg")} />
         <div>
           <div className="author">John Apostol</div>
           <div className="date">{formattedDate}</div>

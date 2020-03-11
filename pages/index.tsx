@@ -33,7 +33,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
       <title>John Apostol - lifelong software learner</title>
     </Head>
     <Cover />
-    <div className="intro">
+    <div className="grid">
       <ColumnWrapper>
         <div className="external">
           <a href="https://github.com/johnapost">
