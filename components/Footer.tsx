@@ -2,12 +2,10 @@ import React from "react";
 import ColumnWrapper from "./ColumnWrapper";
 
 const Footer = (): JSX.Element => (
-  <>
-    <div className="footer">
-      <ColumnWrapper>
-        <p className="copyright">© 2020 John Apostol. All rights reserved.</p>
-      </ColumnWrapper>
-    </div>
+  <div className="footer">
+    <ColumnWrapper>
+      <p className="copyright">© 2020 John Apostol. All rights reserved.</p>
+    </ColumnWrapper>
     <style jsx>{`
       .copyright {
         color: #362640;
@@ -31,7 +29,7 @@ const Footer = (): JSX.Element => (
         }
       }
     `}</style>
-  </>
+  </div>
 );
 
 export default Footer;

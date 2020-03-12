@@ -1,10 +1,11 @@
 import React from "react";
+import Name from "./Name";
 
 const Cover = (): JSX.Element => (
   <div className="outside">
     <div className="inside">
-      <h1 className="shadow">John Apostol</h1>
-      <span className="shadow">lifelong software learner</span>
+      <Name />
+      <span>lifelong learner</span>
     </div>
     <style jsx>{`
       .outside {
@@ -37,23 +38,9 @@ const Cover = (): JSX.Element => (
         width: 100%;
       }
 
-      .shadow {
-        text-shadow: 1px 1px 5px #362640;
-      }
-
-      h1 {
-        font-size: 2rem;
-        margin: 0.5rem 0;
-        padding: 0.5rem 1.1rem;
-        color: #ffffff;
-        text-align: left;
-        border: 2px solid #ffffff;
-        box-shadow: 1px 1px 5px #362640, inset 1px 1px 5px #362640;
-      }
-
       span {
         color: #ffffff;
-        text-shadow: #362640;
+        text-shadow: 1px 1px 5px #362640;
         font-size: 1rem;
       }
     `}</style>

@@ -54,6 +54,7 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
           font-family: "Lato", sans-serif;
           font-size: 2.5rem;
           font-weight: 700;
+          margin-top: 1rem;
           margin-bottom: 1rem;
         }
       `}</style>

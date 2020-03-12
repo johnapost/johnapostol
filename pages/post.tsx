@@ -7,6 +7,7 @@ import Paragraph from "../components/Paragraph";
 import ThematicBreak from "../components/ThematicBreak";
 import Blockquote from "../components/Blockquote";
 import PostHeading from "../components/PostHeading";
+import Footer from "../components/Footer";
 
 interface Props {
   postBody: string;
@@ -24,19 +25,27 @@ const Post: NextPage<Props> = ({ postBody, date, title }: Props) => {
   };
 
   return (
-    <main role="main">
-      <article>
-        <PostHeading date={date} title={title} />
-        <ReactMarkdown source={postBody} renderers={renderers} />
-      </article>
+    <>
+      <main role="main">
+        <article>
+          <PostHeading date={date} title={title} />
+          <ReactMarkdown source={postBody} renderers={renderers} />
+        </article>
+      </main>
+      <hr />
+      <Footer />
       <style jsx>{`
+        main {
+          margin-bottom: 10rem;
+        }
+
         article {
           font-family: "Merriweather", serif;
           display: grid;
           grid-template-columns: 1fr 740px 1fr;
         }
       `}</style>
-    </main>
+    </>
   );
 };
 
