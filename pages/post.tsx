@@ -36,13 +36,19 @@ const Post: NextPage<Props> = ({ postBody, date, title }: Props) => {
       <Footer />
       <style jsx>{`
         main {
-          margin-bottom: 10rem;
+          margin: 3rem 0 10rem;
         }
 
         article {
           font-family: "Merriweather", serif;
-          display: grid;
-          grid-template-columns: 1fr 740px 1fr;
+          display: block;
+        }
+
+        @media (min-width: 740px) {
+          article {
+            display: grid;
+            grid-template-columns: 1fr 740px 1fr;
+          }
         }
       `}</style>
     </>
