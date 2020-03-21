@@ -24,7 +24,9 @@ const Image = ({
             alt={imageAlt}
             src={require(`../public/static/${date}/${src}`)}
           />
-          <figcaption dangerouslySetInnerHTML={{ __html: imageAlt }} />
+          {imageAlt && (
+            <figcaption dangerouslySetInnerHTML={{ __html: imageAlt }} />
+          )}
         </figure>
         <style jsx>{`
           .full-width {
@@ -34,12 +36,14 @@ const Image = ({
           img {
             margin-top: 44px;
             margin-bottom: 80px;
+            ${imageAlt && "margin-bottom: 15px;"}
             width: 100%;
           }
 
           figcaption {
             font-size: 0.8rem;
             line-height: 22.4px;
+            margin-bottom: 1rem;
             text-align: center;
           }
         `}</style>
