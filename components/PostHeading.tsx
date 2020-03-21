@@ -39,7 +39,7 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
         }
 
         .sticky {
-          margin: 80px 0;
+          margin: 95px 0 0;
         }
 
         .background {
@@ -76,6 +76,7 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
           left: 0;
           top: calc(1rem + 25px);
           width: 100%;
+          pointer-events: none;
         }
 
         .sticky hr {
@@ -115,6 +116,12 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
           font-weight: 700;
           margin-top: 1rem;
           margin-bottom: 1rem;
+        }
+
+        @media (min-width: 740px) {
+          .sticky {
+            margin: 80px 0 0;
+          }
         }
       `}</style>
     </ColumnWrapper>
