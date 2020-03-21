@@ -5,14 +5,14 @@ interface Props {
   alt: string;
   src: string;
   context: {
-    slug: string;
+    date: string;
   };
 }
 
 const Image = ({
   alt: size,
   src,
-  context: { slug }
+  context: { date }
 }: Props): JSX.Element | null => {
   const imageAlt = size.split(": ")[1];
 
@@ -22,7 +22,7 @@ const Image = ({
         <figure>
           <img
             alt={imageAlt}
-            src={require(`../public/static/${slug}/${src}`)}
+            src={require(`../public/static/${date}/${src}`)}
           />
           <figcaption dangerouslySetInnerHTML={{ __html: imageAlt }} />
         </figure>
@@ -53,7 +53,7 @@ const Image = ({
         <figure>
           <img
             alt={imageAlt}
-            src={require(`../public/static/${slug}/${src}`)}
+            src={require(`../public/static/${date}/${src}`)}
           />
           <figcaption dangerouslySetInnerHTML={{ __html: imageAlt }} />
         </figure>

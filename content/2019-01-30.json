@@ -1,0 +1,17 @@
+{
+  "date": "2019-01-30",
+  "title": "Using Redux with Vanilla JS",
+  "preview": "What follows is an explanation of how I've used Redux to make a production vanilla JS app more maintainable.",
+  "slug": "using-redux-with-vanilla-js",
+  "tags": [
+    "software",
+    "javascript"
+  ],
+  "bodyContent": "Redux is a popular state management library for JavaScript apps that is routinely paired with frameworks like React or Angular. What follows is an explanation of how I’ve used Redux to make a production vanilla JS app more maintainable.\r\n\r\nI’m hoping this is useful for anyone out there who is looking for a real-world Redux + vanilla JS example beyond a button incrementer or to-do app.\r\n\r\n---\r\n\r\n# Background\r\n\r\nLet’s go back to late 2017/early 2018. The subject app is in production and has ~8 engineers actively developing. This ain’t your trendy universal React app. It’s purpose-built for managing content for our company.\r\n\r\nThe backend framework is Django and includes Wagtail as a CMS. The frontend is babel-transpiled vanilla JS with SCSS as a preprocessor. Templates are all handled by Django’s built-in templating system.\r\n\r\nThe frontend app has its roots in the Knockout JS framework, but this was reduced to vanilla JS in pursuit of faster page loads and script executions. Most of the frontend logic is meant to handle simple features like sharing to social networks, subscribing to a newsletter, and submitting forms.\r\n\r\nEach page stands alone and references its own template CSS file for styles, and template JS file for logic. Since we don’t use a frontend framework at runtime, the pages are much faster than our competitors.\r\n\r\n---",
+  "bodyHtml": "<p>Redux is a popular state management library for JavaScript apps that is routinely paired with frameworks like React or Angular. What follows is an explanation of how I’ve used Redux to make a production vanilla JS app more maintainable.</p>\n<p>I’m hoping this is useful for anyone out there who is looking for a real-world Redux + vanilla JS example beyond a button incrementer or to-do app.</p>\n<hr>\n<h1>Background</h1>\n<p>Let’s go back to late 2017/early 2018. The subject app is in production and has ~8 engineers actively developing. This ain’t your trendy universal React app. It’s purpose-built for managing content for our company.</p>\n<p>The backend framework is Django and includes Wagtail as a CMS. The frontend is babel-transpiled vanilla JS with SCSS as a preprocessor. Templates are all handled by Django’s built-in templating system.</p>\n<p>The frontend app has its roots in the Knockout JS framework, but this was reduced to vanilla JS in pursuit of faster page loads and script executions. Most of the frontend logic is meant to handle simple features like sharing to social networks, subscribing to a newsletter, and submitting forms.</p>\n<p>Each page stands alone and references its own template CSS file for styles, and template JS file for logic. Since we don’t use a frontend framework at runtime, the pages are much faster than our competitors.</p>\n<hr>\n",
+  "dir": "content",
+  "base": "2019-01-30.json",
+  "ext": ".json",
+  "sourceBase": "2019-01-30.md",
+  "sourceExt": ".md"
+}

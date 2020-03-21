@@ -62,8 +62,12 @@ const Post: NextPage<Props> = ({
   );
 };
 
-Post.getInitialProps = async ({ query: { slug } }): Promise<Props> => {
-  const { bodyContent, date, title } = await import(`../content/${slug}.json`);
+Post.getInitialProps = async ({
+  query: { date: postDate, slug }
+}): Promise<Props> => {
+  const { bodyContent, date, title } = await import(
+    `../content/${postDate}.json`
+  );
 
   return { postBody: bodyContent, date, title, slug: slug as string };
 };
