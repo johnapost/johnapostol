@@ -25,8 +25,8 @@ const Paragraph = ({ children, noWrap }: Props): JSX.Element => {
       <p>{children}</p>
       <style jsx>{`
         p {
-          font-size: 1.3rem;
-          line-height: 1.8rem;
+          font-size: 1.1rem;
+          line-height: 2rem;
           margin: 29px 0 0;
           padding: 0;
         }

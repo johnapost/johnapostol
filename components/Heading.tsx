@@ -15,7 +15,7 @@ const Heading = ({ children, level }: Props): JSX.Element => {
         <style jsx>{`
           h2 {
             font-family: "Lato", sans-serif;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             margin-top: 2rem;
           }
@@ -31,7 +31,7 @@ const Heading = ({ children, level }: Props): JSX.Element => {
         <style jsx>{`
           h3 {
             font-family: "Merriweather", serif;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
             margin-top: 2rem;
           }
