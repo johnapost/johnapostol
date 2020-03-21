@@ -3,6 +3,7 @@ import Name from "./Name";
 
 const Cover = (): JSX.Element => (
   <div className="outside">
+    <div className="background" />
     <div className="inside">
       <Name />
       <span>lifelong learner</span>
@@ -10,20 +11,32 @@ const Cover = (): JSX.Element => (
     <style jsx>{`
       .outside {
         box-sizing: border-box;
-        height: 45vh;
+        height: 40vh;
+        max-height: 300px;
         position: relative;
         width: 100vw;
       }
 
-      .outside:before {
-        background: radial-gradient(circle, transparent 50%, #000000 150%),
-          url(${require("../public/static/cover.jpg")}) center top;
+      .background::before {
+        background: url(${require("../public/static/cover.jpg")}) center top;
         background-size: cover;
         background-color: rgba(0, 0, 0, 0.2);
-        filter: blur(0.6px);
+        filter: blur(1.5px);
         content: "";
         position: absolute;
         height: 100%;
+        width: 100%;
+      }
+
+      .background::after {
+        background-color: #362640;
+        background-image: radial-gradient(circle, transparent 20%, #ffffff 160%),
+          url("data:image/svg+xml,%3Csvg width='12' height='16' viewBox='0 0 12 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 .99C4 .445 4.444 0 5 0c.552 0 1 .45 1 .99v4.02C6 5.555 5.556 6 5 6c-.552 0-1-.45-1-.99V.99zm6 8c0-.546.444-.99 1-.99.552 0 1 .45 1 .99v4.02c0 .546-.444.99-1 .99-.552 0-1-.45-1-.99V8.99z' fill='%23dfdbe5' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+        content: "";
+        opacity: 0.4;
+        height: 100%;
+        position: absolute;
+        top: 0;
         width: 100%;
       }
 
