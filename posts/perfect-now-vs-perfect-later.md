@@ -1,19 +1,18 @@
 ---
 date: "2019-05-07"
-hero: "public/static/2019-05-07/hero.jpg"
 title: "Perfect Now vs Perfect Later"
 preview: "Our frontend code had duplication stemming from over-eager classical inheritance patterns. There were multiple levels of inheritance that had to be traversed to understand how a certain page’s logic would differ from another, very similar page."
 slug: "perfect-now-vs-perfect-later"
 tags: ["software"]
 ---
 
-![wide: alt text](public/static/2019-05-07/hero.jpg)
+![wide: alt text](hero.jpg)
 
 ## Identifying the problems
 
 As our app grew, we had to support more CMS templates that were used for even more pages. Common bugs would appear and reappear as we worked. Problems fell into two categories.
 
-![center: alt text](public/static/2019-05-07/hero.jpg)
+![center: alt text](hero.jpg)
 
 ### 1. Code reuse was arbitrary and difficult
 
@@ -21,8 +20,8 @@ Our frontend code had duplication stemming from over-eager classical inheritance
 
 This got worse with time.
 
-![left: alt text](public/static/2019-05-07/hero.jpg)
+![left: alt text](hero.jpg)
 
 Template functionality requirements were fluid. It was hard for newer hires to conform to the intricate inheritance layers when making changes. A ticket would be raised to fix a bug on one page with the assumption that it would apply to all templates. Unfortunately, that wasn’t the case.
 
-![right: alt text](public/static/2019-05-07/hero.jpg)
+![right: alt text](hero.jpg)

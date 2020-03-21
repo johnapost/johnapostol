@@ -1,8 +1,7 @@
 {
   "fileMap": {
-    "content/2019-05-07.json": {
+    "content/perfect-now-vs-perfect-later.json": {
       "date": "2019-05-07",
-      "hero": "public/static/2019-05-07/hero.jpg",
       "title": "Perfect Now vs Perfect Later",
       "preview": "Our frontend code had duplication stemming from over-eager classical inheritance patterns. There were multiple levels of inheritance that had to be traversed to understand how a certain page’s logic would differ from another, very similar page.",
       "slug": "perfect-now-vs-perfect-later",
@@ -10,12 +9,12 @@
         "software"
       ],
       "dir": "content",
-      "base": "2019-05-07.json",
+      "base": "perfect-now-vs-perfect-later.json",
       "ext": ".json",
-      "sourceBase": "2019-05-07.md",
+      "sourceBase": "perfect-now-vs-perfect-later.md",
       "sourceExt": ".md"
     },
-    "content/2018-08-06.json": {
+    "content/a-sensible-approach-to-developing-product-features.json": {
       "date": "2018-08-06",
       "title": "A Sensible Approach to Developing Product Features",
       "preview": "It works, it’s reliable, it’s fast, and it feels great!",
@@ -24,14 +23,14 @@
         "software"
       ],
       "dir": "content",
-      "base": "2018-08-06.json",
+      "base": "a-sensible-approach-to-developing-product-features.json",
       "ext": ".json",
-      "sourceBase": "2018-08-06.md",
+      "sourceBase": "a-sensible-approach-to-developing-product-features.md",
       "sourceExt": ".md"
     }
   },
   "sourceFileArray": [
-    "posts/2018-08-06.md",
-    "posts/2019-05-07.md"
+    "posts/a-sensible-approach-to-developing-product-features.md",
+    "posts/perfect-now-vs-perfect-later.md"
   ]
 }

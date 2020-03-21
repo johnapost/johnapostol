@@ -4,16 +4,26 @@ import ColumnWrapper from "./ColumnWrapper";
 interface Props {
   alt: string;
   src: string;
+  context: {
+    slug: string;
+  };
 }
 
-const Image = ({ alt: size, src }: Props): JSX.Element | null => {
+const Image = ({
+  alt: size,
+  src,
+  context: { slug }
+}: Props): JSX.Element | null => {
   const imageAlt = size.split(": ")[1];
 
   if (size.startsWith("wide")) {
     return (
       <div className="full-width">
         <figure>
-          <img alt={imageAlt} src={require(`../${src}`)} />
+          <img
+            alt={imageAlt}
+            src={require(`../public/static/${slug}/${src}`)}
+          />
           <figcaption dangerouslySetInnerHTML={{ __html: imageAlt }} />
         </figure>
         <style jsx>{`
@@ -41,7 +51,10 @@ const Image = ({ alt: size, src }: Props): JSX.Element | null => {
     return (
       <ColumnWrapper>
         <figure>
-          <img alt={imageAlt} src={require(`../${src}`)} />
+          <img
+            alt={imageAlt}
+            src={require(`../public/static/${slug}/${src}`)}
+          />
           <figcaption dangerouslySetInnerHTML={{ __html: imageAlt }} />
         </figure>
         <style jsx>{`

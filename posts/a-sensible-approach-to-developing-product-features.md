@@ -8,7 +8,7 @@ tags: ["software"]
 
 Writing software for people is satisfying! Each feature is an opportunity to create a well-measured solution to a problem. In modern software development, we aren't just asked to solve these problems. We are also expected to delight our users.
 
-![center: Photo by <a href="https://unsplash.com/@alistairmacrobert?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alistair MacRobert</a> on <a href="https://unsplash.com/@alistairmacrobert?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>](public/static/2018-08-06/hero.jpg)
+![center: Photo by <a href="https://unsplash.com/@alistairmacrobert?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alistair MacRobert</a> on <a href="https://unsplash.com/@alistairmacrobert?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>](hero.jpg)
 
 I've found that when our job is to delight users, we can get lost in details. Mapping data from a database to UI elements on the screen is easier than ever. We're tempted to rush through simple problems to spend extra time on more flashy interaction effects or ultra-efficient code.
 
@@ -29,7 +29,7 @@ Our No. 1 priority is to write and deploy working software. For some, the work s
 
 Our colleagues in other parts of the business may think this is where we spend most of our time. Truthfully, it’s easy to create that assumption for ourselves as well. Sizing stories when sprint planning and setting deadlines for functionality is simpler if we only have to consider delivering basic working software.
 
-![center: Photo by <a href="https://unsplash.com/@chesteralvarez?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Chester Alvarez</a> on <a href="https://unsplash.com/@chesteralvarez?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>](public/static/2018-08-06/gears.jpg)
+![center: Photo by <a href="https://unsplash.com/@chesteralvarez?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Chester Alvarez</a> on <a href="https://unsplash.com/@chesteralvarez?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>](gears.jpg)
 
 Staying in this frame of mind may be fine for a proof of concept or a throwaway project. We should make that judgment call at the beginning of a project.
 
@@ -51,7 +51,7 @@ Maybe we stop here. Our feature just needs to work and work reliably. For exampl
 
 Software isn’t fast unless it works reliably.
 
-![center: Photo by <a href="https://unsplash.com/@alternateskate?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alternate Skate</a> on <a href="https://unsplash.com/@alternateskate?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>](public/static/2018-08-06/skate.jpg)
+![center: Photo by <a href="https://unsplash.com/@alternateskate?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alternate Skate</a> on <a href="https://unsplash.com/@alternateskate?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>](skate.jpg)
 
 If a feature is rock-solid reliable, then we can determine what kind of speed improvements are appropriate.
 
@@ -71,7 +71,7 @@ For the features that have transcended the suitable performance threshold, we ca
 
 At this point, pursuing greatness is very specific to the project. It’s nebulous, and we should feel satisfied even to be at this point. Let’s optimize our multi-variant tests and discuss the finer points of Bezier curves for our transitions. We’ve earned it.
 
-![center: Photo by <a href="https://unsplash.com/@willianjusten?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alternate Skate</a> on <a href="https://unsplash.com/@willianjusten?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>](public/static/2018-08-06/mountain.jpg)
+![center: Photo by <a href="https://unsplash.com/@willianjusten?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alternate Skate</a> on <a href="https://unsplash.com/@willianjusten?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>](mountain.jpg)
 
 ---
 

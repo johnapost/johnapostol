@@ -8,18 +8,25 @@ import ThematicBreak from "../components/ThematicBreak";
 import Blockquote from "../components/Blockquote";
 import PostHeading from "../components/PostHeading";
 import Footer from "../components/Footer";
+import WithPostContext from "../components/WithPostContext";
 
 interface Props {
   postBody: string;
   date: string;
+  slug: string;
   title: string;
 }
 
-const Post: NextPage<Props> = ({ postBody, date, title }: Props) => {
+const Post: NextPage<Props> = ({
+  date,
+  postBody,
+  slug,
+  title
+}: Props): JSX.Element => {
   const renderers = {
     blockquote: Blockquote,
     heading: Heading,
-    image: Image,
+    image: WithPostContext({ slug, date }, Image),
     paragraph: Paragraph,
     thematicBreak: ThematicBreak
   };
@@ -55,14 +62,10 @@ const Post: NextPage<Props> = ({ postBody, date, title }: Props) => {
   );
 };
 
-Post.getInitialProps = async ({
-  query: { date: queryDate }
-}): Promise<Props> => {
-  const { bodyContent, date, title } = await import(
-    `../content/${queryDate}.json`
-  );
+Post.getInitialProps = async ({ query: { slug } }): Promise<Props> => {
+  const { bodyContent, date, title } = await import(`../content/${slug}.json`);
 
-  return { postBody: bodyContent, date, title };
+  return { postBody: bodyContent, date, title, slug: slug as string };
 };
 
 export default Post;
