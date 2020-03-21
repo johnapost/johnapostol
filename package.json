@@ -51,7 +51,7 @@
     "husky": "4.2.3",
     "imagemin-mozjpeg": "8.0.0",
     "lint-staged": "10.0.7",
-    "prettier": "1.19.1",
+    "prettier": "2.0.1",
     "processmd": "4.5.0",
     "sort-package-json": "1.39.1",
     "typescript": "3.7.5"
