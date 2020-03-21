@@ -5,16 +5,17 @@ const ThematicBreak = (): JSX.Element => (
     <hr />
     <style jsx>{`
       hr {
-        background-image: linear-gradient(
-          to right,
-          transparent,
-          #362640,
-          transparent
-        );
         border: 0;
-        height: 2px;
         margin: 3rem auto;
-        width: 80%;
+        text-align: center;
+      }
+
+      hr::before {
+        content: "...";
+        font-size: 2rem;
+        letter-spacing: 17px;
+        line-height: 40px;
+        text-indent: 17px;
       }
 
       .full-width {
