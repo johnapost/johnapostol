@@ -15,6 +15,7 @@ import { atLeastSmall } from "../utils/breakpoints";
 import List from "../components/List";
 import ListItem from "../components/ListItem";
 import InlineCode from "../components/InlineCode";
+import Link from "../components/Link";
 
 interface Props {
   date: string;
@@ -37,6 +38,7 @@ const Post: NextPage<Props> = ({
     heading: Heading,
     inlineCode: InlineCode,
     image: WithPostContext({ slug, date }, Image),
+    link: Link,
     list: List,
     listItem: ListItem,
     paragraph: Paragraph,

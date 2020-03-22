@@ -9,14 +9,10 @@ interface Props {
   };
 }
 
-const Image = ({
-  alt: size,
-  src,
-  context: { date },
-}: Props): JSX.Element | null => {
-  const caption = size.split(": ")[1];
+const Image = ({ alt, src, context: { date } }: Props): JSX.Element | null => {
+  const [size, caption] = alt.split(": ");
 
-  if (size.startsWith("wide")) {
+  if (size === "wide") {
     return (
       <div className="full-width">
         <figure>
@@ -47,7 +43,7 @@ const Image = ({
     );
   }
 
-  if (size.startsWith("center")) {
+  if (size === "center") {
     return (
       <ColumnWrapper>
         <figure>
