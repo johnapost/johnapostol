@@ -13,6 +13,7 @@ import CodeBlock from "../components/CodeBlock";
 import { atLeastSmall } from "../utils/breakpoints";
 import List from "../components/List";
 import ListItem from "../components/ListItem";
+import InlineCode from "../components/InlineCode";
 
 interface Props {
   postBody: string;
@@ -31,6 +32,7 @@ const Post: NextPage<Props> = ({
     blockquote: Blockquote,
     code: CodeBlock,
     heading: Heading,
+    inlineCode: InlineCode,
     image: WithPostContext({ slug, date }, Image),
     list: List,
     listItem: ListItem,
