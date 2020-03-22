@@ -5,12 +5,12 @@ interface Props {
   ordered: boolean;
 }
 
-const ListItem = ({ children }: Props): JSX.Element => (
+const ListItem = ({ children, ordered }: Props): JSX.Element => (
   <>
     <li>{children}</li>
     <style jsx>{`
       li {
-        font-family: Times, serif;
+        ${ordered ? "font-family: Times, serif;" : "list-style-type: disc;"}
         font-size: 1.1rem;
         line-height: 3rem;
         margin-left: 2rem;

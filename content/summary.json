@@ -35,9 +35,11 @@
       "preview": "This is a step-by-step guide to building your own serverless React app with the practicality afforded by Next.js and the Firebase ecosystem.",
       "slug": "building-a-serverless-react-app-on-firebase-functions",
       "tags": [
-        "software",
         "javascript",
-        "react"
+        "react",
+        "nextjs",
+        "serverless",
+        "firebase"
       ],
       "dir": "content",
       "base": "2019-03-20.json",
