@@ -1,5 +1,6 @@
 import React from "react";
 import ColumnWrapper from "./ColumnWrapper";
+import { atLeastMedium } from "../utils/breakpoints";
 
 const Footer = (): JSX.Element => (
   <div className="footer">
@@ -18,7 +19,7 @@ const Footer = (): JSX.Element => (
         margin: 1rem 0 3rem;
       }
 
-      @media (min-width: 900px) {
+      @media ${atLeastMedium} {
         .footer {
           display: grid;
           grid-template-columns: 1fr 740px 1fr;

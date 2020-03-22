@@ -9,6 +9,8 @@ import Blockquote from "../components/Blockquote";
 import PostHeading from "../components/PostHeading";
 import Footer from "../components/Footer";
 import WithPostContext from "../components/WithPostContext";
+import CodeBlock from "../components/CodeBlock";
+import { atLeastSmall } from "../utils/breakpoints";
 
 interface Props {
   postBody: string;
@@ -25,6 +27,7 @@ const Post: NextPage<Props> = ({
 }: Props): JSX.Element => {
   const renderers = {
     blockquote: Blockquote,
+    code: CodeBlock,
     heading: Heading,
     image: WithPostContext({ slug, date }, Image),
     paragraph: Paragraph,
@@ -51,7 +54,7 @@ const Post: NextPage<Props> = ({
           display: block;
         }
 
-        @media (min-width: 740px) {
+        @media ${atLeastSmall} {
           article {
             display: grid;
             grid-template-columns: 1fr 740px 1fr;

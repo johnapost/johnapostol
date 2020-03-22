@@ -11,6 +11,7 @@ import PostList, { Post } from "../components/PostList";
 import Resume from "../components/Resume";
 import Footer from "../components/Footer";
 import ThematicBreak from "../components/ThematicBreak";
+import { atLeastMedium } from "../utils/breakpoints";
 
 type Props = {
   posts: Post[];
@@ -87,7 +88,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
         font-family: "Merriweather", serif;
       }
 
-      @media (min-width: 900px) {
+      @media ${atLeastMedium} {
         .grid {
           display: grid;
           grid-template-columns: 1fr 740px 1fr;

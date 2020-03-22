@@ -2,6 +2,7 @@ import React from "react";
 import ColumnWrapper from "../components/ColumnWrapper";
 import formatDate from "../utils/formatDate";
 import { useInView } from "react-intersection-observer";
+import { atLeastSmall } from "../utils/breakpoints";
 
 interface Props {
   date: string;
@@ -118,7 +119,7 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
           margin-bottom: 1rem;
         }
 
-        @media (min-width: 740px) {
+        @media ${atLeastSmall} {
           .sticky {
             margin: 80px 0 0;
           }
