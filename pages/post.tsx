@@ -1,5 +1,6 @@
 import React from "react";
 import { NextPage } from "next";
+import Head from "next/head";
 import ReactMarkdown from "react-markdown";
 import Heading from "../components/Heading";
 import Image from "../components/Image";
@@ -16,8 +17,9 @@ import ListItem from "../components/ListItem";
 import InlineCode from "../components/InlineCode";
 
 interface Props {
-  postBody: string;
   date: string;
+  postBody: string;
+  preview: string;
   slug: string;
   title: string;
 }
@@ -25,6 +27,7 @@ interface Props {
 const Post: NextPage<Props> = ({
   date,
   postBody,
+  preview,
   slug,
   title,
 }: Props): JSX.Element => {
@@ -43,6 +46,10 @@ const Post: NextPage<Props> = ({
   return (
     <>
       <main role="main">
+        <Head>
+          <meta name="description" content={preview} />
+          <title>John Apostol - {title}</title>
+        </Head>
         <article>
           <PostHeading date={date} title={title} />
           <ReactMarkdown source={postBody} renderers={renderers} />
@@ -73,13 +80,19 @@ const Post: NextPage<Props> = ({
 };
 
 Post.getInitialProps = async ({
-  query: { date: postDate, slug },
+  query: { date: postDate, preview, slug },
 }): Promise<Props> => {
   const { bodyContent, date, title } = await import(
     `../content/${postDate}.json`
   );
 
-  return { postBody: bodyContent, date, title, slug: slug as string };
+  return {
+    date,
+    postBody: bodyContent,
+    preview: preview as string,
+    slug: slug as string,
+    title,
+  };
 };
 
 export default Post;

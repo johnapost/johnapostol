@@ -8,32 +8,33 @@ module.exports = withPlugins([
   [
     optimizedImages,
     {
-      handleImages: ["jpg"]
-    }
+      handleImages: ["jpg"],
+    },
   ],
   {
     exportPathMap: () => {
       const posts = Object.entries(summary.fileMap).reduce(
-        (accum, [, { date, slug }]) => ({
+        (accum, [, { date, preview, slug }]) => ({
           ...accum,
           [`/post/${slug}`]: {
             page: "/post",
             query: {
               date,
-              slug
-            }
-          }
+              preview,
+              slug,
+            },
+          },
         }),
         {}
       );
 
       return {
         "/": {
-          page: "/"
+          page: "/",
         },
-        ...posts
+        ...posts,
       };
     },
-    exportTrailingSlash: true
-  }
+    exportTrailingSlash: true,
+  },
 ]);
