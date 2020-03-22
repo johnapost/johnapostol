@@ -4,15 +4,16 @@ import ColumnWrapper from "./ColumnWrapper";
 import codeTheme from "../utils/codeTheme";
 
 interface Props {
+  language: "javascript";
   value: string;
 }
 
-const CodeBlock = ({ value }: Props): JSX.Element => (
+const CodeBlock = ({ language, value }: Props): JSX.Element => (
   <ColumnWrapper>
     <Highlight
       {...defaultProps}
       code={value}
-      language="javascript"
+      language={language}
       theme={codeTheme}
     >
       {({
@@ -40,7 +41,7 @@ const CodeBlock = ({ value }: Props): JSX.Element => (
       .wrapper {
         font-size: 1.1rem;
         line-height: 1.5rem;
-        margin: 29px -20px;
+        margin: 29px -20px 0;
         overflow: auto;
       }
 
