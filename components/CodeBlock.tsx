@@ -38,15 +38,25 @@ const CodeBlock = ({ value }: Props): JSX.Element => (
     </Highlight>
     <style jsx>{`
       .wrapper {
-        margin: 0 -20px;
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+        margin: 29px -20px;
         overflow: auto;
+      }
+
+      pre {
+        float: left;
+        min-width: 100%;
+        overflow: initial;
+        padding: 1rem;
       }
 
       .line-number {
         display: inline-block;
         opacity: 0.3;
+        padding: 0 0.5rem;
         user-select: none;
-        width: 2rem;
+        width: 3rem;
       }
     `}</style>
   </ColumnWrapper>
