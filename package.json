@@ -11,7 +11,6 @@
     "build": "next build && next export",
     "build:posts": "processmd posts/*.md --outputDir content --summaryOutput content/summary.json",
     "dev": "next",
-    "lint": "eslint '*/**/*.{js,ts,tsx}'",
     "start": "next start"
   },
   "husky": {
@@ -21,39 +20,39 @@
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ],
     "package.json": [
-      "sort-package-json",
-      "git add"
+      "sort-package-json"
     ]
   },
   "dependencies": {
     "isomorphic-unfetch": "3.0.0",
-    "next": "9.2.1",
+    "next": "9.3.1",
     "next-compose-plugins": "2.2.0",
-    "next-optimized-images": "2.5.4",
-    "react": "16.12.0",
-    "react-dom": "16.12.0",
+    "next-optimized-images": "2.5.5",
+    "prism-react-renderer": "1.0.2",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-intersection-observer": "8.26.1",
     "react-markdown": "4.3.1"
   },
   "devDependencies": {
-    "@types/react": "16.9.19",
+    "@types/react": "16.9.25",
     "@types/react-dom": "16.9.5",
     "@types/styled-jsx": "2.2.8",
-    "@typescript-eslint/eslint-plugin": "2.19.2",
-    "@typescript-eslint/parser": "2.19.2",
+    "@typescript-eslint/eslint-plugin": "2.24.0",
+    "@typescript-eslint/parser": "2.24.0",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.0",
     "eslint-plugin-prettier": "3.1.2",
-    "eslint-plugin-react": "7.18.3",
+    "eslint-plugin-react": "7.19.0",
     "husky": "4.2.3",
     "imagemin-mozjpeg": "8.0.0",
-    "lint-staged": "10.0.7",
-    "prettier": "1.19.1",
+    "lint-staged": "10.0.8",
+    "prettier": "2.0.1",
     "processmd": "4.5.0",
-    "sort-package-json": "1.39.1",
-    "typescript": "3.7.5"
+    "sort-package-json": "1.40.0",
+    "typescript": "3.8.3"
   }
 }

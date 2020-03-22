@@ -18,11 +18,11 @@ type Props = {
 
 const PostList: NextPage<Props> = ({ posts }: Props) => (
   <>
-    {posts.map(({ title, date, slug, tags, preview }) => {
+    {posts.map(({ title, date, slug, tags, preview }, index) => {
       const formattedDate = formatDate(date);
       return (
-        <div className="grid" key={`${title}-${formattedDate}`}>
-          <ColumnWrapper>
+        <ColumnWrapper key={`${title}-${formattedDate}`}>
+          <div className={`inner ${index === 0 && "first"}`}>
             <div className="post-heading">{formattedDate}</div>
             <div className="title">
               <a href={`/post/${slug}`}>{title}</a>
@@ -36,12 +36,20 @@ const PostList: NextPage<Props> = ({ posts }: Props) => (
                 </div>
               )}
             </div>
-          </ColumnWrapper>
-          <Paragraph>{preview}</Paragraph>
-        </div>
+            <Paragraph noWrap={true}>{preview}</Paragraph>
+          </div>
+        </ColumnWrapper>
       );
     })}
     <style jsx>{`
+      .inner {
+        margin-top: 4rem;
+      }
+
+      .first {
+        margin-top: 1rem;
+      }
+
       .post-heading {
         font-family: "Merriweather", serif;
         font-size: 1rem;
@@ -63,7 +71,7 @@ const PostList: NextPage<Props> = ({ posts }: Props) => (
       }
 
       .tags span + span {
-        margin-left: 0.15rem;
+        margin-left: 0.5rem;
       }
 
       .title {
@@ -71,13 +79,6 @@ const PostList: NextPage<Props> = ({ posts }: Props) => (
         font-family: "Lato", sans-serif;
         font-size: 1.5rem;
         margin-top: 5px;
-      }
-
-      @media (min-width: 900px) {
-        .grid {
-          display: grid;
-          grid-template-columns: 1fr 740px 1fr;
-        }
       }
     `}</style>
   </>

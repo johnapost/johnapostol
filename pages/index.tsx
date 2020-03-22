@@ -7,9 +7,11 @@ import LinkedIn from "../components/LinkedIn";
 import Medium from "../components/Medium";
 import Paragraph from "../components/Paragraph";
 import ColumnWrapper from "../components/ColumnWrapper";
-import { Post } from "../components/PostList";
+import PostList, { Post } from "../components/PostList";
 import Resume from "../components/Resume";
 import Footer from "../components/Footer";
+import ThematicBreak from "../components/ThematicBreak";
+import { atLeastMedium } from "../utils/breakpoints";
 
 type Props = {
   posts: Post[];
@@ -22,47 +24,52 @@ type Summary = {
   };
 };
 
-const Index: NextPage<Props> = () => (
-  <main role="main">
-    <Head>
-      <meta
-        name="description"
-        content="Thoughts and code from John Apostol, lifelong software learner"
-      />
-      <title>John Apostol - lifelong software learner</title>
-    </Head>
-    <Cover />
-    <div className="intro">
-      <ColumnWrapper>
-        <div className="external">
-          <a href="https://github.com/johnapost">
-            <GitHub />
-          </a>
-          <a href="https://medium.com/@johnapost">
-            <Medium />
-          </a>
-          <a href="https://www.linkedin.com/in/johnapost/">
-            <LinkedIn />
-          </a>
-          <a>
-            <Resume />
-          </a>
-        </div>
-      </ColumnWrapper>
-      <Paragraph>Hi there!</Paragraph>
-      <Paragraph>
-        I&apos;m a software person living in Austin, Texas. I tend to spend my
-        time playing with code and writing about software development.
-      </Paragraph>
-      <Paragraph>
-        Above all, I love working with brilliant, collaborative people who can
-        balance idealism with pragmatism.
-      </Paragraph>
-    </div>
+const Index: NextPage<Props> = ({ posts }: Props) => (
+  <>
+    <main role="main">
+      <Head>
+        <meta
+          name="description"
+          content="Thoughts and code from John Apostol, lifelong software learner"
+        />
+        <title>John Apostol - lifelong software learner</title>
+      </Head>
+      <Cover />
+      <div className="grid">
+        <ColumnWrapper>
+          <div className="external">
+            <a href="https://github.com/johnapost">
+              <GitHub />
+            </a>
+            <a href="https://medium.com/@johnapost">
+              <Medium />
+            </a>
+            <a href="https://www.linkedin.com/in/johnapost/">
+              <LinkedIn />
+            </a>
+            <a>
+              <Resume />
+            </a>
+          </div>
+        </ColumnWrapper>
+        <Paragraph>Hi there!</Paragraph>
+        <Paragraph>
+          I&apos;m a software person living in Austin, Texas. I tend to spend my
+          time playing with code and writing about software development.
+        </Paragraph>
+        <Paragraph>
+          Above all, I love working with brilliant, collaborative people who can
+          balance idealism with pragmatism.
+        </Paragraph>
+        <ThematicBreak />
+        <PostList posts={posts} />
+      </div>
+    </main>
     <hr />
     <Footer />
     <style jsx>{`
       main {
+        margin: 0 0 6rem;
         overflow-x: hidden;
       }
 
@@ -80,35 +87,22 @@ const Index: NextPage<Props> = () => (
         margin-left: 10px;
       }
 
-      .intro {
+      .grid {
         font-family: "Merriweather", serif;
       }
 
-      hr {
-        background-image: linear-gradient(
-          to right,
-          transparent,
-          #362640,
-          transparent
-        );
-        border: 0;
-        height: 2px;
-        margin: 3rem auto;
-        width: 80%;
-      }
-
-      @media (min-width: 900px) {
-        .intro {
+      @media ${atLeastMedium} {
+        .grid {
           display: grid;
           grid-template-columns: 1fr 740px 1fr;
         }
 
-        .intro:before {
+        .grid:before {
           content: "";
         }
       }
     `}</style>
-  </main>
+  </>
 );
 
 Index.getInitialProps = async (): Promise<Props> => {

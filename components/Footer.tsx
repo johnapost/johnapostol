@@ -1,13 +1,12 @@
 import React from "react";
 import ColumnWrapper from "./ColumnWrapper";
+import { atLeastMedium } from "../utils/breakpoints";
 
 const Footer = (): JSX.Element => (
-  <>
-    <div className="footer">
-      <ColumnWrapper>
-        <p className="copyright">© 2020 John Apostol. All rights reserved.</p>
-      </ColumnWrapper>
-    </div>
+  <div className="footer">
+    <ColumnWrapper>
+      <p className="copyright">© 2020 John Apostol. All rights reserved.</p>
+    </ColumnWrapper>
     <style jsx>{`
       .copyright {
         color: #362640;
@@ -20,7 +19,7 @@ const Footer = (): JSX.Element => (
         margin: 1rem 0 3rem;
       }
 
-      @media (min-width: 900px) {
+      @media ${atLeastMedium} {
         .footer {
           display: grid;
           grid-template-columns: 1fr 740px 1fr;
@@ -31,7 +30,7 @@ const Footer = (): JSX.Element => (
         }
       }
     `}</style>
-  </>
+  </div>
 );
 
 export default Footer;

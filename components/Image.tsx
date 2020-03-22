@@ -4,13 +4,27 @@ import ColumnWrapper from "./ColumnWrapper";
 interface Props {
   alt: string;
   src: string;
+  context: {
+    date: string;
+  };
 }
 
-const Image = ({ alt, src }: Props): JSX.Element | null => {
-  if (alt.startsWith("wide")) {
+const Image = ({
+  alt: size,
+  src,
+  context: { date },
+}: Props): JSX.Element | null => {
+  const caption = size.split(": ")[1];
+
+  if (size.startsWith("wide")) {
     return (
       <div className="full-width">
-        <img alt={alt} src={require(`../${src}`)} />
+        <figure>
+          <img alt={caption} src={require(`../public/static/${date}/${src}`)} />
+          {caption && (
+            <figcaption dangerouslySetInnerHTML={{ __html: caption }} />
+          )}
+        </figure>
         <style jsx>{`
           .full-width {
             grid-column: 1 / 4;
@@ -18,22 +32,38 @@ const Image = ({ alt, src }: Props): JSX.Element | null => {
 
           img {
             margin-top: 44px;
-            margin-bottom: 80px;
+            ${caption ? "margin-bottom: 15px;" : ""}
             width: 100%;
+          }
+
+          figcaption {
+            font-size: 0.8rem;
+            line-height: 22.4px;
+            margin-bottom: 1rem;
+            text-align: center;
           }
         `}</style>
       </div>
     );
   }
 
-  if (alt.startsWith("center")) {
+  if (size.startsWith("center")) {
     return (
       <ColumnWrapper>
-        <img alt={alt} src={require(`../${src}`)} />
+        <figure>
+          <img alt={caption} src={require(`../public/static/${date}/${src}`)} />
+          <figcaption dangerouslySetInnerHTML={{ __html: caption }} />
+        </figure>
         <style jsx>{`
           img {
             margin-top: 44px;
             width: 100%;
+          }
+
+          figcaption {
+            font-size: 0.8rem;
+            line-height: 22.4px;
+            text-align: center;
           }
         `}</style>
       </ColumnWrapper>
