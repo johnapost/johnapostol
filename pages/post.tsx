@@ -11,6 +11,8 @@ import Footer from "../components/Footer";
 import WithPostContext from "../components/WithPostContext";
 import CodeBlock from "../components/CodeBlock";
 import { atLeastSmall } from "../utils/breakpoints";
+import List from "../components/List";
+import ListItem from "../components/ListItem";
 
 interface Props {
   postBody: string;
@@ -30,6 +32,8 @@ const Post: NextPage<Props> = ({
     code: CodeBlock,
     heading: Heading,
     image: WithPostContext({ slug, date }, Image),
+    list: List,
+    listItem: ListItem,
     paragraph: Paragraph,
     thematicBreak: ThematicBreak
   };
