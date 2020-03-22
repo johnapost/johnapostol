@@ -14,7 +14,7 @@ const GoogleAnalytics = (): JSX.Element => (
           gtag('js', new Date());
 
           gtag('config', 'UA-139721576-1');
-        `
+        `,
       }}
     />
   </>
