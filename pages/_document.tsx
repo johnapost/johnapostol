@@ -29,9 +29,11 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Lato:700|Merriweather:300,300i,400,400i,700,700i"
             rel="stylesheet"
           />
+          <meta charSet="utf-8" />
+          <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta
             name="viewport"
-            content="initial-scale=1.0, width=device-width"
+            content="initial-scale=1.0, width=device-width, shrink-to-fit=no"
           />
           <style
             dangerouslySetInnerHTML={{
@@ -41,6 +43,7 @@ export default class MyDocument extends Document {
           />
         </Head>
         <body>
+          <noscript>This website runs best with JavaScript enabled</noscript>
           <Main />
           <NextScript />
         </body>
