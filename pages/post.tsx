@@ -26,7 +26,7 @@ const Post: NextPage<Props> = ({
   date,
   postBody,
   slug,
-  title
+  title,
 }: Props): JSX.Element => {
   const renderers = {
     blockquote: Blockquote,
@@ -37,7 +37,7 @@ const Post: NextPage<Props> = ({
     list: List,
     listItem: ListItem,
     paragraph: Paragraph,
-    thematicBreak: ThematicBreak
+    thematicBreak: ThematicBreak,
   };
 
   return (
@@ -52,7 +52,7 @@ const Post: NextPage<Props> = ({
       <Footer />
       <style jsx>{`
         main {
-          margin: 3rem 0 10rem;
+          margin: 3rem 0 6rem;
         }
 
         article {
@@ -72,7 +72,7 @@ const Post: NextPage<Props> = ({
 };
 
 Post.getInitialProps = async ({
-  query: { date: postDate, slug }
+  query: { date: postDate, slug },
 }): Promise<Props> => {
   const { bodyContent, date, title } = await import(
     `../content/${postDate}.json`
