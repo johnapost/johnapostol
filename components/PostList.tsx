@@ -25,7 +25,7 @@ const PostList: NextPage<Props> = ({ posts }: Props) => (
           <div className={`inner ${index === 0 && "first"}`}>
             <div className="post-heading">{formattedDate}</div>
             <div className="title">
-              <a href={`/post/${slug}`}>{title}</a>
+              <a href={`/post/${slug}/`}>{title}</a>
             </div>
             <div>
               {tags.length && (
