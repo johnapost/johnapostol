@@ -16,7 +16,7 @@ module.exports = withPlugins([
       const posts = Object.entries(summary.fileMap).reduce(
         (accum, [, { date, preview, slug }]) => ({
           ...accum,
-          [`/post/${slug}`]: {
+          [`/post/${slug}/`]: {
             page: "/post",
             query: {
               date,
