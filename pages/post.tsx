@@ -53,6 +53,7 @@ const Post: NextPage<Props> = ({
       <style jsx>{`
         main {
           margin: 3rem 0 6rem;
+          overflow-x: hidden;
         }
 
         article {

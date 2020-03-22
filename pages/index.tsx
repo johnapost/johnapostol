@@ -25,48 +25,51 @@ type Summary = {
 };
 
 const Index: NextPage<Props> = ({ posts }: Props) => (
-  <main role="main">
-    <Head>
-      <meta
-        name="description"
-        content="Thoughts and code from John Apostol, lifelong software learner"
-      />
-      <title>John Apostol - lifelong software learner</title>
-    </Head>
-    <Cover />
-    <div className="grid">
-      <ColumnWrapper>
-        <div className="external">
-          <a href="https://github.com/johnapost">
-            <GitHub />
-          </a>
-          <a href="https://medium.com/@johnapost">
-            <Medium />
-          </a>
-          <a href="https://www.linkedin.com/in/johnapost/">
-            <LinkedIn />
-          </a>
-          <a>
-            <Resume />
-          </a>
-        </div>
-      </ColumnWrapper>
-      <Paragraph>Hi there!</Paragraph>
-      <Paragraph>
-        I&apos;m a software person living in Austin, Texas. I tend to spend my
-        time playing with code and writing about software development.
-      </Paragraph>
-      <Paragraph>
-        Above all, I love working with brilliant, collaborative people who can
-        balance idealism with pragmatism.
-      </Paragraph>
-      <ThematicBreak />
-      <PostList posts={posts} />
-    </div>
+  <>
+    <main role="main">
+      <Head>
+        <meta
+          name="description"
+          content="Thoughts and code from John Apostol, lifelong software learner"
+        />
+        <title>John Apostol - lifelong software learner</title>
+      </Head>
+      <Cover />
+      <div className="grid">
+        <ColumnWrapper>
+          <div className="external">
+            <a href="https://github.com/johnapost">
+              <GitHub />
+            </a>
+            <a href="https://medium.com/@johnapost">
+              <Medium />
+            </a>
+            <a href="https://www.linkedin.com/in/johnapost/">
+              <LinkedIn />
+            </a>
+            <a>
+              <Resume />
+            </a>
+          </div>
+        </ColumnWrapper>
+        <Paragraph>Hi there!</Paragraph>
+        <Paragraph>
+          I&apos;m a software person living in Austin, Texas. I tend to spend my
+          time playing with code and writing about software development.
+        </Paragraph>
+        <Paragraph>
+          Above all, I love working with brilliant, collaborative people who can
+          balance idealism with pragmatism.
+        </Paragraph>
+        <ThematicBreak />
+        <PostList posts={posts} />
+      </div>
+    </main>
     <hr />
     <Footer />
     <style jsx>{`
       main {
+        margin: 0 0 6rem;
         overflow-x: hidden;
       }
 
@@ -99,7 +102,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
         }
       }
     `}</style>
-  </main>
+  </>
 );
 
 Index.getInitialProps = async (): Promise<Props> => {

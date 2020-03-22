@@ -12,20 +12,17 @@ interface Props {
 const Image = ({
   alt: size,
   src,
-  context: { date }
+  context: { date },
 }: Props): JSX.Element | null => {
-  const imageAlt = size.split(": ")[1];
+  const caption = size.split(": ")[1];
 
   if (size.startsWith("wide")) {
     return (
       <div className="full-width">
         <figure>
-          <img
-            alt={imageAlt}
-            src={require(`../public/static/${date}/${src}`)}
-          />
-          {imageAlt && (
-            <figcaption dangerouslySetInnerHTML={{ __html: imageAlt }} />
+          <img alt={caption} src={require(`../public/static/${date}/${src}`)} />
+          {caption && (
+            <figcaption dangerouslySetInnerHTML={{ __html: caption }} />
           )}
         </figure>
         <style jsx>{`
@@ -35,7 +32,7 @@ const Image = ({
 
           img {
             margin-top: 44px;
-            ${imageAlt ? "margin-bottom: 15px;" : ""}
+            ${caption ? "margin-bottom: 15px;" : ""}
             width: 100%;
           }
 
@@ -54,11 +51,8 @@ const Image = ({
     return (
       <ColumnWrapper>
         <figure>
-          <img
-            alt={imageAlt}
-            src={require(`../public/static/${date}/${src}`)}
-          />
-          <figcaption dangerouslySetInnerHTML={{ __html: imageAlt }} />
+          <img alt={caption} src={require(`../public/static/${date}/${src}`)} />
+          <figcaption dangerouslySetInnerHTML={{ __html: caption }} />
         </figure>
         <style jsx>{`
           img {

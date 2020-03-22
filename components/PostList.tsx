@@ -18,11 +18,11 @@ type Props = {
 
 const PostList: NextPage<Props> = ({ posts }: Props) => (
   <>
-    {posts.map(({ title, date, slug, tags, preview }) => {
+    {posts.map(({ title, date, slug, tags, preview }, index) => {
       const formattedDate = formatDate(date);
       return (
         <ColumnWrapper key={`${title}-${formattedDate}`}>
-          <div className="inner">
+          <div className={`inner ${index === 0 && "first"}`}>
             <div className="post-heading">{formattedDate}</div>
             <div className="title">
               <a href={`/post/${slug}`}>{title}</a>
@@ -43,7 +43,11 @@ const PostList: NextPage<Props> = ({ posts }: Props) => (
     })}
     <style jsx>{`
       .inner {
-        margin-bottom: 4rem;
+        margin-top: 4rem;
+      }
+
+      .first {
+        margin-top: 1rem;
       }
 
       .post-heading {

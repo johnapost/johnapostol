@@ -3,6 +3,7 @@ import ColumnWrapper from "../components/ColumnWrapper";
 import formatDate from "../utils/formatDate";
 import { useInView } from "react-intersection-observer";
 import { atLeastSmall } from "../utils/breakpoints";
+import FadedRule from "./FadedRule";
 
 interface Props {
   date: string;
@@ -26,7 +27,7 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
           </div>
         </div>
         <div className="border">
-          <hr />
+          <FadedRule />
         </div>
       </div>
       <style jsx>{`
@@ -49,7 +50,7 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
         }
 
         .border {
-          display: flex;
+          display: none;
           justify-content: center;
         }
 
@@ -74,22 +75,11 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
         }
 
         .sticky .border {
+          display: flex;
           left: 0;
           top: calc(1rem + 25px);
           width: 100%;
           pointer-events: none;
-        }
-
-        .sticky hr {
-          background-image: linear-gradient(
-            to right,
-            transparent,
-            #362640,
-            transparent
-          );
-          border: 0;
-          height: 2px;
-          width: 80%;
         }
 
         img {
