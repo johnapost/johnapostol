@@ -35,8 +35,7 @@ const Image = ({
 
           img {
             margin-top: 44px;
-            margin-bottom: 80px;
-            ${imageAlt && "margin-bottom: 15px;"}
+            ${imageAlt ? "margin-bottom: 15px;" : ""}
             width: 100%;
           }
 
