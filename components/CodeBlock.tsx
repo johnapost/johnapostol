@@ -21,7 +21,7 @@ const CodeBlock = ({ language, value }: Props): JSX.Element => (
         style,
         tokens,
         getLineProps,
-        getTokenProps
+        getTokenProps,
       }): JSX.Element => (
         <div className="wrapper">
           <pre className={className} style={style}>

@@ -3,17 +3,31 @@ import ColumnWrapper from "./ColumnWrapper";
 
 interface Props {
   children: JSX.Element[];
+  ordered: boolean;
 }
 
-const List = ({ children }: Props): JSX.Element => (
+const List = ({ children, ordered }: Props): JSX.Element => (
   <ColumnWrapper>
-    <ul>{children}</ul>
-    <style jsx>{`
-      ul {
-        list-style: none;
-        margin-top: 2rem;
-      }
-    `}</style>
+    {ordered ? (
+      <>
+        <ol>{children}</ol>
+        <style jsx>{`
+          ol {
+            margin-top: 2rem;
+          }
+        `}</style>
+      </>
+    ) : (
+      <>
+        <ul>{children}</ul>
+        <style jsx>{`
+          ul {
+            list-style: none;
+            margin-top: 2rem;
+          }
+        `}</style>
+      </>
+    )}
   </ColumnWrapper>
 );
 

@@ -29,6 +29,7 @@ const Paragraph = ({ children, noWrap }: Props): JSX.Element => {
           line-height: 2rem;
           margin: 29px 0 0;
           padding: 0;
+          text-rendering: optimizelegibility;
         }
       `}</style>
     </>
