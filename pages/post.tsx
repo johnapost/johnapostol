@@ -81,29 +81,19 @@ const Post: NextPage<Props> = ({
   );
 };
 
-interface Query {
-  query: {
-    date: string;
-    preview: string;
-    slug: string;
-  };
-}
-
-export const getStaticProps = async ({
+Post.getInitialProps = async ({
   query: { date: postDate, preview, slug },
-}: Query): Promise<Record<string, Props>> => {
+}): Promise<Props> => {
   const { bodyContent, date, title } = await import(
     `../content/${postDate}.json`
   );
 
   return {
-    props: {
-      date,
-      postBody: bodyContent,
-      preview: preview,
-      slug: slug,
-      title,
-    },
+    date,
+    postBody: bodyContent,
+    preview: preview as string,
+    slug: slug as string,
+    title,
   };
 };
 

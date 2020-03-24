@@ -66,4 +66,4 @@ const generateSitemap = async (domain, targetFolder) => {
   });
 };
 
-generateSitemap("https://johnapostol.com", "./public/static");
+generateSitemap("https://johnapostol.com", "./public");
