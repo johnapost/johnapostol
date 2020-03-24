@@ -61,7 +61,7 @@ const generateSitemap = async (domain, targetFolder) => {
   fs.writeFile(`${writeLocation}`, sitemap, (err) => {
     if (err) throw err;
     console.log(
-      `sitemap.xml with ${pages.length} entries was written to ${targetFolder}${fileName}`
+      `sitemap.xml with ${pages.length} entries was written to ${targetFolder}/${fileName}`
     );
   });
 };
