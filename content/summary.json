@@ -1,19 +1,5 @@
 {
   "fileMap": {
-    "content/2018-08-06.json": {
-      "date": "2018-08-06",
-      "title": "A Sensible Approach to Developing Product Features",
-      "preview": "It works, it’s reliable, it’s fast, and it feels great!",
-      "slug": "a-sensible-approach-to-developing-product-features",
-      "tags": [
-        "software"
-      ],
-      "dir": "content",
-      "base": "2018-08-06.json",
-      "ext": ".json",
-      "sourceBase": "2018-08-06.md",
-      "sourceExt": ".md"
-    },
     "content/2019-03-20.json": {
       "date": "2019-03-20",
       "title": "Building a Serverless React App on Firebase Functions",
@@ -45,6 +31,20 @@
       "base": "2019-01-30.json",
       "ext": ".json",
       "sourceBase": "2019-01-30.md",
+      "sourceExt": ".md"
+    },
+    "content/2018-08-06.json": {
+      "date": "2018-08-06",
+      "title": "A Sensible Approach to Developing Product Features",
+      "preview": "It works, it’s reliable, it’s fast, and it feels great!",
+      "slug": "a-sensible-approach-to-developing-product-features",
+      "tags": [
+        "software"
+      ],
+      "dir": "content",
+      "base": "2018-08-06.json",
+      "ext": ".json",
+      "sourceBase": "2018-08-06.md",
       "sourceExt": ".md"
     }
   },
