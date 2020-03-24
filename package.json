@@ -8,9 +8,8 @@
   "author": "John Apostol",
   "main": "pages/index.js",
   "scripts": {
-    "build": "next build && next export",
+    "build": "next build && next export && node ./buildSitemap.js",
     "build:posts": "processmd posts/*.md --outputDir content --summaryOutput content/summary.json",
-    "build:sitemap": "node ./buildSitemap.js",
     "dev": "next",
     "start": "next start"
   },
