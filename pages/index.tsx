@@ -105,7 +105,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
   </>
 );
 
-export const getStaticProps = async (): Promise<Props> => {
+export const getStaticProps = async (): Promise<Record<string, Props>> => {
   const summary: Summary = await import("../content/summary.json");
   const { sourceFileArray, fileMap } = summary;
 
@@ -118,7 +118,7 @@ export const getStaticProps = async (): Promise<Props> => {
     return fileMap[destFile];
   });
 
-  return { posts };
+  return { props: { posts } };
 };
 
 export default Index;

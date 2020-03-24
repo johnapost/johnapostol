@@ -91,17 +91,19 @@ interface Query {
 
 export const getStaticProps = async ({
   query: { date: postDate, preview, slug },
-}: Query): Promise<Props> => {
+}: Query): Promise<Record<string, Props>> => {
   const { bodyContent, date, title } = await import(
     `../content/${postDate}.json`
   );
 
   return {
-    date,
-    postBody: bodyContent,
-    preview: preview,
-    slug: slug,
-    title,
+    props: {
+      date,
+      postBody: bodyContent,
+      preview: preview,
+      slug: slug,
+      title,
+    },
   };
 };
 
