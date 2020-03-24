@@ -1,4 +1,5 @@
 import React from "react";
+import RepoCard from "./RepoCard";
 
 interface Props {
   children: JSX.Element[];
@@ -12,13 +13,9 @@ const Link = ({ children, href }: Props): JSX.Element => {
   } = node;
 
   if (rawText.startsWith("repo")) {
-    const displayText = rawText.split("repo: ")[1];
+    const preview = rawText.split("repo: ")[1];
 
-    return (
-      <a target="_blank" rel="noopener noreferrer" href={href}>
-        {displayText}
-      </a>
-    );
+    return <RepoCard preview={preview} href={href} />;
   }
 
   return (

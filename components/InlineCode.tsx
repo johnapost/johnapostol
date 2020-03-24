@@ -12,6 +12,7 @@ const InlineCode = ({ children }: Props): JSX.Element => (
         color: #ffffff;
         background: #362640;
         font-family: monospace;
+        white-space: nowrap;
         overflow-wrap: break-word;
         padding: 2px 4px;
       }
