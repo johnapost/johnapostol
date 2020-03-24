@@ -30,9 +30,9 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
       <Head>
         <meta
           name="description"
-          content="Thoughts and code from John Apostol, lifelong software learner"
+          content="Thoughts and code from John Apostol, lifelong learner"
         />
-        <title>John Apostol - lifelong software learner</title>
+        <title>John Apostol - lifelong learner</title>
       </Head>
       <Cover />
       <div className="grid">
