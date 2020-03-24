@@ -8,7 +8,7 @@ const fs = require("fs");
 const exportPathMap = require("./exportPathMap");
 
 // Format to the right date
-const formatDate = (date) => `${date.toISOString().split(".")[0]}+0:00`;
+const formatDate = (date) => date.toISOString();
 
 // Priority is determined by path depth. Feel free to modify this if needed:
 const getPriority = (url) =>
