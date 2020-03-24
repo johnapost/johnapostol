@@ -105,7 +105,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
   </>
 );
 
-Index.getInitialProps = async (): Promise<Props> => {
+export const getInitialProps = async (): Promise<Props> => {
   const summary: Summary = await import("../content/summary.json");
   const { sourceFileArray, fileMap } = summary;
 

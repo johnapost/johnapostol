@@ -81,9 +81,17 @@ const Post: NextPage<Props> = ({
   );
 };
 
-Post.getInitialProps = async ({
+interface Query {
+  query: {
+    date: string;
+    preview: string;
+    slug: string;
+  };
+}
+
+export const getStaticProps = async ({
   query: { date: postDate, preview, slug },
-}): Promise<Props> => {
+}: Query): Promise<Props> => {
   const { bodyContent, date, title } = await import(
     `../content/${postDate}.json`
   );
@@ -91,8 +99,8 @@ Post.getInitialProps = async ({
   return {
     date,
     postBody: bodyContent,
-    preview: preview as string,
-    slug: slug as string,
+    preview: preview,
+    slug: slug,
     title,
   };
 };
