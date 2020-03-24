@@ -1,26 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-
-/*
-Generates a sitemap based on the entries in exportPathMap in next.config.js file
-
-Author: Joran Quinten
-
-Don't forget to add the domain name as process variable PUBLIC_DOMAIN!
-
-Trigger the file with a separate script in your package.json and add it to your build command in Netlify
-(for instance, set Build command to: "npm run production && npm run postexport")
-
-The postexport command runs the script post-export.js in my repo, which calls the generator:
-
-// file contents "post-export.js":
-
-    require('dotenv').config();
-    const { generateSitemap } = require('./generate-sitemap');
-
-    generateSitemap(process.env.PUBLIC_DOMAIN, './out/static/');
-
-*/
+/* Original Author: Joran Quinten */
 
 const fs = require("fs");
 
@@ -58,10 +38,7 @@ const xmlUrlNode = (domain, pageUrl, lastmod) => {
 </url>`;
 };
 
-const generateSitemap = async (
-  domain = "https://johnapostol.com",
-  targetFolder = "./public/static"
-) => {
+const generateSitemap = async (domain, targetFolder) => {
   if (!domain) {
     throw new Error("No domain provided!");
   }
@@ -89,4 +66,4 @@ const generateSitemap = async (
   });
 };
 
-generateSitemap();
+generateSitemap("https://johnapostol.com", "./public/static");
