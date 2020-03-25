@@ -9,9 +9,10 @@
   "main": "pages/index.js",
   "scripts": {
     "build": "next build && next export",
-    "build:posts": "processmd posts/*.md --outputDir content --summaryOutput content/summary.json && node ./buildSitemap.js",
-    "dev": "next",
-    "start": "next start"
+    "build:sitemap": "node ./dev-utils/buildSitemap.js",
+    "dev": "npm run watch:posts & next",
+    "start": "next start",
+    "watch:posts": "processmd posts/*.md --outputDir content --summaryOutput content/summary.json --watch"
   },
   "husky": {
     "hooks": {
