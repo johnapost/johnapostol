@@ -11,18 +11,19 @@ import flush from "styled-jsx/server";
 import GoogleAnalytics from "../components/GoogleAnalytics";
 
 export default class MyDocument extends Document {
-  public static async getInitialProps(
-    ctx: DocumentContext
+  static async getInitialProps(
+    context: DocumentContext
   ): Promise<DocumentInitialProps> {
-    const initialProps = await Document.getInitialProps(ctx);
+    const initialProps = await Document.getInitialProps(context);
     const styles = flush();
     return { ...initialProps, styles };
   }
 
-  public render(): JSX.Element {
+  render(): JSX.Element {
     return (
       <Html lang="en">
         <Head>
+          {this.props.styles}
           <link rel="preconnect" href="https://www.google-analytics.com" />
           {process.env.NODE_ENV === "production" && <GoogleAnalytics />}
           <link
