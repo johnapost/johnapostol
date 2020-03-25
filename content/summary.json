@@ -1,20 +1,5 @@
 {
   "fileMap": {
-    "content/2019-01-30.json": {
-      "date": "2019-01-30",
-      "title": "Using Redux with Vanilla JS",
-      "preview": "What follows is an explanation of how I've used Redux to make a production vanilla JS app more maintainable.",
-      "slug": "using-redux-with-vanilla-js",
-      "tags": [
-        "software",
-        "javascript"
-      ],
-      "dir": "content",
-      "base": "2019-01-30.json",
-      "ext": ".json",
-      "sourceBase": "2019-01-30.md",
-      "sourceExt": ".md"
-    },
     "content/2018-08-06.json": {
       "date": "2018-08-06",
       "title": "A Sensible Approach to Developing Product Features",
@@ -45,6 +30,21 @@
       "base": "2019-03-20.json",
       "ext": ".json",
       "sourceBase": "2019-03-20.md",
+      "sourceExt": ".md"
+    },
+    "content/2019-01-30.json": {
+      "date": "2019-01-30",
+      "title": "Using Redux with Vanilla JS",
+      "preview": "What follows is an explanation of how I've used Redux to make a production vanilla JS app more maintainable.",
+      "slug": "using-redux-with-vanilla-js",
+      "tags": [
+        "software",
+        "javascript"
+      ],
+      "dir": "content",
+      "base": "2019-01-30.json",
+      "ext": ".json",
+      "sourceBase": "2019-01-30.md",
       "sourceExt": ".md"
     }
   },
