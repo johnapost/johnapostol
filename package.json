@@ -10,7 +10,7 @@
   "scripts": {
     "build": "next build && next export",
     "build:sitemap": "node ./dev-utils/buildSitemap.js",
-    "dev": "next",
+    "dev": "npm run watch:posts & next",
     "start": "next start",
     "watch:posts": "processmd posts/*.md --outputDir content --summaryOutput content/summary.json --watch"
   },
