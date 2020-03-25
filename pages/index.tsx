@@ -1,5 +1,5 @@
 import React from "react";
-import { NextPage } from "next";
+import { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import Cover from "../components/Cover";
 import GitHub from "../components/GitHub";
@@ -105,7 +105,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
   </>
 );
 
-Index.getInitialProps = async (): Promise<Props> => {
+export const getStaticProps: GetStaticProps = async () => {
   const summary: Summary = await import("../content/summary.json");
   const { sourceFileArray, fileMap } = summary;
 
@@ -118,7 +118,7 @@ Index.getInitialProps = async (): Promise<Props> => {
     return fileMap[destFile];
   });
 
-  return { posts };
+  return { props: { posts } };
 };
 
 export default Index;
