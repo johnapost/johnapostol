@@ -1,5 +1,19 @@
 {
   "fileMap": {
+    "content/2018-08-06.json": {
+      "date": "2018-08-06",
+      "title": "A Sensible Approach to Developing Product Features",
+      "preview": "It works, it’s reliable, it’s fast, and it feels great!",
+      "slug": "a-sensible-approach-to-developing-product-features",
+      "tags": [
+        "software"
+      ],
+      "dir": "content",
+      "base": "2018-08-06.json",
+      "ext": ".json",
+      "sourceBase": "2018-08-06.md",
+      "sourceExt": ".md"
+    },
     "content/2019-01-30.json": {
       "date": "2019-01-30",
       "title": "Using Redux with Vanilla JS",
@@ -13,20 +27,6 @@
       "base": "2019-01-30.json",
       "ext": ".json",
       "sourceBase": "2019-01-30.md",
-      "sourceExt": ".md"
-    },
-    "content/2018-08-06.json": {
-      "date": "2018-08-06",
-      "title": "A Sensible Approach to Developing Product Features",
-      "preview": "It works, it’s reliable, it’s fast, and it feels great!",
-      "slug": "a-sensible-approach-to-developing-product-features",
-      "tags": [
-        "software"
-      ],
-      "dir": "content",
-      "base": "2018-08-06.json",
-      "ext": ".json",
-      "sourceBase": "2018-08-06.md",
       "sourceExt": ".md"
     },
     "content/2019-03-20.json": {
@@ -46,11 +46,27 @@
       "ext": ".json",
       "sourceBase": "2019-03-20.md",
       "sourceExt": ".md"
+    },
+    "content/2020-02-17.json": {
+      "date": "2020-02-17",
+      "title": "Creating a Chrome Extension Without Much Effort",
+      "preview": "Honestly, I thought that Chrome extensions were more effort than they were worth to develop. I thought my extension would have to be useful for other people on the Chrome Web Store. Here's how I was wrong.",
+      "slug": "creating-a-chrome-extension-without-much-effort",
+      "tags": [
+        "javascript",
+        "browser extension"
+      ],
+      "dir": "content",
+      "base": "2020-02-17.json",
+      "ext": ".json",
+      "sourceBase": "2020-02-17.md",
+      "sourceExt": ".md"
     }
   },
   "sourceFileArray": [
     "posts/2018-08-06.md",
     "posts/2019-01-30.md",
-    "posts/2019-03-20.md"
+    "posts/2019-03-20.md",
+    "posts/2020-02-17.md"
   ]
 }
