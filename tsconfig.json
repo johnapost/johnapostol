@@ -28,8 +28,7 @@
     "isolatedModules": true
   },
   "exclude": [
-    "node_modules",
-    "dev-utils"
+    "node_modules"
   ],
   "include": [
     "next-env.d.ts",
