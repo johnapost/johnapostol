@@ -10,6 +10,7 @@
 			"tags: [\"$5\"]",
 			"---"
 		],
-		"description": "Insert post frontmatter"
+		"description": "Insert post frontmatter",
+		"scope": "markdown"
 	}
 }
