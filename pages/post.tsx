@@ -66,6 +66,8 @@ const Post: NextPage<Props> = ({
           />
           <meta property="og:title" content={`John Apostol - ${title}`} />
           <meta property="og:description" content={preview} />
+          <meta name="twitter:site" content="@johnapost" />
+          <meta name="twitter:card" content="summary_large_image" />
         </Head>
         <article>
           <PostHeading date={date} title={title} />

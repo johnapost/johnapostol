@@ -45,6 +45,8 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
           property="og:description"
           content="Thoughts and code from John Apostol, lifelong learner"
         />
+        <meta name="twitter:site" content="@johnapost" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Cover />
       <div className="grid">
