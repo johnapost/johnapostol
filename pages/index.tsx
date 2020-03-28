@@ -34,6 +34,17 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
         />
         <title>John Apostol - lifelong learner</title>
         <link rel="canonical" href="https://johnapostol.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://johnapostol.com" />
+        <meta
+          property="og:image"
+          content={require("../public/static/me.jpg")}
+        />
+        <meta property="og:title" content="John Apostol - lifelong learner" />
+        <meta
+          property="og:description"
+          content="Thoughts and code from John Apostol, lifelong learner"
+        />
       </Head>
       <Cover />
       <div className="grid">

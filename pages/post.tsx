@@ -55,6 +55,17 @@ const Post: NextPage<Props> = ({
             rel="canonical"
             href={`https://johnapostol.com/post/${slug}/`}
           />
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:url"
+            content={`https://johnapostol.com/post/${slug}/`}
+          />
+          <meta
+            property="og:image"
+            content={require("../public/static/me.jpg")}
+          />
+          <meta property="og:title" content={`John Apostol - ${title}`} />
+          <meta property="og:description" content={preview} />
         </Head>
         <article>
           <PostHeading date={date} title={title} />
