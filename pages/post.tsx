@@ -74,7 +74,6 @@ const Post: NextPage<Props> = ({
           <ReactMarkdown source={postBody} renderers={renderers} />
         </article>
       </main>
-      <hr />
       <Footer />
       <style jsx>{`
         main {

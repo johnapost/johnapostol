@@ -79,7 +79,6 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
         <PostList posts={posts} />
       </div>
     </main>
-    <hr />
     <Footer />
     <style jsx>{`
       main {
