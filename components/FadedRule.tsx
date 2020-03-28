@@ -13,6 +13,7 @@ const FadedRule = (): JSX.Element => (
         );
         border: 0;
         height: 2px;
+        margin: auto;
         width: 80%;
       }
     `}</style>

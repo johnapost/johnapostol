@@ -1,22 +1,26 @@
 import React from "react";
 import ColumnWrapper from "./ColumnWrapper";
 import { atLeastMedium } from "../utils/breakpoints";
+import FadedRule from "./FadedRule";
 
 const Footer = (): JSX.Element => (
-  <div className="footer">
-    <ColumnWrapper>
-      <p className="copyright">© 2020 John Apostol. All rights reserved.</p>
-    </ColumnWrapper>
+  <>
+    <FadedRule />
+    <div className="footer">
+      <ColumnWrapper>
+        <p className="copyright">© 2020 John Apostol. All rights reserved.</p>
+      </ColumnWrapper>
+    </div>
     <style jsx>{`
+      .footer {
+        margin: 1rem 0 3rem;
+      }
+
       .copyright {
         color: #362640;
         display: flex;
         font-family: "Lato", serif;
         justify-content: center;
-      }
-
-      .footer {
-        margin: 1rem 0 3rem;
       }
 
       @media ${atLeastMedium} {
@@ -30,7 +34,7 @@ const Footer = (): JSX.Element => (
         }
       }
     `}</style>
-  </div>
+  </>
 );
 
 export default Footer;

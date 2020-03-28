@@ -51,13 +51,29 @@ const Post: NextPage<Props> = ({
         <Head>
           <meta name="description" content={preview} />
           <title>John Apostol - {title}</title>
+          <link
+            rel="canonical"
+            href={`https://johnapostol.com/post/${slug}/`}
+          />
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:url"
+            content={`https://johnapostol.com/post/${slug}/`}
+          />
+          <meta
+            property="og:image"
+            content={require("../public/static/me.jpg")}
+          />
+          <meta property="og:title" content={`John Apostol - ${title}`} />
+          <meta property="og:description" content={preview} />
+          <meta name="twitter:site" content="@johnapost" />
+          <meta name="twitter:card" content="summary_large_image" />
         </Head>
         <article>
           <PostHeading date={date} title={title} />
           <ReactMarkdown source={postBody} renderers={renderers} />
         </article>
       </main>
-      <hr />
       <Footer />
       <style jsx>{`
         main {

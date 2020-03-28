@@ -33,6 +33,20 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
           content="Thoughts and code from John Apostol, lifelong learner"
         />
         <title>John Apostol - lifelong learner</title>
+        <link rel="canonical" href="https://johnapostol.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://johnapostol.com" />
+        <meta
+          property="og:image"
+          content={require("../public/static/me.jpg")}
+        />
+        <meta property="og:title" content="John Apostol - lifelong learner" />
+        <meta
+          property="og:description"
+          content="Thoughts and code from John Apostol, lifelong learner"
+        />
+        <meta name="twitter:site" content="@johnapost" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Cover />
       <div className="grid">
@@ -65,7 +79,6 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
         <PostList posts={posts} />
       </div>
     </main>
-    <hr />
     <Footer />
     <style jsx>{`
       main {

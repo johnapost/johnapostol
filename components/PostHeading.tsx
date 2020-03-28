@@ -51,7 +51,6 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
 
         .border {
           display: none;
-          justify-content: center;
         }
 
         .navigation {
