@@ -33,6 +33,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
           content="Thoughts and code from John Apostol, lifelong learner"
         />
         <title>John Apostol - lifelong learner</title>
+        <link rel="canonical" href="https://johnapostol.com/" />
       </Head>
       <Cover />
       <div className="grid">

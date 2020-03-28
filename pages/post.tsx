@@ -51,6 +51,10 @@ const Post: NextPage<Props> = ({
         <Head>
           <meta name="description" content={preview} />
           <title>John Apostol - {title}</title>
+          <link
+            rel="canonical"
+            href={`https://johnapostol.com/post/${slug}/`}
+          />
         </Head>
         <article>
           <PostHeading date={date} title={title} />
