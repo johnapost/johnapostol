@@ -62,7 +62,7 @@ const Post: NextPage<Props> = ({
           />
           <meta
             property="og:image"
-            content={require("../public/static/me.jpg")}
+            content={require(`../public/static/${date}/hero.jpg`)}
           />
           <meta property="og:title" content={`John Apostol - ${title}`} />
           <meta property="og:description" content={preview} />
