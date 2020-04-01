@@ -5,6 +5,7 @@ import ColumnWrapper from "./ColumnWrapper";
 import Paragraph from "./Paragraph";
 
 export type Post = {
+  date: string;
   preview: string;
   slug: string;
   tags: string[];
@@ -12,7 +13,7 @@ export type Post = {
 };
 
 type Props = {
-  posts: Array<Post & { date: string }>;
+  posts: Post[];
 };
 
 const PostList: NextPage<Props> = ({ posts }: Props) => (

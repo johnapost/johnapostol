@@ -15,13 +15,13 @@ import { atLeastMedium } from "../utils/breakpoints";
 import fileToDate from "../utils/fileToDate";
 
 type Props = {
-  posts: Array<Post & { date: string }>;
+  posts: Post[];
 };
 
 type Summary = {
   sourceFileArray: string[];
   fileMap: {
-    [id: string]: Post;
+    [id: string]: Omit<Post, "date">;
   };
 };
 
