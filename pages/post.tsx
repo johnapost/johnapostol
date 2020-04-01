@@ -62,7 +62,7 @@ const Post: NextPage<Props> = ({
           />
           <meta
             property="og:image"
-            content={require("../public/static/me.jpg")}
+            content={require(`../public/static/${date}/hero.jpg`)}
           />
           <meta property="og:title" content={`John Apostol - ${title}`} />
           <meta property="og:description" content={preview} />
@@ -98,14 +98,12 @@ const Post: NextPage<Props> = ({
 };
 
 Post.getInitialProps = async ({
-  query: { date: postDate, preview, slug },
+  query: { date, preview, slug },
 }): Promise<Props> => {
-  const { bodyContent, date, title } = await import(
-    `../content/${postDate}.json`
-  );
+  const { bodyContent, title } = await import(`../content/${date}.json`);
 
   return {
-    date,
+    date: date as string,
     postBody: bodyContent,
     preview: preview as string,
     slug: slug as string,

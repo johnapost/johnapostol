@@ -12,6 +12,7 @@ import Resume from "../components/Resume";
 import Footer from "../components/Footer";
 import ThematicBreak from "../components/ThematicBreak";
 import { atLeastMedium } from "../utils/breakpoints";
+import fileToDate from "../utils/fileToDate";
 
 type Props = {
   posts: Post[];
@@ -20,7 +21,7 @@ type Props = {
 type Summary = {
   sourceFileArray: string[];
   fileMap: {
-    [id: string]: Post;
+    [id: string]: Omit<Post, "date">;
   };
 };
 
@@ -128,7 +129,10 @@ export const getStaticProps: GetStaticProps = async () => {
       .replace("posts/", "content/")
       .replace(".md", ".json");
 
-    return fileMap[destFile];
+    return {
+      ...fileMap[destFile],
+      date: fileToDate(destFile),
+    };
   });
 
   return { props: { posts } };
