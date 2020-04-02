@@ -4,11 +4,9 @@
     "baseUrl": "../node_modules",
     "target": "es5",
     "lib": ["es5", "dom"],
-    "types": ["cypress"],
-    "typeRoots": ["../node_modules/cypress"]
+    "types": ["cypress"]
   },
   "include": [
-    "../node_modules/cypress",
     "**/*.ts"
   ]
 }
