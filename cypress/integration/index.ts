@@ -15,3 +15,6 @@ describe("Post list", () => {
       });
   });
 });
+
+// Signal this file as a module for TypeScript --isolatedModules
+export default undefined;
