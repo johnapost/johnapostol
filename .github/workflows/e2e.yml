@@ -10,5 +10,9 @@ jobs:
         uses: cypress-io/github-action@v1
         with:
           build: yarn build
+          record: true
           start: yarn start
           wait-on: 'http://localhost:8080'
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
