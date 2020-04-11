@@ -1,7 +1,7 @@
 name: cypress
 on: [push]
 jobs:
-  cypress-run:
+  start:
     runs-on: ubuntu-16.04
     steps:
       - name: Checkout
