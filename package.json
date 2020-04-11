@@ -11,7 +11,7 @@
     "build": "next build && next export",
     "build:sitemap": "node ./dev-utils/buildSitemap.js",
     "dev": "npm-run-all --parallel watch:dev watch:posts",
-    "start": "next start",
+    "start": "serve out -p 8080",
     "watch:dev": "next",
     "watch:posts": "processmd posts/*.md --outputDir content --summaryOutput content/summary.json --watch"
   },
@@ -57,6 +57,7 @@
     "npm-run-all": "4.1.5",
     "prettier": "2.0.2",
     "processmd": "4.5.0",
+    "serve": "11.3.0",
     "sort-package-json": "1.40.0",
     "ts-loader": "6.2.2",
     "ts-node": "8.8.1",
