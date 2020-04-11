@@ -1,5 +1,19 @@
 {
   "extends": [
     "config:base"
-  ]
+  ],
+  "masterIssue": true,
+  "packageRules": [
+    {
+      "depTypeList": ["devDependencies"],
+      "prPriority": -1
+    },
+    {
+      "packageNames": ["react"],
+      "prPriority": 5
+    }
+  ],
+  "prConcurrentLimit": 5,
+  "prCreation": "status-success",
+  "prHourlyLimit": 5
 }
