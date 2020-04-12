@@ -50,7 +50,7 @@ const Post: NextPage<Props> = ({
       <main role="main">
         <Head>
           <meta name="description" content={preview} />
-          <title>John Apostol - {title}</title>
+          <title>{title} | John Apostol</title>
           <link
             rel="canonical"
             href={`https://johnapostol.com/post/${slug}/`}

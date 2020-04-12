@@ -33,7 +33,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
           name="description"
           content="Thoughts and code from John Apostol, lifelong learner"
         />
-        <title>John Apostol - lifelong learner</title>
+        <title>John Apostol, lifelong learner</title>
         <link rel="canonical" href="https://johnapostol.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://johnapostol.com" />

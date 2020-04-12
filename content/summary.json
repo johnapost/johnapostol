@@ -1,36 +1,5 @@
 {
   "fileMap": {
-    "content/2019-03-20.json": {
-      "title": "Building a Serverless React App on Firebase Functions",
-      "preview": "This is a step-by-step guide to building your own serverless React app with the practicality afforded by Next.js and the Firebase ecosystem.",
-      "slug": "building-a-serverless-react-app-on-firebase-functions",
-      "tags": [
-        "javascript",
-        "react",
-        "nextjs",
-        "serverless",
-        "firebase"
-      ],
-      "dir": "content",
-      "base": "2019-03-20.json",
-      "ext": ".json",
-      "sourceBase": "2019-03-20.md",
-      "sourceExt": ".md"
-    },
-    "content/2019-01-30.json": {
-      "title": "Using Redux with Vanilla JS",
-      "preview": "What follows is an explanation of how I've used Redux to make a production vanilla JS app more maintainable.",
-      "slug": "using-redux-with-vanilla-js",
-      "tags": [
-        "software",
-        "javascript"
-      ],
-      "dir": "content",
-      "base": "2019-01-30.json",
-      "ext": ".json",
-      "sourceBase": "2019-01-30.md",
-      "sourceExt": ".md"
-    },
     "content/2018-08-06.json": {
       "title": "A Sensible Approach to Developing Product Features",
       "preview": "It works, it’s reliable, it’s fast, and it feels great!",
@@ -56,6 +25,37 @@
       "base": "2020-02-17.json",
       "ext": ".json",
       "sourceBase": "2020-02-17.md",
+      "sourceExt": ".md"
+    },
+    "content/2019-01-30.json": {
+      "title": "Using Redux with Vanilla JS",
+      "preview": "What follows is an explanation of how I've used Redux to make a production vanilla JS app more maintainable.",
+      "slug": "using-redux-with-vanilla-js",
+      "tags": [
+        "software",
+        "javascript"
+      ],
+      "dir": "content",
+      "base": "2019-01-30.json",
+      "ext": ".json",
+      "sourceBase": "2019-01-30.md",
+      "sourceExt": ".md"
+    },
+    "content/2019-03-20.json": {
+      "title": "Building a Serverless React App on Firebase Functions",
+      "preview": "This is a step-by-step guide to building your own serverless React app with the practicality afforded by Next.js and the Firebase ecosystem.",
+      "slug": "building-a-serverless-react-app-on-firebase-functions",
+      "tags": [
+        "javascript",
+        "react",
+        "nextjs",
+        "serverless",
+        "firebase"
+      ],
+      "dir": "content",
+      "base": "2019-03-20.json",
+      "ext": ".json",
+      "sourceBase": "2019-03-20.md",
       "sourceExt": ".md"
     }
   },
