@@ -30,7 +30,9 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
           <div className="post-nav">
             <div className="top">{title}</div>
             <Link href="/">
-              <a className="bottom">Home</a>
+              <a className="bottom" data-cy="home">
+                Home
+              </a>
             </Link>
           </div>
         </div>

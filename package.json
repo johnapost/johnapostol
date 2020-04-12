@@ -11,7 +11,7 @@
     "build": "next build && next export",
     "build:sitemap": "node ./dev-utils/buildSitemap.js",
     "dev": "npm-run-all --parallel watch:dev watch:posts",
-    "start": "serve out -p 8080",
+    "start": "serve out -p 3000",
     "watch:dev": "next",
     "watch:posts": "processmd posts/*.md --outputDir content --summaryOutput content/summary.json --watch"
   },

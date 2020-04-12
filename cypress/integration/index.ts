@@ -5,13 +5,14 @@ describe("Post list", () => {
       .as("link")
       .then((element) => {
         const title = element.text();
+        const url = element.attr("href");
 
         cy.get("@link")
           .click()
           .url()
-          .should("include", "/post/")
+          .should("be", url)
           .get("h1")
-          .should("include.text", title);
+          .should("be", title);
       });
   });
 });
