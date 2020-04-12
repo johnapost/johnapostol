@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import ColumnWrapper from "../components/ColumnWrapper";
 import formatDate from "../utils/formatDate";
 import { useInView } from "react-intersection-observer";
@@ -21,9 +22,15 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
         <div className="background" />
         <div className="navigation">
           <img src={require("../public/static/me.jpg")} />
-          <div>
-            <div className="author">John Apostol</div>
-            <div className="date">{formattedDate}</div>
+          <div className="post-details">
+            <div className="top">John Apostol</div>
+            <div className="bottom">{formattedDate}</div>
+          </div>
+          <div className="post-nav">
+            <div className="top">{title}</div>
+            <Link href="/">
+              <a className="bottom">Home</a>
+            </Link>
           </div>
         </div>
         <div className="border">
@@ -41,7 +48,7 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
         }
 
         .sticky {
-          margin: 95px 0 0;
+          margin: 82px 0 0;
         }
 
         .background {
@@ -59,6 +66,32 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
           height: 0;
           padding: 25px 0;
           overflow-y: visible;
+          position: relative;
+        }
+
+        .post-nav,
+        .post-details {
+          transition: 1s;
+          position: absolute;
+          left: 65px;
+        }
+
+        .static .post-details {
+          opacity: 1;
+        }
+
+        .static .post-nav {
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        .sticky .post-details {
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        .sticky .post-nav {
+          opacity: 1;
         }
 
         .sticky > div {
@@ -88,16 +121,20 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
           width: 50px;
         }
 
-        .author {
-          padding-left: 15px;
+        .top {
           font-size: 15px;
+          min-width: 200px;
+          max-width: calc(100vw - 95px);
+          overflow: hidden;
           padding-bottom: 3px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
 
-        .date {
-          padding-left: 15px;
+        .bottom {
           font-size: 14px;
           color: rgba(0, 0, 0, 0.44);
+          width: 200px;
         }
 
         h1 {

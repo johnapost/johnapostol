@@ -78,6 +78,7 @@ const Post: NextPage<Props> = ({
       <style jsx>{`
         main {
           margin: 3rem 0 6rem;
+          min-width: 320px;
           overflow-x: hidden;
         }
 
