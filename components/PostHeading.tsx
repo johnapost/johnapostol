@@ -22,7 +22,6 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
         <div className="background" />
         <div className="navigation">
           <img src={require("../public/static/me.jpg")} />
-          <div className="matting" />
           <div className="post-details">
             <div className="top">John Apostol</div>
             <div className="bottom">{formattedDate}</div>
@@ -67,18 +66,9 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
           align-items: center;
           display: flex;
           height: 50px;
-          overflow-x: hidden;
+          overflow-y: visible;
           position: relative;
           width: 100%;
-        }
-
-        .matting {
-          height: 50px;
-          width: 65px;
-          position: absolute;
-          left: 0;
-          background: #ffffff;
-          z-index: 4;
         }
 
         .post-nav,
@@ -166,22 +156,22 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
 
         @keyframes slideout {
           0% {
-            transform: translateX(0);
+            transform: translateY(0);
             opacity: 1;
           }
           100% {
-            transform: translateX(75vw);
+            transform: translateY(100%);
             opacity: 0;
           }
         }
 
         @keyframes slidein {
           0% {
-            transform: translateX(-75vw);
+            transform: translateY(-100%);
             opacity: 0;
           }
           100% {
-            transform: translateX(0);
+            transform: translateY(0);
             opacity: 1;
           }
         }
