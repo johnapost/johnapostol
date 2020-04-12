@@ -14,7 +14,7 @@ const StructuredData = ({ date, title, hero, preview }: Props): JSX.Element => {
     publisher: {
       "@type": "Organization",
       name: "John Apostol",
-      url: "https://johnapostol.com",
+      url: "https://johnapostol.com/",
       logo: {
         "@type": "ImageObject",
         url: require("../public/static/me.jpg"),
@@ -23,7 +23,7 @@ const StructuredData = ({ date, title, hero, preview }: Props): JSX.Element => {
     author: {
       "@type": "Person",
       name: "John Apostol",
-      url: "https://johnapostol.com",
+      url: "https://johnapostol.com/",
     },
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -39,9 +39,7 @@ const StructuredData = ({ date, title, hero, preview }: Props): JSX.Element => {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: data,
-      }}
+      dangerouslySetInnerHTML={{ __html: data }}
     />
   );
 };

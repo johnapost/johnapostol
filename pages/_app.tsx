@@ -3,6 +3,14 @@ import { AppProps } from "next/app";
 import GoogleAnalytics from "../components/GoogleAnalytics";
 import Head from "next/head";
 
+const structuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "John Apostol",
+  url: "https://johnapostol.com/",
+  logo: require("../public/static/me.jpg"),
+});
+
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => (
   <>
     <Head>
@@ -26,6 +34,10 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => (
       />
     </Head>
     <noscript>This website runs best with JavaScript enabled</noscript>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: structuredData }}
+    />
     <Component {...pageProps} />
   </>
 );
