@@ -17,10 +17,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": [
-        "lint-staged",
-        "yarn build:sitemap"
-      ]
+      "pre-commit": "lint-staged && yarn build:sitemap"
     }
   },
   "lint-staged": {
