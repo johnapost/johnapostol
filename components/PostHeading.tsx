@@ -22,6 +22,7 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
         <div className="background" />
         <div className="navigation">
           <img src={require("../public/static/me.jpg")} />
+          <div className="matting" />
           <div className="post-details">
             <div className="top">John Apostol</div>
             <div className="bottom">{formattedDate}</div>
@@ -63,10 +64,19 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
         .navigation {
           align-items: center;
           display: flex;
-          height: 0;
-          padding: 25px 0;
-          overflow-y: visible;
+          height: 50px;
+          overflow-x: hidden;
           position: relative;
+          width: 100%;
+        }
+
+        .matting {
+          height: 50px;
+          width: 65px;
+          position: absolute;
+          left: 0;
+          background: #ffffff;
+          z-index: 4;
         }
 
         .post-nav,
@@ -77,28 +87,34 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
         }
 
         .static .post-details {
-          opacity: 1;
+          animation: 1s slidein forwards;
         }
 
         .static .post-nav {
-          opacity: 0;
           pointer-events: none;
+          animation: 1s slideout forwards;
         }
 
         .sticky .post-details {
-          opacity: 0;
           pointer-events: none;
+          animation: 1s slideout forwards;
         }
 
         .sticky .post-nav {
-          opacity: 1;
+          animation: 1s slidein forwards;
         }
 
         .sticky > div {
-          height: 50px;
-          padding: calc(1rem + 25px) 0;
           position: fixed;
           top: 0;
+        }
+
+        .sticky .background {
+          height: 82px;
+        }
+
+        .sticky .navigation {
+          height: 82px;
         }
 
         .sticky .background {
@@ -109,7 +125,7 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
         .sticky .border {
           display: flex;
           left: 0;
-          top: calc(1rem + 25px);
+          top: 82px;
           width: 100%;
           pointer-events: none;
         }
@@ -119,6 +135,7 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
           display: inline-block;
           height: 50px;
           width: 50px;
+          z-index: 5;
         }
 
         .top {
@@ -143,6 +160,28 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
           font-weight: 700;
           margin-top: 1rem;
           margin-bottom: 1rem;
+        }
+
+        @keyframes slideout {
+          0% {
+            transform: translateX(0);
+            opacity: 1;
+          }
+          100% {
+            transform: translateX(75vw);
+            opacity: 0;
+          }
+        }
+
+        @keyframes slidein {
+          0% {
+            transform: translateX(-75vw);
+            opacity: 0;
+          }
+          100% {
+            transform: translateX(0);
+            opacity: 1;
+          }
         }
 
         @media ${atLeastSmall} {
