@@ -83,7 +83,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
     <Footer />
     <style jsx>{`
       main {
-        margin: 3rem 0 6rem;
+        margin: 0 0 6rem;
         min-width: 320px;
         overflow-x: hidden;
       }
