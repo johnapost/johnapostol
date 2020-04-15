@@ -1,6 +1,5 @@
 import React from "react";
 import { NextPage } from "next";
-import Link from "next/link";
 import formatDate from "../utils/formatDate";
 import ColumnWrapper from "./ColumnWrapper";
 import Paragraph from "./Paragraph";
@@ -26,9 +25,12 @@ const PostList: NextPage<Props> = ({ posts }: Props) => (
           <div className={`inner ${index === 0 && "first"}`}>
             <div className="post-heading">{formattedDate}</div>
             <div className="title">
-              <Link href="/post/[slug]/" as={`/post/${slug}/`}>
-                <a data-cy={`${index === 0 && "first-post"}`}>{title}</a>
-              </Link>
+              <a
+                href={`/post/${slug}/`}
+                data-cy={`${index === 0 && "first-post"}`}
+              >
+                {title}
+              </a>
             </div>
             <div>
               {tags.length && (

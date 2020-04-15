@@ -53,13 +53,13 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
       <div className="grid">
         <ColumnWrapper>
           <div className="external">
-            <a href="https://github.com/johnapost">
+            <a href="https://github.com/johnapost" target="__blank">
               <GitHub />
             </a>
-            <a href="https://medium.com/@johnapost">
+            <a href="https://medium.com/@johnapost" target="__blank">
               <Medium />
             </a>
-            <a href="https://www.linkedin.com/in/johnapost/">
+            <a href="https://www.linkedin.com/in/johnapost/" target="__blank">
               <LinkedIn />
             </a>
             <a>
