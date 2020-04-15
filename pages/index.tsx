@@ -33,10 +33,10 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
           name="description"
           content="Thoughts and code from John Apostol, lifelong learner"
         />
-        <title>John Apostol - lifelong learner</title>
+        <title>John Apostol, lifelong learner</title>
         <link rel="canonical" href="https://johnapostol.com/" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://johnapostol.com" />
+        <meta property="og:url" content="https://johnapostol.com/" />
         <meta
           property="og:image"
           content={require("../public/static/me.jpg")}
@@ -84,6 +84,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
     <style jsx>{`
       main {
         margin: 0 0 6rem;
+        min-width: 320px;
         overflow-x: hidden;
       }
 

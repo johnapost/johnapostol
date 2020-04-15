@@ -16,6 +16,7 @@ import List from "../components/List";
 import ListItem from "../components/ListItem";
 import InlineCode from "../components/InlineCode";
 import Link from "../components/Link";
+import StructuredData from "../components/StructuredData";
 
 interface Props {
   date: string;
@@ -45,12 +46,15 @@ const Post: NextPage<Props> = ({
     thematicBreak: ThematicBreak,
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const hero = require(`../public/static/${date}/hero.jpg`);
+
   return (
     <>
       <main role="main">
         <Head>
           <meta name="description" content={preview} />
-          <title>John Apostol - {title}</title>
+          <title>{title} | John Apostol</title>
           <link
             rel="canonical"
             href={`https://johnapostol.com/post/${slug}/`}
@@ -60,15 +64,18 @@ const Post: NextPage<Props> = ({
             property="og:url"
             content={`https://johnapostol.com/post/${slug}/`}
           />
-          <meta
-            property="og:image"
-            content={require(`../public/static/${date}/hero.jpg`)}
-          />
+          <meta property="og:image" content={hero} />
           <meta property="og:title" content={`John Apostol - ${title}`} />
           <meta property="og:description" content={preview} />
           <meta name="twitter:site" content="@johnapost" />
           <meta name="twitter:card" content="summary_large_image" />
         </Head>
+        <StructuredData
+          date={date}
+          title={title}
+          hero={hero}
+          preview={preview}
+        />
         <article>
           <PostHeading date={date} title={title} />
           <ReactMarkdown source={postBody} renderers={renderers} />
@@ -78,6 +85,7 @@ const Post: NextPage<Props> = ({
       <style jsx>{`
         main {
           margin: 3rem 0 6rem;
+          min-width: 320px;
           overflow-x: hidden;
         }
 

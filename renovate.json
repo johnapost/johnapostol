@@ -6,11 +6,13 @@
   "packageRules": [
     {
       "depTypeList": ["devDependencies"],
-      "prPriority": -1
+      "prPriority": -1,
+      "schedule": "before 3am on the first day of the month"
     },
     {
-      "packageNames": ["react"],
-      "prPriority": 5
+      "depTypeList": ["dependencies"],
+      "prPriority": 3,
+      "schedule": "before 3am on Saturday"
     }
   ],
   "prConcurrentLimit": 5,
