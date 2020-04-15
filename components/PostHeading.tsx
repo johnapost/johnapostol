@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import ColumnWrapper from "../components/ColumnWrapper";
 import formatDate from "../utils/formatDate";
@@ -14,11 +14,28 @@ interface Props {
 const PostHeading = ({ date, title }: Props): JSX.Element => {
   const formattedDate = formatDate(date);
   const [ref, inView] = useInView({ threshold: 0.01 });
+  const [hasStuck, setStuck] = useState(false);
+  const [count, setCount] = useState(0);
+
+  // Consider that the nav has stuck if inView transitioned more than twice
+  useEffect(() => {
+    // Threshold at 2 because initial load has a transition
+    if (count > 2) setStuck(true);
+  }, [count]);
+
+  // Count the number of times inView has fired
+  useEffect(() => setCount(count + 1), [inView]);
 
   return (
     <ColumnWrapper>
       <h1 ref={ref}>{title}</h1>
-      <div className={`spacer ${inView ? "static" : "sticky"}`}>
+      <div
+        className={`
+          spacer
+          ${inView ? "static" : "sticky"}
+          ${hasStuck ? "has-stuck" : "initial"}
+        `}
+      >
         <div className="background" />
         <div className="navigation">
           <img src={require("../public/static/me.jpg")} />
@@ -78,12 +95,23 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
           left: 65px;
         }
 
-        .static .post-details {
+        .static .post-nav {
+          pointer-events: none;
+        }
+
+        .static.initial .post-details {
+          animation: 1s slidein reverse paused;
+        }
+
+        .static.initial .post-nav {
+          animation: 1s slideout reverse paused;
+        }
+
+        .static.has-stuck .post-details {
           animation: 1s slidein forwards;
         }
 
-        .static .post-nav {
-          pointer-events: none;
+        .static.has-stuck .post-nav {
           animation: 1s slideout forwards;
         }
 
