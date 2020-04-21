@@ -3,7 +3,6 @@
     "prefix": "post",
     "body": [
       "---",
-      "date: \"$1\"",
       "title: \"$2\"",
       "preview: \"$3\"",
       "slug: \"$4\"",
