@@ -108,17 +108,10 @@ Post.getInitialProps = async ({
   query: { date, preview, slug },
 }): Promise<Props> => {
   const { bodyContent, title } = await import(`../content/${date}.json`);
-  let hero;
-
-  try {
-    hero = await import(`../public/static/${date}/hero.jpg`);
-  } catch (error) {
-    hero = "";
-  }
 
   return {
     date: date as string,
-    hero,
+    hero: await import(`../public/static/${date}/hero.jpg`),
     postBody: bodyContent,
     preview: preview as string,
     slug: slug as string,
