@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import ColumnWrapper from "./ColumnWrapper";
 
 interface Props {
@@ -10,19 +11,41 @@ interface Props {
 }
 
 const Image = ({ alt, src, context: { date } }: Props): JSX.Element | null => {
-  const [size, caption] = alt.split(": ");
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const optimizedImage = require(`../public/static/${date}/${src}?resize`);
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const lowQualityImage = require(`../public/static/${date}/${src}?lqip`);
+  const [size, caption] = alt.split(": ");
+  const [ref, inView] = useInView({ threshold: 0.25 });
+  const [hasLoaded, setLoaded] = useState(false);
+  const [count, setCount] = useState(0);
+
+  // Consider that the nav has stuck if inView transitioned more than twice
+  useEffect(() => {
+    if (count > 1) setLoaded(true);
+  }, [count]);
+
+  // Count the number of times inView has fired
+  useEffect(() => setCount(count + 1), [inView]);
 
   if (size === "wide") {
     return (
       <div className="full-width">
         <figure>
-          <img
-            alt={caption}
-            srcSet={optimizedImage.srcSet}
-            src={optimizedImage.src}
-          />
+          {hasLoaded ? (
+            <img
+              alt={caption}
+              srcSet={optimizedImage.srcSet}
+              src={optimizedImage.src}
+            />
+          ) : (
+            <img
+              className="low-quality"
+              ref={ref}
+              alt={caption}
+              src={lowQualityImage}
+            />
+          )}
           {caption && (
             <figcaption dangerouslySetInnerHTML={{ __html: caption }} />
           )}
@@ -53,17 +76,30 @@ const Image = ({ alt, src, context: { date } }: Props): JSX.Element | null => {
     return (
       <ColumnWrapper>
         <figure>
-          <img
-            alt={caption}
-            srcSet={optimizedImage.srcSet}
-            src={optimizedImage.src}
-          />
+          {hasLoaded ? (
+            <img
+              alt={caption}
+              srcSet={optimizedImage.srcSet}
+              src={optimizedImage.src}
+            />
+          ) : (
+            <img
+              className="low-quality"
+              ref={ref}
+              alt={caption}
+              src={lowQualityImage}
+            />
+          )}
           <figcaption dangerouslySetInnerHTML={{ __html: caption }} />
         </figure>
         <style jsx>{`
           img {
             margin-top: 44px;
             width: 100%;
+          }
+
+          .low-quality {
+            filter: blur(25px);
           }
 
           figcaption {
