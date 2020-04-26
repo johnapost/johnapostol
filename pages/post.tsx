@@ -20,7 +20,6 @@ import StructuredData from "../components/StructuredData";
 
 interface Props {
   date: string;
-  hero: string;
   postBody: string;
   preview: string;
   slug: string;
@@ -29,7 +28,6 @@ interface Props {
 
 const Post: NextPage<Props> = ({
   date,
-  hero,
   postBody,
   preview,
   slug,
@@ -48,6 +46,9 @@ const Post: NextPage<Props> = ({
     thematicBreak: ThematicBreak,
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const hero = require(`../public/static/${date}/hero.jpg`);
+
   return (
     <>
       <main role="main">
@@ -63,7 +64,7 @@ const Post: NextPage<Props> = ({
             property="og:url"
             content={`https://johnapostol.com/post/${slug}/`}
           />
-          {hero && <meta property="og:image" content={hero} />}
+          <meta property="og:image" content={hero} />
           <meta property="og:title" content={`John Apostol - ${title}`} />
           <meta property="og:description" content={preview} />
           <meta name="twitter:site" content="@johnapost" />
@@ -111,7 +112,6 @@ Post.getInitialProps = async ({
 
   return {
     date: date as string,
-    hero: await import(`../public/static/${date}/hero.jpg`),
     postBody: bodyContent,
     preview: preview as string,
     slug: slug as string,
