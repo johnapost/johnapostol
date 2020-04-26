@@ -27,21 +27,6 @@
       "sourceBase": "2020-02-17.md",
       "sourceExt": ".md"
     },
-    "content/2020-04-11.json": {
-      "title": "Remote Management Tips",
-      "preview": "",
-      "slug": "remote-management-tips",
-      "tags": [
-        "management",
-        "remote",
-        "software"
-      ],
-      "dir": "content",
-      "base": "2020-04-11.json",
-      "ext": ".json",
-      "sourceBase": "2020-04-11.md",
-      "sourceExt": ".md"
-    },
     "content/2019-01-30.json": {
       "title": "Using Redux with Vanilla JS",
       "preview": "What follows is an explanation of how I've used Redux to make a production vanilla JS app more maintainable.",
@@ -78,7 +63,6 @@
     "posts/2018-08-06.md",
     "posts/2019-01-30.md",
     "posts/2019-03-20.md",
-    "posts/2020-02-17.md",
-    "posts/2020-04-11.md"
+    "posts/2020-02-17.md"
   ]
 }
