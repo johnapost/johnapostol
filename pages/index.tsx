@@ -39,7 +39,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
         <meta property="og:url" content="https://johnapostol.com/" />
         <meta
           property="og:image"
-          content={require("../public/static/me.jpg")}
+          content={require("../public/static/me.jpg?size=320")}
         />
         <meta property="og:title" content="John Apostol - lifelong learner" />
         <meta
