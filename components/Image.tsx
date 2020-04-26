@@ -20,7 +20,6 @@ const Image = ({ alt, src, context: { date } }: Props): JSX.Element | null => {
   const [hasLoaded, setLoaded] = useState(false);
   const [count, setCount] = useState(0);
 
-  // Consider that the nav has stuck if inView transitioned more than twice
   useEffect(() => {
     if (count > 1) setLoaded(true);
   }, [count]);
