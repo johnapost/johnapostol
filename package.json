@@ -29,6 +29,7 @@
     ]
   },
   "dependencies": {
+    "image-trace-loader": "1.0.2",
     "imagemin-mozjpeg": "8.0.0",
     "isomorphic-unfetch": "3.0.0",
     "next": "9.3.5",
@@ -39,8 +40,8 @@
     "react-dom": "16.13.1",
     "react-intersection-observer": "8.26.2",
     "react-markdown": "4.3.1",
-    "responsive-loader": "^1.2.0",
-    "webp-loader": "^0.6.0"
+    "responsive-loader": "1.2.0",
+    "sharp": "0.25.2"
   },
   "devDependencies": {
     "@cypress/webpack-preprocessor": "5.1.2",

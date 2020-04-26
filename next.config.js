@@ -8,13 +8,13 @@ module.exports = withPlugins([
   [
     optimizedImages,
     {
-      handleImages: ["jpg", "webp"],
+      handleImages: ["jpg"],
       mozjpeg: {
         quality: 90,
       },
-      webp: {
-        preset: "default",
-        quality: 90,
+      optimizeImagesInDev: true,
+      responsive: {
+        sizes: [320, 740, 900, 1600],
       },
     },
   ],

@@ -19,7 +19,7 @@ const RepoCard = ({ href, preview }: Props): JSX.Element => (
         </div>
         <div className="preview">{preview}</div>
       </div>
-      <img src={require("../public/static/me.jpg")} />
+      <img src={require("../public/static/me.jpg?size=320")} />
     </div>
     <style jsx>{`
       a {

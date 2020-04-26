@@ -12,13 +12,14 @@ const Cover = (): JSX.Element => (
       .outside {
         box-sizing: border-box;
         height: 40vh;
-        max-height: 300px;
+        max-height: 420px;
         position: relative;
         width: 100vw;
       }
 
       .background::before {
-        background: url(${require("../public/static/cover.jpg")}) center top;
+        background: url(${require("../public/static/cover.jpg?size=320")})
+          center center;
         background-size: cover;
         background-color: rgba(0, 0, 0, 0.2);
         filter: blur(1.5px);

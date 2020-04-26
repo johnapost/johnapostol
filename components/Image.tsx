@@ -11,12 +11,18 @@ interface Props {
 
 const Image = ({ alt, src, context: { date } }: Props): JSX.Element | null => {
   const [size, caption] = alt.split(": ");
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const optimizedImage = require(`../public/static/${date}/${src}?resize`);
 
   if (size === "wide") {
     return (
       <div className="full-width">
         <figure>
-          <img alt={caption} src={require(`../public/static/${date}/${src}`)} />
+          <img
+            alt={caption}
+            srcSet={optimizedImage.srcSet}
+            src={optimizedImage.src}
+          />
           {caption && (
             <figcaption dangerouslySetInnerHTML={{ __html: caption }} />
           )}
@@ -47,7 +53,11 @@ const Image = ({ alt, src, context: { date } }: Props): JSX.Element | null => {
     return (
       <ColumnWrapper>
         <figure>
-          <img alt={caption} src={require(`../public/static/${date}/${src}`)} />
+          <img
+            alt={caption}
+            srcSet={optimizedImage.srcSet}
+            src={optimizedImage.src}
+          />
           <figcaption dangerouslySetInnerHTML={{ __html: caption }} />
         </figure>
         <style jsx>{`

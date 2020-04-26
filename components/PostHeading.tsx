@@ -38,7 +38,7 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
       >
         <div className="background" />
         <div className="navigation">
-          <img src={require("../public/static/me.jpg")} />
+          <img src={require("../public/static/me.jpg?size=320")} />
           <div className="post-details">
             <div className="top">John Apostol</div>
             <div className="bottom">{formattedDate}</div>
