@@ -5,7 +5,8 @@
       "preview": "It works, it’s reliable, it’s fast, and it feels great!",
       "slug": "a-sensible-approach-to-developing-product-features",
       "tags": [
-        "software"
+        "software",
+        "product"
       ],
       "dir": "content",
       "base": "2018-08-06.json",
@@ -19,27 +20,12 @@
       "slug": "creating-a-chrome-extension-without-much-effort",
       "tags": [
         "javascript",
-        "browser extension"
+        "browser"
       ],
       "dir": "content",
       "base": "2020-02-17.json",
       "ext": ".json",
       "sourceBase": "2020-02-17.md",
-      "sourceExt": ".md"
-    },
-    "content/2020-04-11.json": {
-      "title": "Remote Management Tips",
-      "preview": "",
-      "slug": "remote-management-tips",
-      "tags": [
-        "management",
-        "remote",
-        "software"
-      ],
-      "dir": "content",
-      "base": "2020-04-11.json",
-      "ext": ".json",
-      "sourceBase": "2020-04-11.md",
       "sourceExt": ".md"
     },
     "content/2019-01-30.json": {
@@ -61,16 +47,27 @@
       "preview": "This is a step-by-step guide to building your own serverless React app with the practicality afforded by Next.js and the Firebase ecosystem.",
       "slug": "building-a-serverless-react-app-on-firebase-functions",
       "tags": [
-        "javascript",
-        "react",
         "nextjs",
-        "serverless",
         "firebase"
       ],
       "dir": "content",
       "base": "2019-03-20.json",
       "ext": ".json",
       "sourceBase": "2019-03-20.md",
+      "sourceExt": ".md"
+    },
+    "content/2020-04-28.json": {
+      "title": "How to Manage a Remote Team During a Pandemic",
+      "preview": "A good leader is a shock absorber that cushions the blows of change.",
+      "slug": "how-to-manage-a-remote-team-during-a-pandemic",
+      "tags": [
+        "management",
+        "remote"
+      ],
+      "dir": "content",
+      "base": "2020-04-28.json",
+      "ext": ".json",
+      "sourceBase": "2020-04-28.md",
       "sourceExt": ".md"
     }
   },
@@ -79,6 +76,6 @@
     "posts/2019-01-30.md",
     "posts/2019-03-20.md",
     "posts/2020-02-17.md",
-    "posts/2020-04-11.md"
+    "posts/2020-04-28.md"
   ]
 }
