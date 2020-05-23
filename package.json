@@ -44,7 +44,6 @@
     "sharp": "0.25.2"
   },
   "devDependencies": {
-    "@cypress/webpack-preprocessor": "5.1.2",
     "@types/react": "16.9.34",
     "@types/react-dom": "16.9.7",
     "@types/styled-jsx": "2.2.8",
