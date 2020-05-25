@@ -1,21 +1,5 @@
 {
   "extends": [
-    "config:base"
-  ],
-  "masterIssue": true,
-  "packageRules": [
-    {
-      "depTypeList": ["devDependencies"],
-      "prPriority": -1,
-      "schedule": "before 3am on the first day of the month"
-    },
-    {
-      "depTypeList": ["dependencies"],
-      "prPriority": 3,
-      "schedule": "before 3am on Saturday"
-    }
-  ],
-  "prConcurrentLimit": 5,
-  "prCreation": "status-success",
-  "prHourlyLimit": 5
+    "github>johnapost/renovate-config"
+  ]
 }
