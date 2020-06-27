@@ -17,7 +17,7 @@ const StructuredData = ({ date, title, hero, preview }: Props): JSX.Element => {
       url: "https://johnapostol.com/",
       logo: {
         "@type": "ImageObject",
-        url: require("../public/static/me.jpg?size=320"),
+        url: require("../public/static/me.jpg?resize=320"),
       },
     },
     author: {

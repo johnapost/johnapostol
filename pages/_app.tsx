@@ -8,7 +8,7 @@ const structuredData = JSON.stringify({
   "@type": "Organization",
   name: "John Apostol",
   url: "https://johnapostol.com/",
-  logo: require("../public/static/me.jpg?size=320"),
+  logo: require("../public/static/me.jpg?resize=320&url"),
 });
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => (
