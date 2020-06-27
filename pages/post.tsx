@@ -90,8 +90,9 @@ const Post: NextPage<Props> = ({
         }
 
         article {
-          font-family: "Merriweather", serif;
           display: block;
+          font-family: "Merriweather", serif;
+          font-size: 1.1rem;
         }
 
         @media ${atLeastSmall} {
