@@ -12,12 +12,13 @@ const Blockquote = ({ children }: Props): JSX.Element => (
     </blockquote>
     <style jsx>{`
       blockquote {
+        color: #757575;
         font-family: "Merriweather", serif;
-        font-size: 2rem;
+        font-size: 1.3rem;
         font-weight: 400;
         line-height: 44.4px;
         margin-bottom: 1rem;
-        padding-left: 50px;
+        padding: 0 75px;
       }
     `}</style>
   </ColumnWrapper>

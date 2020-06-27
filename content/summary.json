@@ -14,18 +14,18 @@
       "sourceBase": "2018-08-06.md",
       "sourceExt": ".md"
     },
-    "content/2020-02-17.json": {
-      "title": "Creating a Chrome Extension Without Much Effort",
-      "preview": "Honestly, I thought that Chrome extensions were more effort than they were worth to develop. I thought my extension would have to be useful for other people on the Chrome Web Store. Here's how I was wrong.",
-      "slug": "creating-a-chrome-extension-without-much-effort",
+    "content/2019-01-30.json": {
+      "title": "Using Redux with Vanilla JS",
+      "preview": "What follows is an explanation of how I've used Redux to make a production vanilla JS app more maintainable.",
+      "slug": "using-redux-with-vanilla-js",
       "tags": [
-        "javascript",
-        "browser"
+        "software",
+        "javascript"
       ],
       "dir": "content",
-      "base": "2020-02-17.json",
+      "base": "2019-01-30.json",
       "ext": ".json",
-      "sourceBase": "2020-02-17.md",
+      "sourceBase": "2019-01-30.md",
       "sourceExt": ".md"
     },
     "content/2019-03-20.json": {
@@ -42,18 +42,18 @@
       "sourceBase": "2019-03-20.md",
       "sourceExt": ".md"
     },
-    "content/2019-01-30.json": {
-      "title": "Using Redux with Vanilla JS",
-      "preview": "What follows is an explanation of how I've used Redux to make a production vanilla JS app more maintainable.",
-      "slug": "using-redux-with-vanilla-js",
+    "content/2020-02-17.json": {
+      "title": "Creating a Chrome Extension Without Much Effort",
+      "preview": "Honestly, I thought that Chrome extensions were more effort than they were worth to develop. I thought my extension would have to be useful for other people on the Chrome Web Store. Here's how I was wrong.",
+      "slug": "creating-a-chrome-extension-without-much-effort",
       "tags": [
-        "software",
-        "javascript"
+        "javascript",
+        "browser"
       ],
       "dir": "content",
-      "base": "2019-01-30.json",
+      "base": "2020-02-17.json",
       "ext": ".json",
-      "sourceBase": "2019-01-30.md",
+      "sourceBase": "2020-02-17.md",
       "sourceExt": ".md"
     },
     "content/2020-04-28.json": {
