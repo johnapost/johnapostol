@@ -14,20 +14,6 @@
       "sourceBase": "2018-08-06.md",
       "sourceExt": ".md"
     },
-    "content/2020-06-26.json": {
-      "title": "Notes on Managing a Remote Team During COVID-19",
-      "preview": "A good leader is a shock absorber that cushions the blows of change.",
-      "slug": "notes-on-managing-a-remote-team-during-covid-19",
-      "tags": [
-        "management",
-        "remote"
-      ],
-      "dir": "content",
-      "base": "2020-06-26.json",
-      "ext": ".json",
-      "sourceBase": "2020-06-26.md",
-      "sourceExt": ".md"
-    },
     "content/2020-02-17.json": {
       "title": "Creating a Chrome Extension Without Much Effort",
       "preview": "Honestly, I thought that Chrome extensions were more effort than they were worth to develop. I thought my extension would have to be useful for other people on the Chrome Web Store. Here's how I was wrong.",
@@ -40,6 +26,20 @@
       "base": "2020-02-17.json",
       "ext": ".json",
       "sourceBase": "2020-02-17.md",
+      "sourceExt": ".md"
+    },
+    "content/2020-06-26.json": {
+      "title": "Notes on Managing a Remote Team During COVID-19",
+      "preview": "A good leader is a shock absorber that cushions the blows of change.",
+      "slug": "notes-on-managing-a-remote-team-during-covid-19",
+      "tags": [
+        "management",
+        "remote"
+      ],
+      "dir": "content",
+      "base": "2020-06-26.json",
+      "ext": ".json",
+      "sourceBase": "2020-06-26.md",
       "sourceExt": ".md"
     },
     "content/2019-01-30.json": {
