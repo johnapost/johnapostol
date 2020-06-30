@@ -41,7 +41,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
           property="og:image"
           content={require("../public/static/me.jpg?size=320")}
         />
-        <meta property="og:title" content="John Apostol - lifelong learner" />
+        <meta property="og:title" content="John Apostol, lifelong learner" />
         <meta
           property="og:description"
           content="Thoughts and code from John Apostol, lifelong learner"
@@ -62,9 +62,9 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
             <a href="https://www.linkedin.com/in/johnapost/" target="__blank">
               <LinkedIn />
             </a>
-            <a>
+            {/* <a>
               <Resume />
-            </a>
+            </a> */}
           </div>
         </ColumnWrapper>
         <Paragraph>Hi there!</Paragraph>
