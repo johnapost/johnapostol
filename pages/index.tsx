@@ -59,7 +59,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
           balance idealism with pragmatism.
         </Paragraph>
         <Paragraph>
-          <Link href="/about">
+          <Link href="/about/">
             <a>Read more about me.</a>
           </Link>
         </Paragraph>

@@ -50,7 +50,7 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
                 Home
               </a>
             </Link>
-            <Link href="/about">
+            <Link href="/about/">
               <a className="bottom" data-cy="about">
                 About
               </a>
