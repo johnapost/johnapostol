@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import Footer from "../components/Footer";
 import Paragraph from "../components/Paragraph";
+import Cover from "../components/Cover";
 
 const About: NextPage = () => (
   <>
@@ -28,6 +29,7 @@ const About: NextPage = () => (
         <meta name="twitter:site" content="@johnapost" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
+      <Cover />
       <div className="grid">
         <Paragraph>About John Apostol</Paragraph>
       </div>

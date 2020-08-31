@@ -62,9 +62,9 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
             <a href="https://www.linkedin.com/in/johnapost/" target="__blank">
               <LinkedIn />
             </a>
-            {/* <a>
+            <a>
               <Resume />
-            </a> */}
+            </a>
           </div>
         </ColumnWrapper>
         <Paragraph>Hi there!</Paragraph>
