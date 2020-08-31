@@ -4,6 +4,8 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import Paragraph from "../components/Paragraph";
 import Cover from "../components/Cover";
+import { atLeastMedium } from "../utils/breakpoints";
+import Heading from "../components/Heading";
 
 const About: NextPage = () => (
   <>
@@ -31,15 +33,33 @@ const About: NextPage = () => (
       </Head>
       <Cover />
       <div className="grid">
-        <Paragraph>About John Apostol</Paragraph>
+        <Paragraph>
+          I&apos;m not exactly sure how to structure an about page for myself.
+          For now, I&apos;ve split these into sections.
+        </Paragraph>
+        <Paragraph>
+          <Heading level={2}>Yo</Heading>
+        </Paragraph>
       </div>
     </main>
     <Footer />
     <style jsx>{`
       main {
+        font-family: "Merriweather", serif;
         margin: 0 0 6rem;
         min-width: 320px;
         overflow-x: hidden;
+      }
+
+      @media ${atLeastMedium} {
+        .grid {
+          display: grid;
+          grid-template-columns: 1fr 740px 1fr;
+        }
+
+        .grid:before {
+          content: "";
+        }
       }
     `}</style>
   </>

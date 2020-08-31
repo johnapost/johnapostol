@@ -76,6 +76,9 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
           Above all, I love working with brilliant, collaborative people who can
           balance idealism with pragmatism.
         </Paragraph>
+        <Paragraph>
+          <a href="/about">Read more about me.</a>
+        </Paragraph>
         <ThematicBreak />
         <PostList posts={posts} />
       </div>
@@ -83,6 +86,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
     <Footer />
     <style jsx>{`
       main {
+        font-family: "Merriweather", serif;
         margin: 0 0 6rem;
         min-width: 320px;
         overflow-x: hidden;
@@ -100,10 +104,6 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
 
       .external a + a {
         margin-left: 10px;
-      }
-
-      .grid {
-        font-family: "Merriweather", serif;
       }
 
       @media ${atLeastMedium} {
