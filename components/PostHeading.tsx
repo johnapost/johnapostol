@@ -50,6 +50,11 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
                 Home
               </a>
             </Link>
+            <Link href="/about">
+              <a className="bottom" data-cy="about">
+                About
+              </a>
+            </Link>
           </div>
         </div>
         <div className="border">
@@ -172,6 +177,10 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
           font-size: 14px;
           color: rgba(0, 0, 0, 0.44);
           width: 200px;
+        }
+
+        a.bottom {
+          margin: 0 15px 0 0;
         }
 
         h1 {

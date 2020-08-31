@@ -3,10 +3,10 @@ import ColumnWrapper from "./ColumnWrapper";
 
 interface Props {
   children: JSX.Element[];
-  ordered: boolean;
+  ordered?: boolean;
 }
 
-const List = ({ children, ordered }: Props): JSX.Element => (
+const List = ({ children, ordered = false }: Props): JSX.Element => (
   <ColumnWrapper>
     {ordered ? (
       <>

@@ -1,18 +1,15 @@
 import React from "react";
 import { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import Cover from "../components/Cover";
-import GitHub from "../components/GitHub";
-import LinkedIn from "../components/LinkedIn";
-import Medium from "../components/Medium";
 import Paragraph from "../components/Paragraph";
-import ColumnWrapper from "../components/ColumnWrapper";
 import PostList, { Post } from "../components/PostList";
-import Resume from "../components/Resume";
 import Footer from "../components/Footer";
 import ThematicBreak from "../components/ThematicBreak";
 import { atLeastMedium } from "../utils/breakpoints";
 import fileToDate from "../utils/fileToDate";
+import ExternalLinks from "../components/ExternalLinks";
 
 type Props = {
   posts: Post[];
@@ -51,22 +48,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
       </Head>
       <Cover />
       <div className="grid">
-        <ColumnWrapper>
-          <div className="external">
-            <a href="https://github.com/johnapost" target="__blank">
-              <GitHub />
-            </a>
-            <a href="https://medium.com/@johnapost" target="__blank">
-              <Medium />
-            </a>
-            <a href="https://www.linkedin.com/in/johnapost/" target="__blank">
-              <LinkedIn />
-            </a>
-            <a>
-              <Resume />
-            </a>
-          </div>
-        </ColumnWrapper>
+        <ExternalLinks />
         <Paragraph>Hi there!</Paragraph>
         <Paragraph>
           I&apos;m a software person living in Austin, Texas. I tend to spend my
@@ -77,7 +59,9 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
           balance idealism with pragmatism.
         </Paragraph>
         <Paragraph>
-          <a href="/about">Read more about me.</a>
+          <Link href="/about">
+            <a>Read more about me.</a>
+          </Link>
         </Paragraph>
         <ThematicBreak />
         <PostList posts={posts} />
@@ -90,20 +74,6 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
         margin: 0 0 6rem;
         min-width: 320px;
         overflow-x: hidden;
-      }
-
-      .external {
-        color: #362640;
-        display: flex;
-        margin: 2rem 0 0;
-      }
-
-      a {
-        display: inline-block;
-      }
-
-      .external a + a {
-        margin-left: 10px;
       }
 
       @media ${atLeastMedium} {
