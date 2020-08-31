@@ -1,11 +1,11 @@
 import React from "react";
 
 interface Props {
-  children: JSX.Element[] | string;
-  ordered: boolean;
+  children: JSX.Element | JSX.Element[] | string;
+  ordered?: boolean;
 }
 
-const ListItem = ({ children, ordered }: Props): JSX.Element => (
+const ListItem = ({ children, ordered = false }: Props): JSX.Element => (
   <>
     <li>{children}</li>
     <style jsx>{`
