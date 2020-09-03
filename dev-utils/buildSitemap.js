@@ -28,7 +28,7 @@ const xmlUrlWrapper = (nodes) => `${xmlHeader}
 
 // Determine and return the nodes for every page
 const xmlUrlNode = (domain, pageUrl, lastmod) => {
-  const loc = `${domain}${pageUrl}`;
+  const loc = pageUrl === "/" ? domain : `${domain}${pageUrl}`;
   const priority = getPriority(pageUrl);
 
   return `<url>

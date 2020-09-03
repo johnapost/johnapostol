@@ -2,15 +2,15 @@ import React from "react";
 import { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import Footer from "../components/Footer";
-import Cover from "../components/Cover";
-import Heading from "../components/Heading";
-import ThematicBreak from "../components/ThematicBreak";
-import List from "../components/List";
-import ListItem from "../components/ListItem";
-import Paragraph from "../components/Paragraph";
-import { atLeastMedium } from "../utils/breakpoints";
-import ExternalLinks from "../components/ExternalLinks";
+import Footer from "../../components/Footer";
+import Cover from "../../components/Cover";
+import Heading from "../../components/Heading";
+import ThematicBreak from "../../components/ThematicBreak";
+import List from "../../components/List";
+import ListItem from "../../components/ListItem";
+import Paragraph from "../../components/Paragraph";
+import { atLeastMedium } from "../../utils/breakpoints";
+import ExternalLinks from "../../components/ExternalLinks";
 
 const About: NextPage = () => (
   <>
@@ -21,12 +21,12 @@ const About: NextPage = () => (
           content="John Apostol is a lifelong learner and software person based in Austin, TX."
         />
         <title>About John Apostol</title>
-        <link rel="canonical" href="https://johnapostol.com/about/" />
+        <link rel="canonical" href="https://johnapostol.com/about" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://johnapostol.com/about/" />
+        <meta property="og:url" content="https://johnapostol.com/about" />
         <meta
           property="og:image"
-          content={require("../public/static/me.jpg?size=320")}
+          content={require("../../public/static/me.jpg?size=320")}
         />
         <meta property="og:title" content="About John Apostol" />
         <meta
@@ -54,11 +54,11 @@ const About: NextPage = () => (
         <ThematicBreak />
         <Heading level={2}>Leader</Heading>
         <List>
-          {/* <ListItem>
-            <Link href="/manager-readme">
+          <ListItem>
+            <Link href="/about/manager">
               <a>How I manage people</a>
             </Link>
-          </ListItem> */}
+          </ListItem>
           <ListItem>Teams grow and their needs change over time</ListItem>
           <ListItem>Share expectations and share successes</ListItem>
           <ListItem>Constraints lead to creativity</ListItem>

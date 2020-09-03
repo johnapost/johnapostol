@@ -31,9 +31,9 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
           content="Thoughts and code from John Apostol, lifelong learner"
         />
         <title>John Apostol, lifelong learner</title>
-        <link rel="canonical" href="https://johnapostol.com/" />
+        <link rel="canonical" href="https://johnapostol.com" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://johnapostol.com/" />
+        <meta property="og:url" content="https://johnapostol.com" />
         <meta
           property="og:image"
           content={require("../public/static/me.jpg?size=320")}
@@ -59,7 +59,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
           balance idealism with pragmatism.
         </Paragraph>
         <Paragraph>
-          <Link href="/about/">
+          <Link href="/about">
             <a>Read more about me.</a>
           </Link>
         </Paragraph>
