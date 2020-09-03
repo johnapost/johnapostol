@@ -51,8 +51,8 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
         <ExternalLinks />
         <Paragraph>Hi there!</Paragraph>
         <Paragraph>
-          I&apos;m a software person living in Austin, Texas. I tend to spend my
-          time playing with code and writing about software development.
+          I&rsquo;m a software person living in Austin, Texas. I tend to spend
+          my time playing with code and writing about software development.
         </Paragraph>
         <Paragraph>
           Above all, I love working with brilliant, collaborative people who can

@@ -56,7 +56,7 @@ const About: NextPage = () => (
         <List>
           <ListItem>
             <Link href="/about/manager">
-              <a>How I manage people</a>
+              <a>How I lead people</a>
             </Link>
           </ListItem>
           <ListItem>Teams grow and their needs change over time</ListItem>
@@ -74,7 +74,7 @@ const About: NextPage = () => (
           <ListItem>Good code is testable code</ListItem>
           <ListItem>HTML / CSS / JS are my bread and butter</ListItem>
           <ListItem>
-            I&apos;ve coded plenty of Ruby (Rails) and a little Python (Django)
+            I&rsquo;ve coded plenty of Ruby (Rails) and a little Python (Django)
             in the past
           </ListItem>
         </List>
