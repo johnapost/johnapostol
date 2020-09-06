@@ -17,7 +17,7 @@ const Manager: NextPage = () => (
       <Head>
         <meta
           name="description"
-          content="John Apostol is a lifelong learner and software person based in Austin, TX."
+          content="How John Apostol approaches managing direct reports"
         />
         <title>About John Apostol</title>
         <link rel="canonical" href="https://johnapostol.com/about/manager" />
@@ -33,7 +33,7 @@ const Manager: NextPage = () => (
         <meta property="og:title" content="About John Apostol" />
         <meta
           property="og:description"
-          content="John Apostol is a lifelong learner and software person based in Austin, TX."
+          content="How John Apostol approaches managing direct reports"
         />
         <meta name="twitter:site" content="@johnapost" />
         <meta name="twitter:card" content="summary_large_image" />
