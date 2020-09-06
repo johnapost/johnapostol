@@ -41,9 +41,9 @@ const Manager: NextPage = () => (
       <Cover />
       <div className="grid">
         <ExternalLinks />
-        <Heading level={1}>Hello there, I&rsquo;m John!</Heading>
+        <Heading level={1}>😁 Hello there, I&rsquo;m John!</Heading>
         <Paragraph>
-          I&rsquo;m happy to be working with you, as your manager. 🙇‍♂️
+          🙇🏽 I&rsquo;m happy to be working with you, as your manager.
         </Paragraph>
         <Paragraph>
           I wanted to give you a headstart on who I am and how I manage. This
@@ -82,9 +82,9 @@ const Manager: NextPage = () => (
           <strong>I&rsquo;ve found mutual success working with..</strong>
         </Paragraph>
         <List>
-          <ListItem>Curious learners</ListItem>
-          <ListItem>Thoughtful collaborators</ListItem>
-          <ListItem>Responsible people</ListItem>
+          <ListItem>👩‍🔬 Curious learners</ListItem>
+          <ListItem>🤝🏽 Thoughtful collaborators</ListItem>
+          <ListItem>🦺 Responsible people</ListItem>
         </List>
         <Paragraph>
           How do I define these things? That&rsquo;s worth a discussion so
@@ -94,11 +94,11 @@ const Manager: NextPage = () => (
         <Paragraph>
           Some examples that come to mind; developers who proactively review
           code for their own benefit. Teammates who believe that quality is
-          owned by everyone, especially themselves. Colleagues those who respect
-          their own time as well as others.
+          owned by everyone, especially themselves. Colleagues who respect their
+          own time as well as others.
         </Paragraph>
         <Paragraph>
-          <strong>Engineer</strong>
+          <strong>Being an engineer</strong>
         </Paragraph>
         <Paragraph>
           Early in my career, I coveted the &lsquo;engineer&rsquo; title. I
@@ -108,12 +108,12 @@ const Manager: NextPage = () => (
           term &lsquo;developer&rsquo;.
         </Paragraph>
         <Paragraph>
-          Engineers/developers/coders/programmers should strive to create value.
-          All of our work should create value. We should not build things just
-          because they can be built.
+          📈 Engineers/developers/coders/programmers should strive to create
+          value. All of our work should create value. We should not build things
+          just because they can be built.
         </Paragraph>
         <Paragraph>
-          I strive for my team to build the right-sized solutions &mdash; using
+          I strive for my team to build right-sized solutions &mdash; using
           small changes by default. Our code should be predictable to avoid
           headaches. We should be opportunistic in our solutions.
         </Paragraph>
@@ -136,8 +136,8 @@ const Manager: NextPage = () => (
           for both you and the team&rsquo;s sake.
         </Paragraph>
         <Paragraph>
-          If there&rsquo;s anything putting you or our ability to retain you in
-          danger, please let me know ASAP! This trumps all other priorities.
+          ⚠️ If there&rsquo;s anything putting you or our ability to retain you
+          in danger, please let me know ASAP! This trumps all other priorities.
         </Paragraph>
         <Paragraph>
           <strong>
@@ -165,7 +165,7 @@ const Manager: NextPage = () => (
           company as a whole. This can take a lot of different forms.
         </Paragraph>
         <Paragraph>
-          I would love to hear your ideas as you will undoubtedly find
+          🌞 I would love to hear your ideas as you will undoubtedly find
           opportunities we should consider.
         </Paragraph>
         <ThematicBreak />
@@ -178,8 +178,8 @@ const Manager: NextPage = () => (
           <strong>Regular 1:1s</strong>
         </Paragraph>
         <Paragraph>
-          We will have regular 1:1s. These will be on our calendar at a cadence
-          that you benefit from. You own these meetings!
+          🙌🏻 We will have regular 1:1s. These will be on our calendar at a
+          cadence that you benefit from. You own these meetings!
         </Paragraph>
         <Paragraph>
           I encourage you to have some topics in order get the most out of these
@@ -193,14 +193,14 @@ const Manager: NextPage = () => (
         </Paragraph>
         <Paragraph>
           There comes a time when one of us needs to adjust the meeting so that
-          we can accomdate another meeting. I will try not to do this, but you
+          we can accomodate another meeting. I will try not to do this, but you
           definitely can.
         </Paragraph>
         <Paragraph>In our 1:1s. I will..</Paragraph>
         <List>
-          <ListItem>Be honest with you</ListItem>
-          <ListItem>Be as transparent as I should be</ListItem>
-          <ListItem>Ask for your feedback, continually</ListItem>
+          <ListItem>🙇🏽 Be honest with you</ListItem>
+          <ListItem>🙇🏽 Be as transparent as I should be</ListItem>
+          <ListItem>🙇🏽 Ask for your feedback, continually</ListItem>
         </List>
         <Paragraph>
           I&rsquo;ve come to realize that 1:1 meetings recharge my battery.
@@ -215,7 +215,7 @@ const Manager: NextPage = () => (
           don&rsquo;t like to leave information to chance. If I mean for you to
           know something, I will do my best to make sure you know it.
         </Paragraph>
-        <Paragraph>Sorry if this brings us friction.</Paragraph>
+        <Paragraph>🙇🏽 Sorry if this brings us friction.</Paragraph>
         <Paragraph>
           That said, I will try to accomodate your communication style. I
           don&rsquo;t want to overwhelm you. I believe we all need space and
@@ -228,7 +228,7 @@ const Manager: NextPage = () => (
         </Paragraph>
         <List>
           <ListItem>
-            Email - I use email for announcements and non-urgent matters. I
+            📧 Email - I use email for announcements and non-urgent matters. I
             check my email twice a day.{" "}
             <em>
               Please email me you have questions or concerns that aren&rsquo;t
@@ -236,7 +236,7 @@ const Manager: NextPage = () => (
             </em>
           </ListItem>
           <ListItem>
-            Jira - I prioritize my attention on sensitive or urgent projects.
+            📝 Jira - I prioritize my attention on sensitive or urgent projects.
             Once a week, I will go through my notifications to catch up on other
             matters.{" "}
             <em>
@@ -244,8 +244,8 @@ const Manager: NextPage = () => (
             </em>
           </ListItem>
           <ListItem>
-            Slack - I use Slack for more timely items. My Slack status reflects
-            my working status. I respect and use the DND feature.{" "}
+            🙋🏿‍♂️ Slack - I use Slack for more timely items. My Slack status
+            reflects my working status. I respect and use the DND feature.{" "}
             <em>
               Please feel free to Slack me at any time if you have urgent needs.
               I will actively tend to Slack during work hours.
@@ -282,10 +282,7 @@ const Manager: NextPage = () => (
             What I expect from you
           </span>
         </Heading>
-        <Paragraph>
-          I&rsquo;ll get straight to the point with my expectations. There
-          should be minimal nuance to these.
-        </Paragraph>
+        <Paragraph>There&rsquo;s minimal nuance here.</Paragraph>
         <List>
           <ListItem>You are the expert at your job</ListItem>
           <ListItem>You are an active participant in your own growth</ListItem>
@@ -303,10 +300,7 @@ const Manager: NextPage = () => (
           page, please let me know. I welcome discussion and all feedback. I
           expect to grow in my role like anyone else in theirs.
         </Paragraph>
-        <Paragraph>
-          Thank you for your attention! I am ultra excited to be working with
-          you!
-        </Paragraph>
+        <Heading level={1}>🥂 Thank you for your attention!</Heading>
       </div>
     </main>
     <Footer />
