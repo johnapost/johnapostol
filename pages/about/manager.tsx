@@ -43,11 +43,11 @@ const Manager: NextPage = () => (
         <ExternalLinks />
         <Heading level={1}>Hello there, I&rsquo;m John!</Heading>
         <Paragraph>
-          I&rsquo;m happy to be working with you, as your manager. :)
+          I&rsquo;m happy to be working with you, as your manager. 🙇‍♂️
         </Paragraph>
         <Paragraph>
-          I wanted to give you a headstart on who I am and how I work. This page
-          isn&rsquo;t meant to replace our future conversations.
+          I wanted to give you a headstart on who I am and how I manage. This
+          page isn&rsquo;t meant to replace our future conversations.
         </Paragraph>
         <Paragraph>
           We will talk &mdash; a lot &mdash; and we will learn a lot more about
@@ -83,8 +83,8 @@ const Manager: NextPage = () => (
         </Paragraph>
         <List>
           <ListItem>Curious learners</ListItem>
-          <ListItem>Honest, good-natured people</ListItem>
           <ListItem>Thoughtful collaborators</ListItem>
+          <ListItem>Responsible people</ListItem>
         </List>
         <Paragraph>
           How do I define these things? That&rsquo;s worth a discussion so
@@ -94,28 +94,32 @@ const Manager: NextPage = () => (
         <Paragraph>
           Some examples that come to mind; developers who proactively review
           code for their own benefit. Teammates who believe that quality is
-          owned by everyone. Colleagues those who respect their own time as well
-          as others.
+          owned by everyone, especially themselves. Colleagues those who respect
+          their own time as well as others.
         </Paragraph>
         <Paragraph>
-          <strong>Engineering</strong>
+          <strong>Engineer</strong>
         </Paragraph>
         <Paragraph>
-          Early in my career, I coveted the &rsquo;engineer&rsquo; title. I
+          Early in my career, I coveted the &lsquo;engineer&rsquo; title. I
           thought it brought validation to what I was doing. Now, I understand
-          that it was vanity at best. At worst, it distanced the act of writing
-          code from the value the code actually brings.
+          that it was harmless vanity at best. At worst, it distanced the act of
+          writing code from the value the code actually brings. I now prefer the
+          term &lsquo;developer&rsquo;.
         </Paragraph>
         <Paragraph>
           Engineers/developers/coders/programmers should strive to create value.
           All of our work should create value. We should not build things just
-          because they can be built. Also, it&rsquo;s totally fine if you
-          don&rsquo;t agree with me on the title thing.
+          because they can be built.
         </Paragraph>
         <Paragraph>
           I strive for my team to build the right-sized solutions &mdash; using
           small changes by default. Our code should be predictable to avoid
           headaches. We should be opportunistic in our solutions.
+        </Paragraph>
+        <Paragraph>
+          Also, it&rsquo;s totally fine if you don&rsquo;t agree with me on the
+          title thing.
         </Paragraph>
         <ThematicBreak />
         <Heading level={2}>
@@ -128,8 +132,12 @@ const Manager: NextPage = () => (
         </Paragraph>
         <Paragraph>
           We&rsquo;re working together for a good reason. I sincerely believe we
-          can build great things together. I want to invest in your success for
-          our mutual benefit.
+          can build great things together. I&rsquo;m investing in your success
+          for both you and the team&rsquo;s sake.
+        </Paragraph>
+        <Paragraph>
+          If there&rsquo;s anything putting you or our ability to retain you in
+          danger, please let me know ASAP! This trumps all other priorities.
         </Paragraph>
         <Paragraph>
           <strong>
@@ -195,8 +203,9 @@ const Manager: NextPage = () => (
           <ListItem>Ask for your feedback, continually</ListItem>
         </List>
         <Paragraph>
-          I&rsquo;ve come to realize that 1:1 meetings recharge my battery. Know
-          that I look forward to talking with you each time we meet.
+          I&rsquo;ve come to realize that 1:1 meetings recharge my battery.
+          These are the meetings I look forward to the most. Know that I look
+          forward to talking with you each time we meet.
         </Paragraph>
         <Paragraph>
           <strong>Communication style</strong>
@@ -206,34 +215,66 @@ const Manager: NextPage = () => (
           don&rsquo;t like to leave information to chance. If I mean for you to
           know something, I will do my best to make sure you know it.
         </Paragraph>
+        <Paragraph>Sorry if this brings us friction.</Paragraph>
         <Paragraph>
-          That said, I will try to accomodate your communication style. I never
-          want to overwhelm you. I believe we all need space and time to work.
+          That said, I will try to accomodate your communication style. I
+          don&rsquo;t want to overwhelm you. I believe we all need space and
+          time to work. Please help me understand when I&rsquo;m in your way.
         </Paragraph>
         <Paragraph>
-          I also believe in asynchronous communication. I treat email and Slack
-          as asynchronous, except for urgent incidents.
+          I believe in asynchronous communication through technology. I treat
+          email and Slack as asynchronous. For the most part, you don&rsquo;t
+          have to answer me immediately unless it&rsquo;s a major emergency.
         </Paragraph>
         <List>
           <ListItem>
             Email - I use email for announcements and non-urgent matters. I
-            check my email twice a day.
+            check my email twice a day.{" "}
+            <em>
+              Please email me you have questions or concerns that aren&rsquo;t
+              time sensitive.
+            </em>
+          </ListItem>
+          <ListItem>
+            Jira - I prioritize my attention on sensitive or urgent projects.
+            Once a week, I will go through my notifications to catch up on other
+            matters.{" "}
+            <em>
+              Please @ mention me in your tickets or projects as you like.
+            </em>
           </ListItem>
           <ListItem>
             Slack - I use Slack for more timely items. My Slack status reflects
-            my working status. I respect and use the DND feature.
+            my working status. I respect and use the DND feature.{" "}
+            <em>
+              Please feel free to Slack me at any time if you have urgent needs.
+              I will actively tend to Slack during work hours.
+            </em>
           </ListItem>
           <ListItem>
             In person or desk drop-by - I&rsquo;m prone to inspiration. If you
-            aren&rsquo;t in deep focus or thought, I may ask for your opinion.
-            Stop me if you&rsquo;re busy!
+            aren&rsquo;t in deep focus or thought, I may ask for your opinion.{" "}
+            <em>Please stop me if you&rsquo;re busy!</em>
           </ListItem>
         </List>
         <Paragraph>
           <strong>Calendar usage</strong>
         </Paragraph>
         <Paragraph>
-          <strong>Vacations</strong>
+          I have lots of meetings on my calendar. If you have any questions
+          about a meeting, feel free to ask me. Every meeting should have an
+          intended purpose.
+        </Paragraph>
+        <Paragraph>
+          One advantage you have over others at the company is that you can pull
+          me aside for your undivided attention. If you urgently need to talk to
+          me, you can schedule over any meeting I have. I will always prioritize
+          you.
+        </Paragraph>
+        <Paragraph>
+          From time to time, I will inspect your calendar to make sure it
+          isn&rsquo;t too full of meetings. I believe you need focus time to do
+          your best work.
         </Paragraph>
         <ThematicBreak />
         <Heading level={2}>
@@ -241,6 +282,31 @@ const Manager: NextPage = () => (
             What I expect from you
           </span>
         </Heading>
+        <Paragraph>
+          I&rsquo;ll get straight to the point with my expectations. There
+          should be minimal nuance to these.
+        </Paragraph>
+        <List>
+          <ListItem>You are the expert at your job</ListItem>
+          <ListItem>You are an active participant in your own growth</ListItem>
+          <ListItem>
+            You will continually provide feedback to improve the team
+          </ListItem>
+          <ListItem>You will help the team adapt to unplanned changes</ListItem>
+          <ListItem>
+            Your calendar status and Slack status reflect your working status
+          </ListItem>
+          <ListItem>You will not work on vacation</ListItem>
+        </List>
+        <Paragraph>
+          If you have questions, concerns, or comments about anything on this
+          page, please let me know. I welcome discussion and all feedback. I
+          expect to grow in my role like anyone else in theirs.
+        </Paragraph>
+        <Paragraph>
+          Thank you for your attention! I am ultra excited to be working with
+          you!
+        </Paragraph>
       </div>
     </main>
     <Footer />
