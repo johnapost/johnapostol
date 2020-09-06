@@ -1,7 +1,7 @@
 import React from "react";
 
 interface Props {
-  children: JSX.Element | JSX.Element[] | string;
+  children: JSX.Element | (JSX.Element | string)[] | string;
   ordered?: boolean;
 }
 

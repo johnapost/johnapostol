@@ -8,7 +8,7 @@ module.exports = () => {
   const posts = Object.entries(summary.fileMap).reduce(
     (accum, [filePath, { preview, slug }]) => ({
       ...accum,
-      [`/post/${slug}/`]: {
+      [`/post/${slug}`]: {
         page: "/post",
         query: {
           date: fileToDate(filePath),
@@ -23,6 +23,12 @@ module.exports = () => {
   return {
     "/": {
       page: "/",
+    },
+    "/about": {
+      page: "/about",
+    },
+    "/about/manager": {
+      page: "/about/manager",
     },
     ...posts,
   };

@@ -31,9 +31,9 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
           content="Thoughts and code from John Apostol, lifelong learner"
         />
         <title>John Apostol, lifelong learner</title>
-        <link rel="canonical" href="https://johnapostol.com/" />
+        <link rel="canonical" href="https://johnapostol.com" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://johnapostol.com/" />
+        <meta property="og:url" content="https://johnapostol.com" />
         <meta
           property="og:image"
           content={require("../public/static/me.jpg?size=320")}
@@ -51,16 +51,16 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
         <ExternalLinks />
         <Paragraph>Hi there!</Paragraph>
         <Paragraph>
-          I&apos;m a software person living in Austin, Texas. I tend to spend my
-          time playing with code and writing about software development.
+          I&rsquo;m a software person living in Austin, Texas. I tend to spend
+          my time playing with code and writing about software development.
         </Paragraph>
         <Paragraph>
           Above all, I love working with brilliant, collaborative people who can
           balance idealism with pragmatism.
         </Paragraph>
         <Paragraph>
-          <Link href="/about/">
-            <a>Read more about me.</a>
+          <Link href="/about">
+            <a data-cy="about">Read more about me.</a>
           </Link>
         </Paragraph>
         <ThematicBreak />

@@ -55,14 +55,11 @@ const Post: NextPage<Props> = ({
         <Head>
           <meta name="description" content={preview} />
           <title>{title} | John Apostol</title>
-          <link
-            rel="canonical"
-            href={`https://johnapostol.com/post/${slug}/`}
-          />
+          <link rel="canonical" href={`https://johnapostol.com/post/${slug}`} />
           <meta property="og:type" content="website" />
           <meta
             property="og:url"
-            content={`https://johnapostol.com/post/${slug}/`}
+            content={`https://johnapostol.com/post/${slug}`}
           />
           <meta property="og:image" content={hero} />
           <meta property="og:title" content={`John Apostol - ${title}`} />

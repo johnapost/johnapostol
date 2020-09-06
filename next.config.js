@@ -20,6 +20,5 @@ module.exports = withPlugins([
   ],
   {
     exportPathMap,
-    exportTrailingSlash: true,
   },
 ]);

@@ -7,7 +7,7 @@ const structuredData = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "John Apostol",
-  url: "https://johnapostol.com/",
+  url: "https://johnapostol.com",
   logo: require("../public/static/me.jpg?size=320&url"),
 });
 

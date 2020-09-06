@@ -26,7 +26,7 @@ const PostList: NextPage<Props> = ({ posts }: Props) => (
             <div className="post-heading">{formattedDate}</div>
             <div className="title">
               <a
-                href={`/post/${slug}/`}
+                href={`/post/${slug}`}
                 data-cy={`${index === 0 && "first-post"}`}
               >
                 {title}
