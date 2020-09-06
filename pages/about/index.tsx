@@ -56,7 +56,7 @@ const About: NextPage = () => (
         <List>
           <ListItem>
             <Link href="/about/manager">
-              <a>How I lead people</a>
+              <a data-cy="manager">How I lead people</a>
             </Link>
           </ListItem>
           <ListItem>Teams grow and their needs change over time</ListItem>

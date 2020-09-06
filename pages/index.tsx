@@ -60,7 +60,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
         </Paragraph>
         <Paragraph>
           <Link href="/about">
-            <a>Read more about me.</a>
+            <a data-cy="about">Read more about me.</a>
           </Link>
         </Paragraph>
         <ThematicBreak />

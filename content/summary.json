@@ -1,17 +1,17 @@
 {
   "fileMap": {
-    "content/2019-01-30.json": {
-      "title": "Using Redux with Vanilla JS",
-      "preview": "What follows is an explanation of how I've used Redux to make a production vanilla JS app more maintainable.",
-      "slug": "using-redux-with-vanilla-js",
+    "content/2020-06-26.json": {
+      "title": "Notes on Managing a Remote Team During COVID-19",
+      "preview": "A good leader is a shock absorber that cushions the blows of change.",
+      "slug": "notes-on-managing-a-remote-team-during-covid-19",
       "tags": [
-        "software",
-        "javascript"
+        "management",
+        "remote"
       ],
       "dir": "content",
-      "base": "2019-01-30.json",
+      "base": "2020-06-26.json",
       "ext": ".json",
-      "sourceBase": "2019-01-30.md",
+      "sourceBase": "2020-06-26.md",
       "sourceExt": ".md"
     },
     "content/2018-08-06.json": {
@@ -56,18 +56,18 @@
       "sourceBase": "2020-02-17.md",
       "sourceExt": ".md"
     },
-    "content/2020-06-26.json": {
-      "title": "Notes on Managing a Remote Team During COVID-19",
-      "preview": "A good leader is a shock absorber that cushions the blows of change.",
-      "slug": "notes-on-managing-a-remote-team-during-covid-19",
+    "content/2019-01-30.json": {
+      "title": "Using Redux with Vanilla JS",
+      "preview": "What follows is an explanation of how I've used Redux to make a production vanilla JS app more maintainable.",
+      "slug": "using-redux-with-vanilla-js",
       "tags": [
-        "management",
-        "remote"
+        "software",
+        "javascript"
       ],
       "dir": "content",
-      "base": "2020-06-26.json",
+      "base": "2019-01-30.json",
       "ext": ".json",
-      "sourceBase": "2020-06-26.md",
+      "sourceBase": "2019-01-30.md",
       "sourceExt": ".md"
     }
   },

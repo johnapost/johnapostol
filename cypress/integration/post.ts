@@ -20,6 +20,6 @@ describe("Post", () => {
       .get("[data-cy=about]")
       .click()
       .location("pathname")
-      .should("be", "/about/");
+      .should("be", "/about");
   });
 });
