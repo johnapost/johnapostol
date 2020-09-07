@@ -98,28 +98,36 @@ const Manager: NextPage = () => (
           own time as well as others.
         </Paragraph>
         <Paragraph>
-          <strong>Being an engineer</strong>
+          <strong>Being a developer, not an engineer</strong>
         </Paragraph>
         <Paragraph>
           Early in my career, I coveted the &lsquo;engineer&rsquo; title. I
-          thought it brought validation to what I was doing. Now, I understand
-          that it was harmless vanity at best. At worst, it distanced the act of
-          writing code from the value the code actually brings. I now prefer the
-          term &lsquo;developer&rsquo;.
+          thought engineers were worth more. I thought it brought validation to
+          what I was doing, what I was learning. Software engineering was a
+          fancy way of referring to my craft.
+        </Paragraph>
+        <Paragraph>
+          Now, I understand that it was harmless vanity at best. At worst, it
+          was gatekeeping. I think it distances the act of writing code from the
+          value the code brings. I now prefer the title &lsquo;developer&rsquo;.
         </Paragraph>
         <Paragraph>
           📈 Engineers/developers/coders/programmers should strive to create
           value. All of our work should create value. We should not build things
-          just because they can be built.
+          just because they can be built. We should not build things just
+          because they are hard to build or because they are fancy.
         </Paragraph>
         <Paragraph>
           I strive for my team to build right-sized solutions &mdash; using
-          small changes by default. Our code should be predictable to avoid
-          headaches. We should be opportunistic in our solutions.
+          small changes by default. Our code should be predictable and pragmatic
+          to avoid headaches. We should be opportunistic in our solutions.
         </Paragraph>
         <Paragraph>
-          Also, it&rsquo;s totally fine if you don&rsquo;t agree with me on the
-          title thing.
+          {"🙇🏽 "}
+          <em>
+            Also, it&rsquo;s totally fine if you don&rsquo;t agree with me on
+            the title thing.
+          </em>
         </Paragraph>
         <ThematicBreak />
         <Heading level={2}>
