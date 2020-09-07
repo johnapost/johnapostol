@@ -31,7 +31,6 @@
   "dependencies": {
     "imagemin-mozjpeg": "9.0.0",
     "isomorphic-unfetch": "3.0.0",
-    "lqip-loader": "2.2.0",
     "next": "9.5.3",
     "next-compose-plugins": "2.2.0",
     "next-optimized-images": "2.6.2",
@@ -39,9 +38,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-intersection-observer": "8.26.2",
-    "react-markdown": "4.3.1",
-    "responsive-loader": "1.2.0",
-    "sharp": "0.25.4"
+    "react-markdown": "4.3.1"
   },
   "devDependencies": {
     "@types/react": "16.9.49",
@@ -56,10 +53,13 @@
     "eslint-plugin-react": "7.20.6",
     "husky": "4.2.5",
     "lint-staged": "10.2.11",
+    "lqip-loader": "2.2.0",
     "npm-run-all": "4.1.5",
     "prettier": "2.0.5",
     "processmd": "4.5.0",
+    "responsive-loader": "1.2.0",
     "serve": "11.3.2",
+    "sharp": "0.25.4",
     "sort-package-json": "1.44.0",
     "ts-loader": "8.0.3",
     "ts-node": "8.10.2",
