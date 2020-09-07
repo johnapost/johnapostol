@@ -319,7 +319,13 @@ const Manager: NextPage = () => (
           page, please let me know. I welcome discussion and all feedback. I
           expect to grow in my role like anyone else in theirs.
         </Paragraph>
-        <Heading level={1}>🥂 Thank you for your attention!</Heading>
+        <Paragraph>
+          🥂{" "}
+          <strong>
+            Thank you for your attention. I&rsquo;m ultra excited to build
+            things with you!
+          </strong>
+        </Paragraph>
       </div>
     </main>
     <Footer />
