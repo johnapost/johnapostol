@@ -230,7 +230,7 @@ const Manager: NextPage = () => (
         <Paragraph>
           That said, I&rsquo;ll try to accomodate your communication style. I
           don&rsquo;t want to overwhelm you. I believe we all need space and
-          time to work. Please help me understand when I&rsquo;m in your way.
+          time to work. Please help me understand when I&rsquo;m bothering you.
         </Paragraph>
         <Paragraph>
           I believe in asynchronous communication through technology. I treat
@@ -242,8 +242,8 @@ const Manager: NextPage = () => (
             📧 Email - I use email for announcements and non-urgent matters. I
             check my email twice a day.{" "}
             <em>
-              Please email me you have questions or concerns that aren&rsquo;t
-              time sensitive.
+              Please email me when you have questions or concerns that
+              aren&rsquo;t time sensitive.
             </em>
           </ListItem>
           <ListItem>
