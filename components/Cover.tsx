@@ -1,11 +1,16 @@
 import React from "react";
+import Link from "next/link";
 import Name from "./Name";
 
 const Cover = (): JSX.Element => (
   <div className="outside">
     <div className="background" />
     <div className="inside">
-      <Name />
+      <Link href="/">
+        <a>
+          <Name />
+        </a>
+      </Link>
       <span>lifelong learner</span>
     </div>
     <style jsx>{`
@@ -50,6 +55,10 @@ const Cover = (): JSX.Element => (
         justify-content: center;
         position: relative;
         width: 100%;
+      }
+
+      a {
+        text-decoration: none;
       }
 
       span {
