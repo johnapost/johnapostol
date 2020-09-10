@@ -35,7 +35,7 @@ const About: NextPage = () => (
         <meta name="twitter:site" content="@johnapost" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Cover />
+      <Cover image={require("../../public/static/about.jpg?size=320")} />
       <div className="grid">
         <ExternalLinks />
         <Heading level={2}>Human</Heading>

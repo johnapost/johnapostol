@@ -2,7 +2,13 @@ import React from "react";
 import Link from "next/link";
 import Name from "./Name";
 
-const Cover = (): JSX.Element => (
+interface Props {
+  image?: NodeRequire;
+}
+
+const Cover = ({
+  image = require("../public/static/cover.jpg?size=320"),
+}: Props): JSX.Element => (
   <div className="outside">
     <div className="background" />
     <div className="inside">
@@ -23,8 +29,7 @@ const Cover = (): JSX.Element => (
       }
 
       .background::before {
-        background: url(${require("../public/static/cover.jpg?size=320")})
-          center center;
+        background: url(${image}) center center;
         background-size: cover;
         background-color: rgba(0, 0, 0, 0.2);
         filter: blur(1.5px);
