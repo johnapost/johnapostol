@@ -8,7 +8,6 @@ import Heading from "../../components/Heading";
 import ThematicBreak from "../../components/ThematicBreak";
 import List from "../../components/List";
 import ListItem from "../../components/ListItem";
-import Paragraph from "../../components/Paragraph";
 import { atLeastMedium } from "../../utils/breakpoints";
 import ExternalLinks from "../../components/ExternalLinks";
 
@@ -36,14 +35,9 @@ const About: NextPage = () => (
         <meta name="twitter:site" content="@johnapost" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Cover />
+      <Cover image={require("../../public/static/about.jpg?size=320")} />
       <div className="grid">
         <ExternalLinks />
-        <Paragraph>
-          <Link href="/">
-            <a>Home</a>
-          </Link>
-        </Paragraph>
         <Heading level={2}>Human</Heading>
         <List>
           <ListItem>Spouse to the most fascinating person I know</ListItem>

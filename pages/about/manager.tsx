@@ -38,7 +38,7 @@ const Manager: NextPage = () => (
         <meta name="twitter:site" content="@johnapost" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Cover />
+      <Cover image={require("../../public/static/manager.jpg?size=320")} />
       <div className="grid">
         <ExternalLinks />
         <Heading level={1}>😁 Hello there, I&rsquo;m John!</Heading>
