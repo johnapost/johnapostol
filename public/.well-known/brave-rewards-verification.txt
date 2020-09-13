@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: johnapostol.com
+Token: 3ee4ee6d306722a232f3f1cb1faa7aedefe8c3fbbfce390c9ce0e641e820a21e
