@@ -14,7 +14,6 @@ const structuredData = JSON.stringify({
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => (
   <>
     <Head>
-      <link rel="preconnect" href="https://www.google-analytics.com" />
       {process.env.NODE_ENV === "production" && <GoogleAnalytics />}
       <link
         href="https://fonts.googleapis.com/css?family=Lato:700|Merriweather:300,300i,400,400i,700,700i"
