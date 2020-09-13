@@ -1,5 +1,5 @@
 import React from "react";
-import { NextPage } from "next";
+import { NextPage, NextPageContext } from "next";
 import Head from "next/head";
 import ReactMarkdown from "react-markdown";
 import Heading from "../../../components/Heading";
@@ -104,10 +104,13 @@ const Post: NextPage<Props> = ({
   );
 };
 
-Post.getInitialProps = async (ctx): Promise<Props> => {
+Post.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
+  // Grab ID
+  const id = asPath?.split("/post/preview/")[1];
+
   const query = `
     query {
-      post(where: {id: "ckf1fmhw81f8e0177ex3pex58"} ) {
+      post(where: {id: "${id}"} ) {
         title
         preview
         slug

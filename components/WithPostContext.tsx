@@ -5,7 +5,7 @@ interface Context {
   date: string;
 }
 
-const WithPostContext = <T extends object>(
+const WithPostContext = <T extends Record<string, unknown>>(
   context: Context,
   WrappedComponent: React.ComponentType<T>
 ): React.ComponentType<T> => {
