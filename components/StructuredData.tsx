@@ -3,7 +3,7 @@ import React from "react";
 interface Props {
   date: string;
   title: string;
-  hero?: string;
+  hero: string;
   preview: string;
 }
 
@@ -30,9 +30,7 @@ const StructuredData = ({ date, title, hero, preview }: Props): JSX.Element => {
       "@id": "https://google.com/article",
     },
     headline: title,
-    ...(hero && {
-      image: hero,
-    }),
+    image: hero,
     datePublished: date,
     dateModified: date,
     description: preview,
