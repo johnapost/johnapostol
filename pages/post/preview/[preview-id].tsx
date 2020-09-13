@@ -27,7 +27,7 @@ interface Props {
   title: string;
 }
 
-const Post: NextPage<Props> = ({
+const Preview: NextPage<Props> = ({
   date,
   postBody,
   preview,
@@ -104,7 +104,9 @@ const Post: NextPage<Props> = ({
   );
 };
 
-Post.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
+Preview.getInitialProps = async ({
+  asPath,
+}: NextPageContext): Promise<Props> => {
   // Grab ID
   const id = asPath?.split("/post/preview/")[1];
 
@@ -131,4 +133,4 @@ Post.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
   return { title, preview, slug, postBody: bodyContent, date: publishDate };
 };
 
-export default Post;
+export default Preview;

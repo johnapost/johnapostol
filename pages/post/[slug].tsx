@@ -1,22 +1,23 @@
 import React from "react";
-import { NextPage } from "next";
+import { NextPage, NextPageContext } from "next";
 import Head from "next/head";
 import ReactMarkdown from "react-markdown";
-import Heading from "../components/Heading";
-import Image from "../components/Image";
-import Paragraph from "../components/Paragraph";
-import ThematicBreak from "../components/ThematicBreak";
-import Blockquote from "../components/Blockquote";
-import PostHeading from "../components/PostHeading";
-import Footer from "../components/Footer";
-import WithPostContext from "../components/WithPostContext";
-import CodeBlock from "../components/CodeBlock";
-import { atLeastSmall } from "../utils/breakpoints";
-import List from "../components/List";
-import ListItem from "../components/ListItem";
-import InlineCode from "../components/InlineCode";
-import Link from "../components/Link";
-import StructuredData from "../components/StructuredData";
+import Heading from "../../components/Heading";
+import Image from "../../components/Image";
+import Paragraph from "../../components/Paragraph";
+import ThematicBreak from "../../components/ThematicBreak";
+import Blockquote from "../../components/Blockquote";
+import PostHeading from "../../components/PostHeading";
+import Footer from "../../components/Footer";
+import WithPostContext from "../../components/WithPostContext";
+import CodeBlock from "../../components/CodeBlock";
+import { atLeastSmall } from "../../utils/breakpoints";
+import List from "../../components/List";
+import ListItem from "../../components/ListItem";
+import InlineCode from "../../components/InlineCode";
+import Link from "../../components/Link";
+import StructuredData from "../../components/StructuredData";
+import { GraphQLClient } from "graphql-request";
 
 interface Props {
   date: string;
@@ -47,7 +48,7 @@ const Post: NextPage<Props> = ({
   };
 
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const hero = require(`../public/static/${date}/hero.jpg`);
+  const hero = require(`../../public/static/${date}/hero.jpg`);
 
   return (
     <>
@@ -103,18 +104,30 @@ const Post: NextPage<Props> = ({
   );
 };
 
-Post.getInitialProps = async ({
-  query: { date, preview, slug },
-}): Promise<Props> => {
-  const { bodyContent, title } = await import(`../content/${date}.json`);
+Post.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
+  // Grab ID
+  const slug = asPath?.split("/post/")[1] as string;
 
-  return {
-    date: date as string,
-    postBody: bodyContent,
-    preview: preview as string,
-    slug: slug as string,
-    title,
-  };
+  const query = `
+    query {
+      post(where: {slug: "${slug}"} ) {
+        title
+        preview
+        bodyContent
+        publishDate
+      }
+    }
+  `;
+
+  const graphQLClient = new GraphQLClient(
+    "https://api-us-west-2.graphcms.com/v2/ckf1dpkdn8os901zc4d4mcizm/master"
+  );
+
+  const {
+    post: { title, preview, bodyContent, publishDate },
+  } = await graphQLClient.request(query);
+
+  return { title, preview, slug, postBody: bodyContent, date: publishDate };
 };
 
 export default Post;

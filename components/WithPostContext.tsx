@@ -5,7 +5,8 @@ interface Context {
   date: string;
 }
 
-const WithPostContext = <T extends Record<string, unknown>>(
+// eslint-disable-next-line @typescript-eslint/ban-types
+const WithPostContext = <T extends object>(
   context: Context,
   WrappedComponent: React.ComponentType<T>
 ): React.ComponentType<T> => {

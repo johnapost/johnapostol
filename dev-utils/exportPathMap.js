@@ -5,20 +5,20 @@ const summary = require("../content/summary.json");
 const fileToDate = require("../utils/fileToDate");
 
 module.exports = () => {
-  const posts = Object.entries(summary.fileMap).reduce(
-    (accum, [filePath, { preview, slug }]) => ({
-      ...accum,
-      [`/post/${slug}`]: {
-        page: "/post",
-        query: {
-          date: fileToDate(filePath),
-          preview,
-          slug,
-        },
-      },
-    }),
-    {}
-  );
+  // const posts = Object.entries(summary.fileMap).reduce(
+  //   (accum, [filePath, { preview, slug }]) => ({
+  //     ...accum,
+  //     [`/post/${slug}`]: {
+  //       page: "/post",
+  //       query: {
+  //         date: fileToDate(filePath),
+  //         preview,
+  //         slug,
+  //       },
+  //     },
+  //   }),
+  //   {}
+  // );
 
   return {
     "/": {
@@ -30,6 +30,6 @@ module.exports = () => {
     "/about/manager": {
       page: "/about/manager",
     },
-    ...posts,
+    // ...posts,
   };
 };

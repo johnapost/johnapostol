@@ -14,20 +14,6 @@
       "sourceBase": "2018-08-06.md",
       "sourceExt": ".md"
     },
-    "content/2020-06-26.json": {
-      "title": "Notes on Managing a Remote Team During COVID-19",
-      "preview": "A good leader is a shock absorber that cushions the blows of change.",
-      "slug": "notes-on-managing-a-remote-team-during-covid-19",
-      "tags": [
-        "management",
-        "remote"
-      ],
-      "dir": "content",
-      "base": "2020-06-26.json",
-      "ext": ".json",
-      "sourceBase": "2020-06-26.md",
-      "sourceExt": ".md"
-    },
     "content/2019-03-20.json": {
       "title": "Building a Serverless React App on Firebase Functions",
       "preview": "This is a step-by-step guide to building your own serverless React app with the practicality afforded by Next.js and the Firebase ecosystem.",
@@ -68,6 +54,20 @@
       "base": "2020-02-17.json",
       "ext": ".json",
       "sourceBase": "2020-02-17.md",
+      "sourceExt": ".md"
+    },
+    "content/2020-06-26.json": {
+      "title": "Notes on Managing a Remote Team During COVID-19",
+      "preview": "A good leader is a shock absorber that cushions the blows of change.",
+      "slug": "notes-on-managing-a-remote-team-during-covid-19",
+      "tags": [
+        "management",
+        "remote"
+      ],
+      "dir": "content",
+      "base": "2020-06-26.json",
+      "ext": ".json",
+      "sourceBase": "2020-06-26.md",
       "sourceExt": ".md"
     }
   },
