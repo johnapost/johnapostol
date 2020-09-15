@@ -7,10 +7,15 @@
       "use": "@now/next"
     }
   ],
-  "routes": [
+  "headers": [
     {
-      "src": "/_next/static/(?:[^/]+/pages|chunks|runtime)/.+",
-      "headers": { "cache-control": "immutable,max-age=31536000" }
+      "source": "/_next/static/(?:[^/]+/pages|chunks|runtime)/.+",
+      "headers": [
+        { 
+          "key": "Cache-Control",
+          "value": "immutable, max-age=31536000"
+        }
+      ]
     }
   ]
 }
