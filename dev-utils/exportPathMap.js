@@ -1,21 +1,19 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-
-const { GraphQLClient, gql } = require("graphql-request");
+const fetch = require("isomorphic-unfetch");
 
 module.exports = async () => {
-  const graphQLClient = new GraphQLClient(
-    "https://api-us-west-2.graphcms.com/v2/ckf1dpkdn8os901zc4d4mcizm/master"
-  );
-  const query = gql`
-    {
-      posts {
-        slug
-      }
-    }
-  `;
+  const {
+    data: { posts },
+  } = await fetch(process.env.GRAPHCMS_API, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
+    },
+    body: JSON.stringify({ query: "{ posts { slug } }" }),
+  }).then((res) => res.json());
 
-  const { posts } = await graphQLClient.request(query);
   const formattedPosts = posts.reduce(
     (accum, { slug }) => ({
       ...accum,
