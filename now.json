@@ -1,15 +1,4 @@
 {
   "version": 2,
-  "alias": "johnapostol.com",
-  "headers": [
-    {
-      "source": "/_next/static/(?:[^/]+/pages|chunks|runtime)/.+",
-      "headers": [
-        { 
-          "key": "Cache-Control",
-          "value": "immutable, max-age=31536000"
-        }
-      ]
-    }
-  ]
+  "alias": "johnapostol.com"
 }
