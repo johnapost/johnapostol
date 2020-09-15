@@ -17,7 +17,8 @@ import ListItem from "../../../components/ListItem";
 import InlineCode from "../../../components/InlineCode";
 import Link from "../../../components/Link";
 import StructuredData from "../../../components/StructuredData";
-import { GraphQLClient, gql } from "graphql-request";
+import { gql } from "graphql-request";
+import query from "../../../utils/query";
 
 interface Props {
   date: string;
@@ -109,10 +110,7 @@ Preview.getInitialProps = async ({
 }: NextPageContext): Promise<Props> => {
   // Grab ID
   const id = asPath?.split("/post/preview/")[1];
-  const graphQLClient = new GraphQLClient(
-    "https://api-us-west-2.graphcms.com/v2/ckf1dpkdn8os901zc4d4mcizm/master"
-  );
-  const query = gql`
+  const data = gql`
     {
       post(where: {id: "${id}"} ) {
         date
@@ -126,7 +124,7 @@ Preview.getInitialProps = async ({
 
   const {
     post: { title, preview, slug, postBody, date },
-  } = await graphQLClient.request(query);
+  } = await query(data);
 
   return { title, preview, slug, postBody, date };
 };

@@ -9,7 +9,8 @@ import Footer from "../components/Footer";
 import ThematicBreak from "../components/ThematicBreak";
 import { atLeastMedium } from "../utils/breakpoints";
 import ExternalLinks from "../components/ExternalLinks";
-import { GraphQLClient, gql } from "graphql-request";
+import { gql } from "graphql-request";
+import query from "../utils/query";
 
 type Props = {
   posts: Post[];
@@ -84,10 +85,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
 );
 
 export const getStaticProps: GetStaticProps = async () => {
-  const graphQLClient = new GraphQLClient(
-    "https://api-us-west-2.graphcms.com/v2/ckf1dpkdn8os901zc4d4mcizm/master"
-  );
-  const query = gql`
+  const data = gql`
     {
       posts {
         date
@@ -99,7 +97,7 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   `;
 
-  const { posts } = await graphQLClient.request(query);
+  const { posts } = await query(data);
   return { props: { posts } };
 };
 
