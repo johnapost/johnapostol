@@ -49,7 +49,7 @@ const Preview: NextPage<Props> = ({
   };
 
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  // const hero = require(`../public/static/${date}/hero.jpg`);
+  const hero = require(`../public/static/${date}/hero.jpg`);
 
   return (
     <>
@@ -63,7 +63,7 @@ const Preview: NextPage<Props> = ({
             property="og:url"
             content={`https://johnapostol.com/post/${slug}`}
           />
-          {/* <meta property="og:image" content={hero} /> */}
+          <meta property="og:image" content={hero} />
           <meta property="og:title" content={`John Apostol - ${title}`} />
           <meta property="og:description" content={preview} />
           <meta name="twitter:site" content="@johnapost" />
