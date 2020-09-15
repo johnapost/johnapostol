@@ -1,20 +1,24 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
+const fetch = require("isomorphic-unfetch");
 
-const summary = require("../content/summary.json");
-const fileToDate = require("../utils/fileToDate");
+module.exports = async () => {
+  const {
+    data: { posts },
+  } = await fetch(process.env.GRAPHCMS_API, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
+    },
+    body: JSON.stringify({ query: "{ posts { slug } }" }),
+  }).then((res) => res.json());
 
-module.exports = () => {
-  const posts = Object.entries(summary.fileMap).reduce(
-    (accum, [filePath, { preview, slug }]) => ({
+  const formattedPosts = posts.reduce(
+    (accum, { slug }) => ({
       ...accum,
       [`/post/${slug}`]: {
-        page: "/post",
-        query: {
-          date: fileToDate(filePath),
-          preview,
-          slug,
-        },
+        page: "/post/[slug]",
       },
     }),
     {}
@@ -30,6 +34,6 @@ module.exports = () => {
     "/about/manager": {
       page: "/about/manager",
     },
-    ...posts,
+    ...formattedPosts,
   };
 };

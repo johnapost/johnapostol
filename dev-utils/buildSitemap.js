@@ -3,6 +3,7 @@
 /* Original Author: Joran Quinten */
 
 const fs = require("fs");
+require("dotenv").config();
 
 // Read from the static map that's provided by next
 const exportPathMap = require("./exportPathMap");

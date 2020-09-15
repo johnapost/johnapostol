@@ -1,22 +1,24 @@
 import React from "react";
-import { NextPage } from "next";
+import { NextPage, NextPageContext } from "next";
 import Head from "next/head";
 import ReactMarkdown from "react-markdown";
-import Heading from "../components/Heading";
-import Image from "../components/Image";
-import Paragraph from "../components/Paragraph";
-import ThematicBreak from "../components/ThematicBreak";
-import Blockquote from "../components/Blockquote";
-import PostHeading from "../components/PostHeading";
-import Footer from "../components/Footer";
-import WithPostContext from "../components/WithPostContext";
-import CodeBlock from "../components/CodeBlock";
-import { atLeastSmall } from "../utils/breakpoints";
-import List from "../components/List";
-import ListItem from "../components/ListItem";
-import InlineCode from "../components/InlineCode";
-import Link from "../components/Link";
-import StructuredData from "../components/StructuredData";
+import Heading from "../../../components/Heading";
+import Image from "../../../components/Image";
+import Paragraph from "../../../components/Paragraph";
+import ThematicBreak from "../../../components/ThematicBreak";
+import Blockquote from "../../../components/Blockquote";
+import PostHeading from "../../../components/PostHeading";
+import Footer from "../../../components/Footer";
+import WithPostContext from "../../../components/WithPostContext";
+import CodeBlock from "../../../components/CodeBlock";
+import { atLeastSmall } from "../../../utils/breakpoints";
+import List from "../../../components/List";
+import ListItem from "../../../components/ListItem";
+import InlineCode from "../../../components/InlineCode";
+import Link from "../../../components/Link";
+import StructuredData from "../../../components/StructuredData";
+import { gql } from "graphql-request";
+import query from "../../../utils/query";
 
 interface Props {
   date: string;
@@ -26,7 +28,7 @@ interface Props {
   title: string;
 }
 
-const Post: NextPage<Props> = ({
+const Preview: NextPage<Props> = ({
   date,
   postBody,
   preview,
@@ -47,7 +49,7 @@ const Post: NextPage<Props> = ({
   };
 
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const hero = require(`../public/static/${date}/hero.jpg`);
+  const hero = require(`../../../public/static/${date}/hero.jpg`);
 
   return (
     <>
@@ -103,18 +105,28 @@ const Post: NextPage<Props> = ({
   );
 };
 
-Post.getInitialProps = async ({
-  query: { date, preview, slug },
-}): Promise<Props> => {
-  const { bodyContent, title } = await import(`../content/${date}.json`);
+Preview.getInitialProps = async ({
+  asPath,
+}: NextPageContext): Promise<Props> => {
+  // Grab ID
+  const id = asPath?.split("/post/preview/")[1];
+  const data = gql`
+    {
+      post(where: {id: "${id}"} ) {
+        date
+        postBody
+        preview
+        slug
+        title
+      }
+    }
+  `;
 
-  return {
-    date: date as string,
-    postBody: bodyContent,
-    preview: preview as string,
-    slug: slug as string,
-    title,
-  };
+  const {
+    post: { title, preview, slug, postBody, date },
+  } = await query(data);
+
+  return { title, preview, slug, postBody, date };
 };
 
-export default Post;
+export default Preview;
