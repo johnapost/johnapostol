@@ -87,7 +87,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
 export const getStaticProps: GetStaticProps = async () => {
   const data = gql`
     {
-      posts {
+      posts(orderBy: date_DESC) {
         date
         preview
         slug
