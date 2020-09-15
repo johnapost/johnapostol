@@ -49,7 +49,7 @@ const Preview: NextPage<Props> = ({
   };
 
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const hero = require(`../public/static/${date}/hero.jpg`);
+  const hero = require(`../../../public/static/${date}/hero.jpg`);
 
   return (
     <>
