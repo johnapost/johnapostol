@@ -1,12 +1,6 @@
 {
   "version": 2,
   "alias": "johnapostol.com",
-  "builds": [
-    {
-      "src": "next.config.js",
-      "use": "@now/next"
-    }
-  ],
   "headers": [
     {
       "source": "/_next/static/(?:[^/]+/pages|chunks|runtime)/.+",
