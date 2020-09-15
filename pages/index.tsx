@@ -8,18 +8,11 @@ import PostList, { Post } from "../components/PostList";
 import Footer from "../components/Footer";
 import ThematicBreak from "../components/ThematicBreak";
 import { atLeastMedium } from "../utils/breakpoints";
-import fileToDate from "../utils/fileToDate";
 import ExternalLinks from "../components/ExternalLinks";
+import { GraphQLClient, gql } from "graphql-request";
 
 type Props = {
   posts: Post[];
-};
-
-type Summary = {
-  sourceFileArray: string[];
-  fileMap: {
-    [id: string]: Omit<Post, "date">;
-  };
 };
 
 const Index: NextPage<Props> = ({ posts }: Props) => (
@@ -91,21 +84,22 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
 );
 
 export const getStaticProps: GetStaticProps = async () => {
-  const summary: Summary = await import("../content/summary.json");
-  const { sourceFileArray, fileMap } = summary;
+  const graphQLClient = new GraphQLClient(
+    "https://api-us-west-2.graphcms.com/v2/ckf1dpkdn8os901zc4d4mcizm/master"
+  );
+  const query = gql`
+    {
+      posts {
+        date
+        preview
+        slug
+        tags
+        title
+      }
+    }
+  `;
 
-  const recent = sourceFileArray.slice(-5).reverse();
-  const posts = recent.map((sourceFile: string) => {
-    const destFile = sourceFile
-      .replace("posts/", "content/")
-      .replace(".md", ".json");
-
-    return {
-      ...fileMap[destFile],
-      date: fileToDate(destFile),
-    };
-  });
-
+  const { posts } = await graphQLClient.request(query);
   return { props: { posts } };
 };
 

@@ -113,19 +113,19 @@ Post.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
   const query = gql`
     {
       post(where: {slug: "${slug}"} ) {
-        title
+        date
+        postBody
         preview
-        bodyContent
-        publishDate
+        title
       }
     }
   `;
 
   const {
-    post: { title, preview, bodyContent, publishDate },
+    post: { title, preview, postBody, date },
   } = await graphQLClient.request(query);
 
-  return { title, preview, slug, postBody: bodyContent, date: publishDate };
+  return { title, preview, slug, postBody, date };
 };
 
 export default Post;

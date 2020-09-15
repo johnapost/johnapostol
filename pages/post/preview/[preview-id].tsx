@@ -115,20 +115,20 @@ Preview.getInitialProps = async ({
   const query = gql`
     {
       post(where: {id: "${id}"} ) {
-        title
+        date
+        postBody
         preview
         slug
-        bodyContent
-        publishDate
+        title
       }
     }
   `;
 
   const {
-    post: { title, preview, slug, bodyContent, publishDate },
+    post: { title, preview, slug, postBody, date },
   } = await graphQLClient.request(query);
 
-  return { title, preview, slug, postBody: bodyContent, date: publishDate };
+  return { title, preview, slug, postBody, date };
 };
 
 export default Preview;
