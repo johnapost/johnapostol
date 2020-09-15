@@ -72,7 +72,7 @@ const Preview: NextPage<Props> = ({
         <StructuredData
           date={date}
           title={title}
-          // hero={hero}
+          hero={hero}
           preview={preview}
         />
         <article>
