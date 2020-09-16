@@ -2,10 +2,10 @@
 const fetch = require("isomorphic-unfetch");
 
 const getLatestDate = (publishedAt, updatedAt) => {
-  const publishDate = publishedAt instanceof Date ? publishedAt : new Date(0);
-  const updateDate = updatedAt instanceof Date ? updatedAt : new Date(0);
+  const publishDate = new Date(publishedAt);
+  const updateDate = new Date(updatedAt);
 
-  return publishDate.getTime() >= updateDate.getTime()
+  return new Date(publishDate).getTime() >= new Date(updateDate).getTime()
     ? publishDate
     : updateDate;
 };
