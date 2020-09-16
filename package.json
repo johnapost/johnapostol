@@ -8,7 +8,7 @@
   "author": "John Apostol",
   "main": "pages/index.js",
   "scripts": {
-    "build": "next build && next export",
+    "build": "npm run build:sitemap && next build && next export",
     "build:sitemap": "node ./dev-utils/buildSitemap.js",
     "dev": "next",
     "start": "serve out -p 3000",
@@ -16,7 +16,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && yarn build:sitemap && git add public/sitemap.xml"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
