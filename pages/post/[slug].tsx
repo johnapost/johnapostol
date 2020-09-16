@@ -107,7 +107,7 @@ const Post: NextPage<Props> = ({
 
 Post.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
   // Grab ID
-  const slug = asPath?.split("/post/")[1] as string;
+  const slug = asPath?.split("/post/")[1].split("?")[0] as string;
   const data = gql`
     {
       post(where: {slug: "${slug}"} ) {
