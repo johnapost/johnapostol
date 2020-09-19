@@ -5,7 +5,7 @@ import query from "../../utils/query";
 const getPreviewPostBySlug = async (slug: string) => {
   const data = gql`
     {
-      post(where: { slug: "${slug}" }, stage: "DRAFT") {
+      post(where: { slug: "${slug}" }, stage: DRAFT) {
         slug
       }
     }
@@ -15,31 +15,34 @@ const getPreviewPostBySlug = async (slug: string) => {
   return post;
 };
 
-const Preview: NextApiHandler = async (
-  { query: { secret, slug } },
-  { end, setPreviewData, status, writeHead }
-) => {
+const Preview: NextApiHandler = async (req, res) => {
   // Check the secret and next parameters
-  if (secret !== process.env.GRAPHCMS_PREVIEW_SECRET || !slug) {
-    return status(401).json({ message: "Invalid token" });
+  if (
+    req.query.secret !== process.env.GRAPHCMS_PREVIEW_SECRET ||
+    !req.query.slug
+  ) {
+    return res.status(401).json({ message: "Invalid token" });
   }
 
   // Fetch the headless CMS to check if the provided `slug` exists
-  const { slug: postSlug } = await getPreviewPostBySlug(slug as string);
+  const { slug: postSlug } = await getPreviewPostBySlug(
+    req.query.slug as string
+  );
 
   // If the slug doesn't exist prevent preview mode from being enabled
   if (!postSlug) {
-    return status(401).json({ message: "Invalid slug" });
+    return res.status(401).json({ message: "Invalid slug" });
   }
 
   // Enable preview mode
-  setPreviewData({});
+  res.setPreviewData({});
 
   // Redirect to the path from the fetched post
   // We don't redirect to req.query.slug as that might lead to open redirect vulnerabilities
-  writeHead(307, { Location: `/posts/${postSlug}` });
+  res.writeHead(307, { Location: `/post/${postSlug}` });
 
-  end();
+  // Close the response
+  res.end();
 };
 
 export default Preview;
