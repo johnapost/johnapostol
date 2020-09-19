@@ -3340,7 +3340,7 @@ cyclist@^1.0.1:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
-cypress-dotenv@^1.2.2:
+cypress-dotenv@1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/cypress-dotenv/-/cypress-dotenv-1.2.2.tgz#c40f23a11648382a79029c718594d2c793494f4e"
   integrity sha512-T6Z2IWnG64FusDjUPKWKEyGxhlAX1vbJIj1t4s17a2PuhK5Pw58iS3wdthol8g4BRZIsQ+QDX3GN5NgjmJ4/KA==
