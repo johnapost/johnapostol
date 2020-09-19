@@ -1,14 +1,6 @@
-describe("Home", () => {
-  it("should link to about page", () => {
-    cy.visit("/")
-      .get("[data-cy=about]")
-      .click()
-      .location("pathname")
-      .should("be", "/about");
-  });
-});
+const GRAPHCMS_PREVIEW_SECRET = Cypress.env("GRAPHCMS_PREVIEW_SECRET");
 
-describe("Post list", () => {
+describe("Preview", () => {
   it("should render first post", () => {
     cy.visit("/")
       .get("[data-cy=first-post]")
@@ -16,9 +8,9 @@ describe("Post list", () => {
       .then((element) => {
         const title = element.text();
         const url = element.attr("href");
+        const slug = url.split("/post/")[1];
 
-        cy.get("@link")
-          .click()
+        cy.visit(`/api/preview/?slug=${slug}&secret=${GRAPHCMS_PREVIEW_SECRET}`)
           .url()
           .should("be", url)
           .get("h1")
