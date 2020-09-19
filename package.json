@@ -11,7 +11,7 @@
     "build": "npm run build:sitemap && next build && next export",
     "build:sitemap": "node ./dev-utils/buildSitemap.js",
     "dev": "next",
-    "start": "serve out -p 3000",
+    "start": "next start",
     "watch:dev": "next"
   },
   "husky": {
@@ -59,7 +59,6 @@
     "lqip-loader": "2.2.0",
     "prettier": "2.0.5",
     "responsive-loader": "2.0.0",
-    "serve": "11.3.2",
     "sharp": "0.26.0",
     "sort-package-json": "1.44.0",
     "ts-loader": "8.0.3",
