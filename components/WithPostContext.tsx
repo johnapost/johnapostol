@@ -2,7 +2,6 @@ import React from "react";
 
 interface Context {
   slug: string;
-  date: string;
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
