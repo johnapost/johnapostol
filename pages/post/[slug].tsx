@@ -42,8 +42,12 @@ const Post = ({ date, postBody, preview, slug, title }: Props): JSX.Element => {
     thematicBreak: ThematicBreak,
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const hero = require(`../../public/static/${slug}/hero.jpg`);
+  let hero = "";
+
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    hero = require(`../../public/static/${slug}/hero.jpg`);
+  } catch {}
 
   return (
     <>
