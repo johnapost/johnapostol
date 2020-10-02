@@ -9,8 +9,8 @@ const InlineCode = ({ children }: Props): JSX.Element => (
     <span>{children}</span>
     <style jsx>{`
       span {
-        color: #ffffff;
-        background: #362640;
+        color: #d6deeb;
+        background: #011627;
         font-family: monospace;
         white-space: nowrap;
         overflow-wrap: break-word;
