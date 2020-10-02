@@ -8,9 +8,14 @@ module.exports = withPlugins([
   [
     optimizedImages,
     {
-      handleImages: ["jpg"],
+      handleImages: ["jpg", "png"],
       mozjpeg: {
         quality: 90,
+      },
+      pngquant: {
+        dithering: false,
+        quality: [0.85, 1],
+        speed: 1,
       },
       optimizeImagesInDev: true,
       responsive: {
