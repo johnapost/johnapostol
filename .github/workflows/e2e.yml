@@ -6,7 +6,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [1, 2]
+        ci_node_total: [2]
+        ci_node_index: [0, 1]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
