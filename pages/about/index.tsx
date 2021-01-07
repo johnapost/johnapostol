@@ -61,9 +61,9 @@ const About: NextPage = () => (
         <Heading level={2}>Engineer</Heading>
         <List>
           <ListItem>
-            <Link href="/post/a-sensible-approach-to-developing-product-features/">
-              <a>How I develop software</a>
-            </Link>
+            <a href="/post/a-sensible-approach-to-developing-product-features/">
+              How I develop software
+            </a>
           </ListItem>
           <ListItem>Good code is testable code</ListItem>
           <ListItem>HTML / CSS / JS are my bread and butter</ListItem>
