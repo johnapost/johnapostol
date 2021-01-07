@@ -6,15 +6,15 @@ interface Props {
   alt: string;
   src: string;
   context: {
-    date: string;
+    slug: string;
   };
 }
 
-const Image = ({ alt, src, context: { date } }: Props): JSX.Element | null => {
+const Image = ({ alt, src, context: { slug } }: Props): JSX.Element | null => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const optimizedImage = require(`../public/static/${date}/${src}?resize`);
+  const optimizedImage = require(`../public/static/${slug}/${src}?resize`);
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const lowQualityImage = require(`../public/static/${date}/${src}?lqip`);
+  const lowQualityImage = require(`../public/static/${slug}/${src}?lqip`);
   const [size, caption] = alt.split(": ");
   const [ref, inView] = useInView({ threshold: 0.25 });
   const [hasLoaded, setLoaded] = useState(false);

@@ -1,5 +1,5 @@
 import React from "react";
-import { NextPage, NextPageContext } from "next";
+import { NextPageContext } from "next";
 import Head from "next/head";
 import ReactMarkdown from "react-markdown";
 import Heading from "../../components/Heading";
@@ -28,19 +28,13 @@ interface Props {
   title: string;
 }
 
-const Post: NextPage<Props> = ({
-  date,
-  postBody,
-  preview,
-  slug,
-  title,
-}: Props): JSX.Element => {
+const Post = ({ date, postBody, preview, slug, title }: Props): JSX.Element => {
   const renderers = {
     blockquote: Blockquote,
     code: CodeBlock,
     heading: Heading,
     inlineCode: InlineCode,
-    image: WithPostContext({ slug, date }, Image),
+    image: WithPostContext({ slug }, Image),
     link: Link,
     list: List,
     listItem: ListItem,
@@ -48,8 +42,12 @@ const Post: NextPage<Props> = ({
     thematicBreak: ThematicBreak,
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const hero = require(`../../public/static/${date}/hero.jpg`);
+  let hero = "";
+
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    hero = require(`../../public/static/${slug}/hero.jpg`);
+  } catch {}
 
   return (
     <>
