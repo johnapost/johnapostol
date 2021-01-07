@@ -61,7 +61,10 @@ const About: NextPage = () => (
         <Heading level={2}>Engineer</Heading>
         <List>
           <ListItem>
-            <a href="/post/a-sensible-approach-to-developing-product-features/">
+            <a
+              href="/post/a-sensible-approach-to-developing-product-features/"
+              data-cy="development"
+            >
               How I develop software
             </a>
           </ListItem>
