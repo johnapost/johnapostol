@@ -8,7 +8,7 @@ const Footer = (): JSX.Element => (
     <FadedRule />
     <div className="footer">
       <ColumnWrapper>
-        <p className="copyright">© 2020 John Apostol. All rights reserved.</p>
+        <p className="copyright">© 2021 John Apostol. All rights reserved.</p>
       </ColumnWrapper>
     </div>
     <style jsx>{`
