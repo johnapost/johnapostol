@@ -15,7 +15,7 @@ const months = [
 
 const formatDate = (fullDate: string): string => {
   const [year, month, date] = fullDate.split("-");
-  return `${months[Number(month) - 1]} ${date}, ${year}`;
+  return `${months[Number(month) - 1]} ${Number(date)}, ${year}`;
 };
 
 export default formatDate;

@@ -1,8 +1,9 @@
 import React from "react";
 import { NextPage } from "next";
-import formatDate from "../utils/formatDate";
-import ColumnWrapper from "./ColumnWrapper";
-import Paragraph from "./Paragraph";
+// import formatDate from "../utils/formatDate";
+// import ColumnWrapper from "./ColumnWrapper";
+// import Paragraph from "./Paragraph";
+import PostBlock from "./PostBlock";
 
 export type Post = {
   date: string;
@@ -18,7 +19,7 @@ type Props = {
 
 const PostList: NextPage<Props> = ({ posts }: Props) => (
   <>
-    {posts.map(({ title, date, slug, tags, preview }, index) => {
+    {/* {posts.map(({ title, date, slug, tags, preview }, index) => {
       const formattedDate = formatDate(date);
       return (
         <ColumnWrapper key={`${title}-${formattedDate}`}>
@@ -45,7 +46,10 @@ const PostList: NextPage<Props> = ({ posts }: Props) => (
           </div>
         </ColumnWrapper>
       );
-    })}
+    })} */}
+    {posts.map((post, index) => (
+      <PostBlock post={post} index={index} key={index} />
+    ))}
     <style jsx>{`
       .inner {
         margin-top: 4rem;
