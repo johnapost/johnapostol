@@ -39,11 +39,9 @@ const PostBlock = ({
               ))}
           </div>
         </div>
-        <img
-          className="hero"
-          srcSet={optimizedImage.srcSet}
-          src={optimizedImage.src}
-        />
+        <a href={`/post/${slug}`} className="hero">
+          <img srcSet={optimizedImage.srcSet} src={optimizedImage.src} />
+        </a>
       </div>
       <style jsx>{`
         .block {
@@ -65,6 +63,7 @@ const PostBlock = ({
 
         .info a {
           color: inherit;
+          display: block;
           text-decoration: inherit;
         }
 
@@ -97,7 +96,7 @@ const PostBlock = ({
           margin-left: 0.5rem;
         }
 
-        img {
+        .hero {
           display: block;
           min-width: 220px;
           width: 20%;
