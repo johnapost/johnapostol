@@ -23,7 +23,7 @@ const PostBlock = ({
     <ColumnWrapper>
       <div className={cn("block", { first: index === 0 })}>
         <div className="info">
-          <Heading level={2} noWrap>
+          <Heading level={2} noMargin noWrap>
             <a href={`/post/${slug}`}>{title}</a>
           </Heading>
           <div className="preview">{preview}</div>

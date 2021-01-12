@@ -4,10 +4,11 @@ import ColumnWrapper from "./ColumnWrapper";
 interface Props {
   children: JSX.Element | JSX.Element[] | string;
   level: number;
+  noMargin?: boolean;
   noWrap?: boolean;
 }
 
-const Heading = ({ children, level, noWrap }: Props): JSX.Element => {
+const Heading = ({ children, level, noMargin, noWrap }: Props): JSX.Element => {
   let inner = <div />;
 
   // For post titles
@@ -20,7 +21,7 @@ const Heading = ({ children, level, noWrap }: Props): JSX.Element => {
             font-family: "Lato", sans-serif;
             font-size: 1.8rem;
             font-weight: 700;
-            margin-top: 2rem;
+            ${!noMargin && "margin-top: 2rem;"}
           }
         `}</style>
       </>
@@ -36,7 +37,7 @@ const Heading = ({ children, level, noWrap }: Props): JSX.Element => {
             font-family: "Merriweather", serif;
             font-size: 1.3rem;
             font-weight: 700;
-            margin-top: 2rem;
+            ${!noMargin && "margin-top: 2rem;"}
           }
         `}</style>
       </>
