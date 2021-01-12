@@ -21,16 +21,24 @@ const PostBlock = ({
 
   return (
     <ColumnWrapper>
-      <div className={cn("block", { first: index === 0 })}>
+      <a
+        className={cn("block", { first: index === 0 })}
+        href={`/post/${slug}`}
+        data-cy={`post-${index}`}
+      >
         <div className="info">
           <Heading level={2} noMargin noWrap>
-            <a href={`/post/${slug}`}>{title}</a>
+            {title}
           </Heading>
           <p className="preview">{preview}</p>
           <div className="meta">
-            {formattedDate}
+            <span className="date">{formattedDate}</span>
             {tags.length &&
-              tags.map((tag: string) => <span key={tag}>{tag}</span>)}
+              tags.map((tag: string) => (
+                <span className="tag" key={tag}>
+                  {tag}
+                </span>
+              ))}
           </div>
         </div>
         <img
@@ -38,14 +46,16 @@ const PostBlock = ({
           srcSet={optimizedImage.srcSet}
           src={optimizedImage.src}
         />
-      </div>
+      </a>
       <style jsx>{`
         .block {
           align-items: center;
           display: flex;
           flex-direction: column-reverse;
-          margin-top: 4rem;
+          margin-top: 5rem;
           justify-content: space-between;
+          text-decoration: inherit;
+          color: inherit;
         }
 
         .first {
@@ -59,13 +69,30 @@ const PostBlock = ({
 
         .preview {
           display: -webkit-box;
-          -webkit-line-clamp: 3;
+          -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           overflow: hidden;
           margin: 1rem 0;
         }
 
-        span {
+        .meta {
+          font-size: 0.75rem;
+          position: relative;
+          z-index: 5;
+        }
+
+        .tag {
+          font-family: "Lato", sans-serif;
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          border: solid 2px #362640;
+          color: #362640;
+          display: inline-block;
+          padding: 3px 5px;
+          margin-top: 1rem;
+        }
+
+        .tag {
           margin-left: 0.5rem;
         }
 

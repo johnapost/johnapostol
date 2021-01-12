@@ -11,7 +11,7 @@ describe("Home", () => {
 describe("Post list", () => {
   it("should render first post", () => {
     cy.visit("/")
-      .get("[data-cy=first-post]")
+      .get("[data-cy=post-0]")
       .as("link")
       .then((element) => {
         const title = element.text();
