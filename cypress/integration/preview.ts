@@ -3,7 +3,7 @@ const GRAPHCMS_PREVIEW_SECRET = Cypress.env("GRAPHCMS_PREVIEW_SECRET");
 describe("Preview", () => {
   it("should render first post", () => {
     cy.visit("/")
-      .get("[data-cy=first-post]")
+      .get("[data-cy=post-0]")
       .as("link")
       .then((element) => {
         const title = element.text();
