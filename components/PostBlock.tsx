@@ -26,7 +26,7 @@ const PostBlock = ({
           <Heading level={2} noMargin noWrap>
             <a href={`/post/${slug}`}>{title}</a>
           </Heading>
-          <div className="preview">{preview}</div>
+          <p className="preview">{preview}</p>
           <div className="meta">
             {formattedDate}
             {tags.length &&
@@ -58,9 +58,11 @@ const PostBlock = ({
         }
 
         .preview {
-          max-height: 40px;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
           overflow: hidden;
-          text-overflow: ellipsis;
+          margin: 1rem 0;
         }
 
         span {
