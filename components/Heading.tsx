@@ -4,13 +4,16 @@ import ColumnWrapper from "./ColumnWrapper";
 interface Props {
   children: JSX.Element | JSX.Element[] | string;
   level: number;
+  noWrap?: boolean;
 }
 
-const Heading = ({ children, level }: Props): JSX.Element => {
+const Heading = ({ children, level, noWrap }: Props): JSX.Element => {
+  let inner = <div />;
+
   // For post titles
   if (level === 1) {
-    return (
-      <ColumnWrapper>
+    inner = (
+      <>
         <h2>{children}</h2>
         <style jsx>{`
           h2 {
@@ -20,13 +23,13 @@ const Heading = ({ children, level }: Props): JSX.Element => {
             margin-top: 2rem;
           }
         `}</style>
-      </ColumnWrapper>
+      </>
     );
   }
 
   if (level === 2) {
-    return (
-      <ColumnWrapper>
+    inner = (
+      <>
         <h3>{children}</h3>
         <style jsx>{`
           h3 {
@@ -36,11 +39,13 @@ const Heading = ({ children, level }: Props): JSX.Element => {
             margin-top: 2rem;
           }
         `}</style>
-      </ColumnWrapper>
+      </>
     );
   }
 
-  return <div />;
+  if (noWrap) return inner;
+
+  return <ColumnWrapper>{inner}</ColumnWrapper>;
 };
 
 export default Heading;

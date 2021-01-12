@@ -4,6 +4,7 @@ import formatDate from "../utils/formatDate";
 import { atLeastSmall } from "../utils/breakpoints";
 import ColumnWrapper from "./ColumnWrapper";
 import { Post } from "./PostList";
+import Heading from "./Heading";
 
 type Props = {
   index: number;
@@ -22,9 +23,9 @@ const PostBlock = ({
     <ColumnWrapper>
       <div className={cn("block", { first: index === 0 })}>
         <div className="info">
-          <div className="title">
+          <Heading level={2} noWrap>
             <a href={`/post/${slug}`}>{title}</a>
-          </div>
+          </Heading>
           <div className="preview">{preview}</div>
           <div className="meta">
             {formattedDate}
