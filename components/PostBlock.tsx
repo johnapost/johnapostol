@@ -21,16 +21,14 @@ const PostBlock = ({
 
   return (
     <ColumnWrapper>
-      <a
-        className={cn("block", { first: index === 0 })}
-        href={`/post/${slug}`}
-        data-cy={`post-${index}`}
-      >
+      <div className={cn("block", { first: index === 0 })}>
         <div className="info">
-          <Heading level={2} noMargin noWrap>
-            {title}
-          </Heading>
-          <p className="preview">{preview}</p>
+          <a href={`/post/${slug}`} data-cy={`post-${index}`}>
+            <Heading level={2} noMargin noWrap>
+              {title}
+            </Heading>
+            <p className="preview">{preview}</p>
+          </a>
           <div className="meta">
             <span className="date">{formattedDate}</span>
             {tags.length &&
@@ -46,16 +44,14 @@ const PostBlock = ({
           srcSet={optimizedImage.srcSet}
           src={optimizedImage.src}
         />
-      </a>
+      </div>
       <style jsx>{`
         .block {
           align-items: center;
           display: flex;
           flex-direction: column-reverse;
-          margin-top: 5rem;
           justify-content: space-between;
-          text-decoration: inherit;
-          color: inherit;
+          margin-top: 5rem;
         }
 
         .first {
@@ -67,12 +63,17 @@ const PostBlock = ({
           width: 80%;
         }
 
+        .info a {
+          color: inherit;
+          text-decoration: inherit;
+        }
+
         .preview {
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
-          overflow: hidden;
+          -webkit-line-clamp: 2;
+          display: -webkit-box;
           margin: 1rem 0;
+          overflow: hidden;
         }
 
         .meta {
@@ -82,14 +83,14 @@ const PostBlock = ({
         }
 
         .tag {
-          font-family: "Lato", sans-serif;
-          font-size: 0.75rem;
-          text-transform: uppercase;
           border: solid 2px #362640;
           color: #362640;
           display: inline-block;
-          padding: 3px 5px;
+          font-family: "Lato", sans-serif;
+          font-size: 0.75rem;
           margin-top: 1rem;
+          padding: 3px 5px;
+          text-transform: uppercase;
         }
 
         .tag {
