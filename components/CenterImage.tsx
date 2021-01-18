@@ -22,12 +22,7 @@ const CenterImage = ({
           src={optimizedImage.src}
         />
       ) : (
-        <img
-          className="low-quality"
-          ref={lazyRef}
-          alt={caption}
-          src={lowQualityImage}
-        />
+        <img ref={lazyRef} alt={caption} src={lowQualityImage} />
       )}
       <figcaption dangerouslySetInnerHTML={{ __html: caption }} />
     </figure>
@@ -35,10 +30,6 @@ const CenterImage = ({
       img {
         margin-top: 44px;
         width: 100%;
-      }
-
-      .low-quality {
-        filter: blur(25px);
       }
 
       figcaption {

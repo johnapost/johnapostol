@@ -21,12 +21,7 @@ const WideImage = ({
           src={optimizedImage.src}
         />
       ) : (
-        <img
-          className="low-quality"
-          ref={lazyRef}
-          alt={caption}
-          src={lowQualityImage}
-        />
+        <img ref={lazyRef} alt={caption} src={lowQualityImage} />
       )}
       {caption && <figcaption dangerouslySetInnerHTML={{ __html: caption }} />}
     </figure>

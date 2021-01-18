@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy } from "react";
 import cn from "classnames";
 import formatDate from "../utils/formatDate";
 import { atLeastSmall } from "../utils/breakpoints";
@@ -46,7 +46,7 @@ const PostBlock = ({
           {hasLoaded ? (
             <img srcSet={optimizedImage.srcSet} src={optimizedImage.src} />
           ) : (
-            <img className="low-quality" ref={lazyRef} src={lowQualityImage} />
+            <img src={lowQualityImage} ref={lazyRef} />
           )}
         </a>
       </div>
@@ -101,9 +101,7 @@ const PostBlock = ({
           width: auto;
         }
 
-        .low-quality {
-          filter: blur(25px);
-          height: 100%;
+        img {
           width: 100%;
         }
 
