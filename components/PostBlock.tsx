@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import cn from "classnames";
 import formatDate from "../utils/formatDate";
 import { atLeastSmall } from "../utils/breakpoints";
@@ -18,6 +19,18 @@ const PostBlock = ({
   const formattedDate = formatDate(date);
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const optimizedImage = require(`../public/static/${slug}/hero.jpg?resize`);
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const lowQualityImage = require(`../public/static/${slug}/hero.jpg?lqip`);
+  const [ref, inView] = useInView({ threshold: 0.25 });
+  const [hasLoaded, setLoaded] = useState(false);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (count > 1) setLoaded(true);
+  }, [count]);
+
+  // Count the number of times inView has fired
+  useEffect(() => setCount(count + 1), [inView]);
 
   return (
     <ColumnWrapper>
@@ -40,7 +53,11 @@ const PostBlock = ({
           </div>
         </div>
         <a href={`/post/${slug}`} className="hero">
-          <img srcSet={optimizedImage.srcSet} src={optimizedImage.src} />
+          {hasLoaded ? (
+            <img srcSet={optimizedImage.srcSet} src={optimizedImage.src} />
+          ) : (
+            <img className="low-quality" ref={ref} src={lowQualityImage} />
+          )}
         </a>
       </div>
       <style jsx>{`
@@ -92,6 +109,11 @@ const PostBlock = ({
           display: block;
           min-width: 250px;
           width: auto;
+        }
+
+        .low-quality {
+          filter: blur(25px);
+          width: 100%;
         }
 
         @media ${atLeastSmall} {
