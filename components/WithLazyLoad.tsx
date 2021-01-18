@@ -16,10 +16,14 @@ type RequiredProps = {
   src: string;
 };
 
+type WithoutLazyLoadProps<P> = React.ComponentType<
+  Omit<P, keyof WithLazyLoadProps>
+>;
+
 const WithLazyLoad = <T extends Record<string, unknown>>(
   { slug, src }: RequiredProps,
   Component: React.ComponentType<T>
-): React.ComponentType<T> => {
+): WithoutLazyLoadProps<T> => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const optimizedImage = require(`../public/static/${slug}/${src}?resize`);
   // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -48,7 +52,7 @@ const WithLazyLoad = <T extends Record<string, unknown>>(
     );
   };
 
-  return WrappedComponent;
+  return WrappedComponent as WithoutLazyLoadProps<T>;
 };
 
 export default WithLazyLoad;
