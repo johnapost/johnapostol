@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import React from "react";
 import cn from "classnames";
 import formatDate from "../utils/formatDate";
 import { atLeastSmall } from "../utils/breakpoints";
@@ -16,7 +16,7 @@ const PostBlock = ({
   index,
   post: { date, preview, slug, tags, title },
   lazyRef,
-  hasLoaded,
+  hasViewed,
   optimizedImage,
   lowQualityImage,
 }: Props): JSX.Element => {
@@ -43,7 +43,7 @@ const PostBlock = ({
           </div>
         </div>
         <a href={`/post/${slug}`} className="hero">
-          {hasLoaded ? (
+          {hasViewed ? (
             <img srcSet={optimizedImage.srcSet} src={optimizedImage.src} />
           ) : (
             <img src={lowQualityImage} ref={lazyRef} />

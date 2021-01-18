@@ -7,14 +7,14 @@ type Props = {
 
 const WideImage = ({
   caption,
-  hasLoaded,
+  hasViewed,
   optimizedImage,
   lazyRef,
   lowQualityImage,
 }: Props): JSX.Element => (
   <div className="full-width">
     <figure>
-      {hasLoaded ? (
+      {hasViewed ? (
         <img
           alt={caption}
           srcSet={optimizedImage.srcSet}

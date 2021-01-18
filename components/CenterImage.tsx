@@ -8,14 +8,14 @@ type Props = {
 
 const CenterImage = ({
   caption,
-  hasLoaded,
+  hasViewed,
   optimizedImage,
   lazyRef,
   lowQualityImage,
 }: Props): JSX.Element => (
   <ColumnWrapper>
     <figure>
-      {hasLoaded ? (
+      {hasViewed ? (
         <img
           alt={caption}
           srcSet={optimizedImage.srcSet}

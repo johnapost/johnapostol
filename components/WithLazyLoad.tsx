@@ -3,7 +3,7 @@ import { useInView } from "react-intersection-observer";
 
 export type WithLazyLoadProps = {
   lazyRef: (node?: Element | null) => void;
-  hasLoaded: boolean;
+  hasViewed: boolean;
   optimizedImage: {
     src: string;
     srcSet: string;
@@ -31,11 +31,11 @@ const WithLazyLoad = <T extends Record<string, unknown>>(
 
   const WrappedComponent = (props: T): JSX.Element => {
     const [ref, inView] = useInView({ threshold: 0.25 });
-    const [hasLoaded, setLoaded] = useState(false);
+    const [hasViewed, setViewed] = useState(false);
     const [count, setCount] = useState(0);
 
     useEffect(() => {
-      if (count > 1) setLoaded(true);
+      if (count > 1) setViewed(true);
     }, [count]);
 
     // Count the number of times inView has fired
@@ -44,7 +44,7 @@ const WithLazyLoad = <T extends Record<string, unknown>>(
     return (
       <Component
         lazyRef={ref}
-        hasLoaded={hasLoaded}
+        hasViewed={hasViewed}
         optimizedImage={optimizedImage}
         lowQualityImage={lowQualityImage}
         {...props}
