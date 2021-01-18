@@ -49,11 +49,8 @@ const PostBlock = ({
           display: flex;
           flex-direction: column-reverse;
           justify-content: space-between;
-          margin-top: 3rem;
-        }
-
-        .first {
-          margin-top: 1rem;
+          margin: 4rem auto 0;
+          max-width: 400px;
         }
 
         .info a {
@@ -93,14 +90,18 @@ const PostBlock = ({
 
         .hero {
           display: block;
-          min-width: 220px;
+          min-width: 250px;
           width: auto;
         }
 
         @media ${atLeastSmall} {
           .block {
             flex-direction: row;
-            margin-top: 5rem;
+            max-width: none;
+          }
+
+          .first {
+            margin-top: 2rem;
           }
 
           .info {
