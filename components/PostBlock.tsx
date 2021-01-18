@@ -1,36 +1,26 @@
-import React, { useState, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
+import React from "react";
 import cn from "classnames";
 import formatDate from "../utils/formatDate";
 import { atLeastSmall } from "../utils/breakpoints";
 import ColumnWrapper from "./ColumnWrapper";
 import { Post } from "./PostList";
 import Heading from "./Heading";
+import type { WithLazyLoadProps } from "./WithLazyLoad";
 
 type Props = {
   index: number;
   post: Post;
-};
+} & WithLazyLoadProps;
 
 const PostBlock = ({
   index,
   post: { date, preview, slug, tags, title },
+  lazyRef,
+  hasLoaded,
+  optimizedImage,
+  lowQualityImage,
 }: Props): JSX.Element => {
   const formattedDate = formatDate(date);
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const optimizedImage = require(`../public/static/${slug}/hero.jpg?resize`);
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const lowQualityImage = require(`../public/static/${slug}/hero.jpg?lqip`);
-  const [ref, inView] = useInView({ threshold: 0.25 });
-  const [hasLoaded, setLoaded] = useState(false);
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (count > 1) setLoaded(true);
-  }, [count]);
-
-  // Count the number of times inView has fired
-  useEffect(() => setCount(count + 1), [inView]);
 
   return (
     <ColumnWrapper>
@@ -56,7 +46,7 @@ const PostBlock = ({
           {hasLoaded ? (
             <img srcSet={optimizedImage.srcSet} src={optimizedImage.src} />
           ) : (
-            <img className="low-quality" ref={ref} src={lowQualityImage} />
+            <img className="low-quality" ref={lazyRef} src={lowQualityImage} />
           )}
         </a>
       </div>

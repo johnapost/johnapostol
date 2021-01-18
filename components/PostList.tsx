@@ -1,5 +1,6 @@
 import React from "react";
 import { NextPage } from "next";
+import WithLazyLoad from "./WithLazyLoad";
 import PostBlock from "./PostBlock";
 
 export type Post = {
@@ -16,9 +17,11 @@ type Props = {
 
 const PostList: NextPage<Props> = ({ posts }: Props) => (
   <>
-    {posts.map((post, index) => (
-      <PostBlock post={post} index={index} key={index} />
-    ))}
+    {posts.map((post, index) => {
+      const { slug } = post;
+      const EnhancedComponent = WithLazyLoad(slug, "hero", PostBlock);
+      return <EnhancedComponent post={post} index={index} key={index} />;
+    })}
   </>
 );
 

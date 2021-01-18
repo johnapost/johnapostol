@@ -1,19 +1,18 @@
 import React from "react";
 
-interface Context {
+type Context = {
   slug: string;
-}
+};
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-const WithPostContext = <T extends object>(
+const WithPostContext = <T extends Record<string, unknown>>(
   context: Context,
-  WrappedComponent: React.ComponentType<T>
+  Component: React.ComponentType<T>
 ): React.ComponentType<T> => {
   return class extends React.Component<T> {
     public static displayName = "WithPostContext";
 
     public render(): JSX.Element {
-      return <WrappedComponent context={context} {...(this.props as T)} />;
+      return <Component context={context} {...(this.props as T)} />;
     }
   };
 };

@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import ColumnWrapper from "./ColumnWrapper";
 
-interface Props {
+type Props = {
   alt: string;
   src: string;
   context: {
     slug: string;
   };
-}
+};
 
 const Image = ({ alt, src, context: { slug } }: Props): JSX.Element | null => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
