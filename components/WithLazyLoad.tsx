@@ -21,9 +21,9 @@ const WithLazyLoad = <T extends Record<string, unknown>>(
   Component: React.ComponentType<T>
 ): React.ComponentType<T> => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const optimizedImage = require(`../public/static/${slug}/${src}.jpg?resize`);
+  const optimizedImage = require(`../public/static/${slug}/${src}?resize`);
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const lowQualityImage = require(`../public/static/${slug}/${src}.jpg?lqip`);
+  const lowQualityImage = require(`../public/static/${slug}/${src}?lqip`);
 
   const WrappedComponent = (props: T): JSX.Element => {
     const [ref, inView] = useInView({ threshold: 0.25 });
