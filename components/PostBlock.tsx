@@ -5,19 +5,22 @@ import { atLeastSmall } from "../utils/breakpoints";
 import ColumnWrapper from "./ColumnWrapper";
 import { Post } from "./PostList";
 import Heading from "./Heading";
+import type { WithLazyLoadProps } from "./WithLazyLoad";
 
 type Props = {
   index: number;
   post: Post;
-};
+} & WithLazyLoadProps;
 
 const PostBlock = ({
   index,
   post: { date, preview, slug, tags, title },
+  lazyRef,
+  hasViewed,
+  optimizedImage,
+  lowQualityImage,
 }: Props): JSX.Element => {
   const formattedDate = formatDate(date);
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const optimizedImage = require(`../public/static/${slug}/hero.jpg?resize`);
 
   return (
     <ColumnWrapper>
@@ -40,7 +43,11 @@ const PostBlock = ({
           </div>
         </div>
         <a href={`/post/${slug}`} className="hero">
-          <img srcSet={optimizedImage.srcSet} src={optimizedImage.src} />
+          {hasViewed ? (
+            <img srcSet={optimizedImage.srcSet} src={optimizedImage.src} />
+          ) : (
+            <img src={lowQualityImage} ref={lazyRef} />
+          )}
         </a>
       </div>
       <style jsx>{`
@@ -92,6 +99,10 @@ const PostBlock = ({
           display: block;
           min-width: 250px;
           width: auto;
+        }
+
+        img {
+          width: 100%;
         }
 
         @media ${atLeastSmall} {
