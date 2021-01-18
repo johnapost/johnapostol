@@ -4,43 +4,49 @@ import ColumnWrapper from "./ColumnWrapper";
 interface Props {
   children: JSX.Element | JSX.Element[] | string;
   level: number;
+  noMargin?: boolean;
+  noWrap?: boolean;
 }
 
-const Heading = ({ children, level }: Props): JSX.Element => {
+const Heading = ({ children, level, noMargin, noWrap }: Props): JSX.Element => {
+  let inner = <div />;
+
   // For post titles
   if (level === 1) {
-    return (
-      <ColumnWrapper>
+    inner = (
+      <>
         <h2>{children}</h2>
         <style jsx>{`
           h2 {
             font-family: "Lato", sans-serif;
             font-size: 1.8rem;
             font-weight: 700;
-            margin-top: 2rem;
+            ${!noMargin ? "margin-top: 2rem;" : ""}
           }
         `}</style>
-      </ColumnWrapper>
+      </>
     );
   }
 
   if (level === 2) {
-    return (
-      <ColumnWrapper>
+    inner = (
+      <>
         <h3>{children}</h3>
         <style jsx>{`
           h3 {
             font-family: "Merriweather", serif;
             font-size: 1.3rem;
             font-weight: 700;
-            margin-top: 2rem;
+            ${!noMargin ? "margin-top: 2rem;" : ""}
           }
         `}</style>
-      </ColumnWrapper>
+      </>
     );
   }
 
-  return <div />;
+  if (noWrap) return inner;
+
+  return <ColumnWrapper>{inner}</ColumnWrapper>;
 };
 
 export default Heading;
