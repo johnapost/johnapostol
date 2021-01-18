@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
 export type WithLazyLoadProps = {
-  lazyRef: Element;
+  lazyRef: (node?: Element | null) => void;
   hasLoaded: boolean;
   optimizedImage: {
     src: string;
@@ -11,9 +11,13 @@ export type WithLazyLoadProps = {
   lowQualityImage: string;
 };
 
+type RequiredProps = {
+  slug: string;
+  src: string;
+};
+
 const WithLazyLoad = <T extends Record<string, unknown>>(
-  slug: string,
-  src: string,
+  { slug, src }: RequiredProps,
   Component: React.ComponentType<T>
 ): React.ComponentType<T> => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -21,7 +25,7 @@ const WithLazyLoad = <T extends Record<string, unknown>>(
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const lowQualityImage = require(`../public/static/${slug}/${src}.jpg?lqip`);
 
-  const WrappedComponent = (props: T) => {
+  const WrappedComponent = (props: T): JSX.Element => {
     const [ref, inView] = useInView({ threshold: 0.25 });
     const [hasLoaded, setLoaded] = useState(false);
     const [count, setCount] = useState(0);

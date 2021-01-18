@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import ColumnWrapper from "./ColumnWrapper";
+import type { WithLazyLoadProps } from "./WithLazyLoad";
 
 type Props = {
   alt: string;
@@ -8,7 +9,7 @@ type Props = {
   context: {
     slug: string;
   };
-};
+} & WithLazyLoadProps;
 
 const Image = ({ alt, src, context: { slug } }: Props): JSX.Element | null => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires

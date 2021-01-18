@@ -103,6 +103,7 @@ const PostBlock = ({
 
         .low-quality {
           filter: blur(25px);
+          height: 100%;
           width: 100%;
         }
 

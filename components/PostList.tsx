@@ -19,7 +19,7 @@ const PostList: NextPage<Props> = ({ posts }: Props) => (
   <>
     {posts.map((post, index) => {
       const { slug } = post;
-      const EnhancedComponent = WithLazyLoad(slug, "hero", PostBlock);
+      const EnhancedComponent = WithLazyLoad({ slug, src: "hero" }, PostBlock);
       return <EnhancedComponent post={post} index={index} key={index} />;
     })}
   </>
