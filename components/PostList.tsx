@@ -17,14 +17,16 @@ type Props = {
 
 const PostList: NextPage<Props> = ({ posts }: Props) => (
   <>
-    {posts.map((post, index) => {
-      const { slug } = post;
-      const EnhancedComponent = WithLazyLoad(
-        { slug, src: "hero.jpg" },
-        PostBlock
-      );
-      return <EnhancedComponent post={post} index={index} key={index} />;
-    })}
+    {posts.map(
+      (post, index): JSX.Element => {
+        const { slug } = post;
+        const EnhancedComponent = WithLazyLoad(
+          { slug, src: "hero.jpg" },
+          PostBlock
+        );
+        return <EnhancedComponent post={post} index={index} key={index} />;
+      }
+    )}
   </>
 );
 
