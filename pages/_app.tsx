@@ -17,14 +17,14 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => (
     <Head>
       {process.env.NODE_ENV === "production" && <GoogleAnalytics />}
       <link
-        rel="prefetch"
+        rel="preload"
         href="/fonts/lato-v17-latin-700.woff2"
         as="font"
         type="font/woff2"
         crossOrigin=""
       />
       <link
-        rel="prefetch"
+        rel="preload"
         href="/fonts/lato-v17-latin-700.woff"
         as="font"
         type="font/woff"
@@ -59,14 +59,14 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => (
         crossOrigin=""
       />
       <link
-        rel="prefetch"
+        rel="preload"
         href="/fonts/merriweather-v22-latin-regular.woff2"
         as="font"
         type="font/woff2"
         crossOrigin=""
       />
       <link
-        rel="prefetch"
+        rel="preload"
         href="/fonts/merriweather-v22-latin-regular.woff"
         as="font"
         type="font/woff"
