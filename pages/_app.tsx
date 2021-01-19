@@ -2,6 +2,7 @@ import React from "react";
 import { AppProps } from "next/app";
 import GoogleAnalytics from "../components/GoogleAnalytics";
 import Head from "next/head";
+import "../public/fonts/fonts.css";
 
 const structuredData = JSON.stringify({
   "@context": "https://schema.org",
@@ -16,8 +17,102 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => (
     <Head>
       {process.env.NODE_ENV === "production" && <GoogleAnalytics />}
       <link
-        href="https://fonts.googleapis.com/css?family=Lato:700|Merriweather:300,300i,400,400i,700,700i"
-        rel="stylesheet"
+        rel="preload"
+        href="/fonts/lato-v17-latin-700.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/lato-v17-latin-700.woff"
+        as="font"
+        type="font/woff"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/merriweather-v22-latin-300.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/merriweather-v22-latin-300.woff"
+        as="font"
+        type="font/woff"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/merriweather-v22-latin-300italic.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/merriweather-v22-latin-300italic.woff"
+        as="font"
+        type="font/woff"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/merriweather-v22-latin-regular.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/merriweather-v22-latin-regular.woff"
+        as="font"
+        type="font/woff"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/merriweather-v22-latin-italic.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/merriweather-v22-latin-italic.woff"
+        as="font"
+        type="font/woff"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/merriweather-v22-latin-700.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/merriweather-v22-latin-700.woff"
+        as="font"
+        type="font/woff"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/merriweather-v22-latin-700italic.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/merriweather-v22-latin-700italic.woff"
+        as="font"
+        type="font/woff"
+        crossOrigin=""
       />
       <meta charSet="utf-8" />
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
