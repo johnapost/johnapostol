@@ -31,28 +31,28 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => (
         crossOrigin=""
       />
       <link
-        rel="preload"
+        rel="prefetch"
         href="/fonts/merriweather-v22-latin-300.woff2"
         as="font"
         type="font/woff2"
         crossOrigin=""
       />
       <link
-        rel="preload"
+        rel="prefetch"
         href="/fonts/merriweather-v22-latin-300.woff"
         as="font"
         type="font/woff"
         crossOrigin=""
       />
       <link
-        rel="preload"
+        rel="prefetch"
         href="/fonts/merriweather-v22-latin-300italic.woff2"
         as="font"
         type="font/woff2"
         crossOrigin=""
       />
       <link
-        rel="preload"
+        rel="prefetch"
         href="/fonts/merriweather-v22-latin-300italic.woff"
         as="font"
         type="font/woff"
@@ -73,42 +73,42 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => (
         crossOrigin=""
       />
       <link
-        rel="preload"
+        rel="prefetch"
         href="/fonts/merriweather-v22-latin-italic.woff2"
         as="font"
         type="font/woff2"
         crossOrigin=""
       />
       <link
-        rel="preload"
+        rel="prefetch"
         href="/fonts/merriweather-v22-latin-italic.woff"
         as="font"
         type="font/woff"
         crossOrigin=""
       />
       <link
-        rel="preload"
+        rel="prefetch"
         href="/fonts/merriweather-v22-latin-700.woff2"
         as="font"
         type="font/woff2"
         crossOrigin=""
       />
       <link
-        rel="preload"
+        rel="prefetch"
         href="/fonts/merriweather-v22-latin-700.woff"
         as="font"
         type="font/woff"
         crossOrigin=""
       />
       <link
-        rel="preload"
+        rel="prefetch"
         href="/fonts/merriweather-v22-latin-700italic.woff2"
         as="font"
         type="font/woff2"
         crossOrigin=""
       />
       <link
-        rel="preload"
+        rel="prefetch"
         href="/fonts/merriweather-v22-latin-700italic.woff"
         as="font"
         type="font/woff"
