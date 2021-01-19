@@ -42,11 +42,15 @@ const PostBlock = ({
               ))}
           </div>
         </div>
-        <a href={`/post/${slug}`} className="hero">
+        <a href={`/post/${slug}`} className="hero" aria-label={title}>
           {hasViewed ? (
-            <img srcSet={optimizedImage.srcSet} src={optimizedImage.src} />
+            <img
+              alt="Preview image"
+              srcSet={optimizedImage.srcSet}
+              src={optimizedImage.src}
+            />
           ) : (
-            <img src={lowQualityImage} ref={lazyRef} />
+            <img alt="Preview image" src={lowQualityImage} ref={lazyRef} />
           )}
         </a>
       </div>

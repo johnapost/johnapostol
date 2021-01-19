@@ -17,7 +17,7 @@ const ExternalLinks = (): JSX.Element => (
       <a href="https://www.linkedin.com/in/johnapost/" target="__blank">
         <LinkedIn />
       </a>
-      <a>
+      <a href="#">
         <Resume />
       </a>
     </div>
