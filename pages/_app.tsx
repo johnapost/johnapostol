@@ -31,34 +31,6 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => (
         crossOrigin=""
       />
       <link
-        rel="prefetch"
-        href="/fonts/merriweather-v22-latin-300.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin=""
-      />
-      <link
-        rel="prefetch"
-        href="/fonts/merriweather-v22-latin-300.woff"
-        as="font"
-        type="font/woff"
-        crossOrigin=""
-      />
-      <link
-        rel="prefetch"
-        href="/fonts/merriweather-v22-latin-300italic.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin=""
-      />
-      <link
-        rel="prefetch"
-        href="/fonts/merriweather-v22-latin-300italic.woff"
-        as="font"
-        type="font/woff"
-        crossOrigin=""
-      />
-      <link
         rel="preload"
         href="/fonts/merriweather-v22-latin-regular.woff2"
         as="font"
