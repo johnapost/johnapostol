@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import ColumnWrapper from "../components/ColumnWrapper";
 import GitHub from "../components/GitHub";
 import LinkedIn from "../components/LinkedIn";
@@ -17,9 +18,11 @@ const ExternalLinks = (): JSX.Element => (
       <a href="https://www.linkedin.com/in/johnapost/" target="__blank">
         <LinkedIn />
       </a>
-      <a href="#">
-        <Resume />
-      </a>
+      <Link href="/about">
+        <a>
+          <Resume />
+        </a>
+      </Link>
     </div>
     <style jsx>{`
       .external {
