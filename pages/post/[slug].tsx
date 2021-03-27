@@ -1,5 +1,5 @@
 import React from "react";
-import { NextPageContext } from "next";
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import ReactMarkdown from "react-markdown";
 import Heading from "../../components/Heading";
@@ -103,9 +103,10 @@ const Post = ({ date, postBody, preview, slug, title }: Props): JSX.Element => {
   );
 };
 
-Post.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
+export const getStaticProps: GetStaticProps = async (context) => {
+  const slug = context.params;
+
   // Grab ID
-  const slug = asPath?.split("/post/")[1].split("?")[0] as string;
   const data = gql`
     {
       post(where: {slug: "${slug}"} ) {
@@ -121,7 +122,7 @@ Post.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
     post: { title, preview, postBody, date },
   } = await query(data);
 
-  return { title, preview, slug, postBody, date };
+  return { props: { title, preview, slug, postBody, date } };
 };
 
 export default Post;
