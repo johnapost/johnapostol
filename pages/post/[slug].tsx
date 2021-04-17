@@ -104,7 +104,6 @@ const Post = ({ date, postBody, preview, slug, title }: Props): JSX.Element => {
 };
 
 Post.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
-  // Grab ID
   const slug = asPath?.split("/post/")[1].split("?")[0] as string;
   const data = gql`
     {

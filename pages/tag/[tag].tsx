@@ -67,7 +67,6 @@ const Tag = ({ displayName, slug }: Props): JSX.Element => (
 );
 
 Tag.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
-  // Grab ID
   const slug = asPath?.split("/tag/")[1].split("?")[0] as string;
   const data = gql`
     {
