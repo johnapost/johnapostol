@@ -34,12 +34,13 @@ const PostBlock = ({
           </a>
           <div className="meta">
             <span className="date">{formattedDate}</span>
-            {tags.length &&
-              tags.map((tag: string) => (
-                <span className="tag" key={tag}>
-                  {tag}
-                </span>
-              ))}
+            {tags.length
+              ? tags.map((tag) => (
+                  <span className="tag" key={tag.displayName}>
+                    {tag.displayName}
+                  </span>
+                ))
+              : null}
           </div>
         </div>
         <a href={`/post/${slug}`} className="hero" aria-label={title}>

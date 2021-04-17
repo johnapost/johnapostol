@@ -7,7 +7,7 @@ export type Post = {
   date: string;
   preview: string;
   slug: string;
-  tags: string[];
+  tags: { displayName: string }[];
   title: string;
 };
 

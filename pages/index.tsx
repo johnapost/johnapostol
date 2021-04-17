@@ -93,7 +93,9 @@ export const getStaticProps: GetStaticProps = async () => {
         date
         preview
         slug
-        tags
+        tags {
+          displayName
+        }
         title
       }
     }
