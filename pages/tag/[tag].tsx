@@ -14,7 +14,7 @@ interface Props {
   slug: string;
 }
 
-const Tag = ({ displayName, slug }: Props): JSX.Element => (
+const Tag = ({ displayName }: Props): JSX.Element => (
   <>
     <main role="main">
       <Head>
