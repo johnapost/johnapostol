@@ -4,23 +4,22 @@ import Head from "next/head";
 import { gql } from "graphql-request";
 import Footer from "../../components/Footer";
 import Cover from "../../components/Cover";
-import PostList, { Post } from "../../components/PostList";
 import { atLeastMedium } from "../../utils/breakpoints";
 import ExternalLinks from "../../components/ExternalLinks";
 import query from "../../utils/query";
 
 interface Props {
-  posts: Post[];
-  tag: string;
+  displayName: string;
+  slug: string;
 }
 
-const Tag = ({ posts, tag }: Props): JSX.Element => (
+const Tag = ({ displayName, slug }: Props): JSX.Element => (
   <>
     <main role="main">
       <Head>
         <meta
           name="description"
-          content={`John Apostol's posts about ${tag}`}
+          content={`John Apostol's posts about ${displayName}`}
         />
         <title>About John Apostol</title>
         <link rel="canonical" href="https://johnapostol.com/about" />
@@ -41,7 +40,7 @@ const Tag = ({ posts, tag }: Props): JSX.Element => (
       <Cover image={require("../../public/static/about.jpg?size=320")} />
       <div className="grid">
         <ExternalLinks />
-        <PostList posts={posts} />
+        {displayName}
       </div>
     </main>
     <Footer />
@@ -67,25 +66,21 @@ const Tag = ({ posts, tag }: Props): JSX.Element => (
   </>
 );
 
-// Currently impossible to query Tags, I need to create a model with a many:many relationship with Post
-
 Tag.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
   // Grab ID
-  const tag = asPath?.split("/tag/")[1].split("?")[0] as string;
+  const slug = asPath?.split("/tag/")[1].split("?")[0] as string;
   const data = gql`
     {
-      post(where: {slug: "${tag}"}, orderBy: date_DESC, stage: PUBLISHED ) {
-        date
-        preview
-        slug
-        tags
-        title
+      tag(where: {slug: "${slug}"}) {
+        displayName
       }
     }
   `;
 
-  const { posts } = await query(data);
-  return { posts, tag };
+  const {
+    tag: { displayName },
+  } = await query(data);
+  return { displayName, slug };
 };
 
 export default Tag;
