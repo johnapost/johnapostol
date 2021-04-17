@@ -39,8 +39,13 @@ const PostBlock = ({
           <div className="meta">
             <span className="date">{formattedDate}</span>
             {tags.length
-              ? tags.map(({ displayName, slug }) => (
-                  <a href={`/tag/${slug}`} className="tag" key={displayName}>
+              ? tags.map(({ displayName, slug }, tagIndex) => (
+                  <a
+                    href={`/tag/${slug}`}
+                    className="tag"
+                    key={displayName}
+                    data-cy={`tag-${tagIndex}`}
+                  >
                     {displayName}
                   </a>
                 ))

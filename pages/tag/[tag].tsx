@@ -7,6 +7,7 @@ import Cover from "../../components/Cover";
 import { atLeastMedium } from "../../utils/breakpoints";
 import ExternalLinks from "../../components/ExternalLinks";
 import query from "../../utils/query";
+import ColumnWrapper from "../../components/ColumnWrapper";
 
 interface Props {
   displayName: string;
@@ -40,7 +41,9 @@ const Tag = ({ displayName, slug }: Props): JSX.Element => (
       <Cover image={require("../../public/static/about.jpg?size=320")} />
       <div className="grid">
         <ExternalLinks />
-        {displayName}
+        <ColumnWrapper>
+          <h1>{displayName}</h1>
+        </ColumnWrapper>
       </div>
     </main>
     <Footer />

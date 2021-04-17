@@ -25,4 +25,22 @@ describe("Post list", () => {
           .should("be", title);
       });
   });
+
+  it("should link to first tag", () => {
+    cy.visit("/")
+      .get("[data-cy=tag-0]")
+      .first()
+      .as("link")
+      .then((element) => {
+        const title = element.text();
+        const url = element.attr("href");
+
+        cy.get("@link")
+          .click()
+          .url()
+          .should("be", url)
+          .get("h1")
+          .should("be", title);
+      });
+  });
 });
