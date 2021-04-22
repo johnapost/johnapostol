@@ -19,7 +19,7 @@ const Manager: NextPage = () => (
           name="description"
           content="How John Apostol approaches managing direct reports"
         />
-        <title>About John Apostol</title>
+        <title>John Apostol, lifelong learner</title>
         <link rel="canonical" href="https://johnapostol.com/about/manager" />
         <meta property="og:type" content="website" />
         <meta
@@ -30,7 +30,7 @@ const Manager: NextPage = () => (
           property="og:image"
           content={require("../../public/static/me.jpg?size=320")}
         />
-        <meta property="og:title" content="About John Apostol" />
+        <meta property="og:title" content="John Apostol, lifelong learner" />
         <meta
           property="og:description"
           content="How John Apostol approaches managing direct reports"

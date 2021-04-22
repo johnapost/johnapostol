@@ -26,7 +26,11 @@ const PostBlock = ({
     <ColumnWrapper>
       <div className={cn("block", { first: index === 0 })}>
         <div className="info">
-          <a href={`/post/${slug}`} data-cy={`post-${index}`}>
+          <a
+            className="info-link"
+            href={`/post/${slug}`}
+            data-cy={`post-${index}`}
+          >
             <Heading level={2} noMargin noWrap>
               {title}
             </Heading>
@@ -34,12 +38,18 @@ const PostBlock = ({
           </a>
           <div className="meta">
             <span className="date">{formattedDate}</span>
-            {tags.length &&
-              tags.map((tag: string) => (
-                <span className="tag" key={tag}>
-                  {tag}
-                </span>
-              ))}
+            {tags.length
+              ? tags.map(({ displayName, slug }, tagIndex) => (
+                  <a
+                    href={`/tag/${slug}`}
+                    className="tag"
+                    key={displayName}
+                    data-cy={`tag-${tagIndex}`}
+                  >
+                    {displayName}
+                  </a>
+                ))
+              : null}
           </div>
         </div>
         <a href={`/post/${slug}`} className="hero" aria-label={title}>
@@ -64,7 +74,7 @@ const PostBlock = ({
           max-width: 400px;
         }
 
-        .info a {
+        .info-link {
           color: inherit;
           display: block;
           text-decoration: inherit;
@@ -92,6 +102,7 @@ const PostBlock = ({
           font-size: 0.75rem;
           margin-top: 1rem;
           padding: 3px 5px;
+          text-decoration: inherit;
           text-transform: uppercase;
         }
 

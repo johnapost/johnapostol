@@ -12,9 +12,9 @@ import ExternalLinks from "../components/ExternalLinks";
 import { gql } from "graphql-request";
 import query from "../utils/query";
 
-type Props = {
+interface Props {
   posts: Post[];
-};
+}
 
 const Index: NextPage<Props> = ({ posts }: Props) => (
   <>
@@ -93,7 +93,10 @@ export const getStaticProps: GetStaticProps = async () => {
         date
         preview
         slug
-        tags
+        tags {
+          displayName
+          slug
+        }
         title
       }
     }

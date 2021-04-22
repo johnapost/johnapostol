@@ -18,7 +18,7 @@ const Link = ({ children, href }: Props): JSX.Element => {
     return <RepoCard preview={preview} href={href} />;
   }
 
-  if (href.startsWith("/post/")) {
+  if (href.startsWith("/")) {
     return <a href={href}>{children}</a>;
   }
 
