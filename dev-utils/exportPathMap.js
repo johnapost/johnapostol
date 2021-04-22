@@ -36,7 +36,7 @@ const gatherPosts = async () => {
     (accum, { slug, publishedAt, updatedAt }) => ({
       ...accum,
       [`/post/${slug}`]: {
-        page: "/post/[slug]",
+        page: "/post/[post]",
         query: {
           modifiedDate: getLatestDate(publishedAt, updatedAt),
         },
@@ -74,7 +74,7 @@ const gatherTags = async () => {
     (accum, { slug, publishedAt, updatedAt }) => ({
       ...accum,
       [`/tag/${slug}`]: {
-        page: "/tag/[slug]",
+        page: "/tag/[tag]",
         query: {
           modifiedDate: getLatestDate(publishedAt, updatedAt),
         },
