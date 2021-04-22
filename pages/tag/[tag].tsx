@@ -1,5 +1,5 @@
 import React from "react";
-import { NextPageContext } from "next";
+import { GetStaticProps, NextPageContext } from "next";
 import Head from "next/head";
 import { gql } from "graphql-request";
 import Footer from "../../components/Footer";
@@ -8,13 +8,18 @@ import { atLeastMedium } from "../../utils/breakpoints";
 import ExternalLinks from "../../components/ExternalLinks";
 import query from "../../utils/query";
 import ColumnWrapper from "../../components/ColumnWrapper";
+import PostList, { Post } from "../../components/PostList";
+import ThematicBreak from "../../components/ThematicBreak";
+import Paragraph from "../../components/Paragraph";
+import Heading from "../../components/Heading";
 
 interface Props {
   displayName: string;
+  posts: Post[];
   slug: string;
 }
 
-const Tag = ({ displayName }: Props): JSX.Element => (
+const Tag = ({ displayName, posts }: Props): JSX.Element => (
   <>
     <main role="main">
       <Head>
@@ -41,9 +46,9 @@ const Tag = ({ displayName }: Props): JSX.Element => (
       <Cover image={require("../../public/static/about.jpg?size=320")} />
       <div className="grid">
         <ExternalLinks />
-        <ColumnWrapper>
-          <h1>{displayName}</h1>
-        </ColumnWrapper>
+        <Heading level={1}>{`Posts about ${displayName}`}</Heading>
+        <ThematicBreak />
+        <PostList posts={posts} />
       </div>
     </main>
     <Footer />
@@ -73,16 +78,32 @@ Tag.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
   const slug = asPath?.split("/tag/")[1].split("?")[0] as string;
   const data = gql`
     {
-      tag(where: {slug: "${slug}"}) {
+      posts(
+        where: {tags_some: {slug: "${slug}"}},
+        orderBy: date_DESC,
+        first: 5,
+        stage: DRAFT
+      ) {
+        date
+        preview
+        slug
+        tags {
+          displayName
+          slug
+        }
+        title
+      }
+      tag(where: {slug: "javascript"}) {
         displayName
       }
     }
   `;
 
   const {
+    posts,
     tag: { displayName },
   } = await query(data);
-  return { displayName, slug };
+  return { displayName, slug, posts };
 };
 
 export default Tag;
