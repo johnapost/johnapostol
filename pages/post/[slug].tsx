@@ -62,7 +62,7 @@ const Post = ({ date, postBody, preview, slug, title }: Props): JSX.Element => {
             content={`https://johnapostol.com/post/${slug}`}
           />
           <meta property="og:image" content={hero} />
-          <meta property="og:title" content={`John Apostol - ${title}`} />
+          <meta property="og:title" content={`${title} | John Apostol`} />
           <meta property="og:description" content={preview} />
           <meta name="twitter:site" content="@johnapost" />
           <meta name="twitter:card" content="summary_large_image" />

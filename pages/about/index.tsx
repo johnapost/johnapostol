@@ -19,7 +19,7 @@ const About: NextPage = () => (
           name="description"
           content="John Apostol is a lifelong learner and software person based in Austin, TX."
         />
-        <title>About John Apostol</title>
+        <title>John Apostol, lifelong learner</title>
         <link rel="canonical" href="https://johnapostol.com/about" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://johnapostol.com/about" />
@@ -27,7 +27,7 @@ const About: NextPage = () => (
           property="og:image"
           content={require("../../public/static/me.jpg?size=320")}
         />
-        <meta property="og:title" content="About John Apostol" />
+        <meta property="og:title" content="John Apostol, lifelong learner" />
         <meta
           property="og:description"
           content="John Apostol is a lifelong learner and software person based in Austin, TX."

@@ -1,5 +1,5 @@
 import React from "react";
-import { GetStaticProps, NextPageContext } from "next";
+import { NextPageContext } from "next";
 import Head from "next/head";
 import { gql } from "graphql-request";
 import Footer from "../../components/Footer";
@@ -7,10 +7,8 @@ import Cover from "../../components/Cover";
 import { atLeastMedium } from "../../utils/breakpoints";
 import ExternalLinks from "../../components/ExternalLinks";
 import query from "../../utils/query";
-import ColumnWrapper from "../../components/ColumnWrapper";
 import PostList, { Post } from "../../components/PostList";
 import ThematicBreak from "../../components/ThematicBreak";
-import Paragraph from "../../components/Paragraph";
 import Heading from "../../components/Heading";
 
 interface Props {
@@ -19,26 +17,29 @@ interface Props {
   slug: string;
 }
 
-const Tag = ({ displayName, posts }: Props): JSX.Element => (
+const Tag = ({ displayName, posts, slug }: Props): JSX.Element => (
   <>
     <main role="main">
       <Head>
         <meta
           name="description"
-          content={`John Apostol's posts about ${displayName}`}
+          content={`John Apostol's posts about ${displayName}.`}
         />
-        <title>About John Apostol</title>
-        <link rel="canonical" href="https://johnapostol.com/about" />
+        <title>{displayName} | John Apostol</title>
+        <link rel="canonical" href={`https://johnapostol.com/tag/${slug}`} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://johnapostol.com/about" />
+        <meta
+          property="og:url"
+          content={`https://johnapostol.com/tag/${slug}`}
+        />
         <meta
           property="og:image"
           content={require("../../public/static/me.jpg?size=320")}
         />
-        <meta property="og:title" content="About John Apostol" />
+        <meta property="og:title" content={`${displayName} | John Apostol`} />
         <meta
           property="og:description"
-          content="John Apostol is a lifelong learner and software person based in Austin, TX."
+          content={`John Apostol's posts about ${displayName}.`}
         />
         <meta name="twitter:site" content="@johnapost" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -81,7 +82,6 @@ Tag.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
       posts(
         where: {tags_some: {slug: "${slug}"}},
         orderBy: date_DESC,
-        first: 5,
         stage: DRAFT
       ) {
         date
@@ -93,7 +93,7 @@ Tag.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
         }
         title
       }
-      tag(where: {slug: "javascript"}) {
+      tag(where: {slug: "${slug}"}) {
         displayName
       }
     }
