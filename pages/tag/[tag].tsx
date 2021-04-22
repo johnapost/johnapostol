@@ -82,7 +82,7 @@ Tag.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
       posts(
         where: {tags_some: {slug: "${slug}"}},
         orderBy: date_DESC,
-        stage: DRAFT
+        stage: PUBLISHED
       ) {
         date
         preview
