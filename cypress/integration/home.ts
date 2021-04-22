@@ -40,7 +40,7 @@ describe("Post list", () => {
           .url()
           .should("be", url)
           .get("h1")
-          .should("be", title);
+          .should("include", title);
       });
   });
 });
