@@ -10,7 +10,7 @@ const getLatestDate = (publishedAt, updatedAt) => {
     : updateDate;
 };
 
-module.exports = async () => {
+const gatherPosts = async () => {
   const {
     data: { posts },
   } = await fetch(process.env.GRAPHCMS_API, {
@@ -45,6 +45,48 @@ module.exports = async () => {
     {}
   );
 
+  return formattedPosts;
+};
+
+const gatherTags = async () => {
+  const {
+    data: { tags },
+  } = await fetch(process.env.GRAPHCMS_API, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
+    },
+    body: JSON.stringify({
+      query: `
+        {
+          tags(stage: PUBLISHED) {
+            slug
+            publishedAt
+            updatedAt
+          }
+        }
+      `,
+    }),
+  }).then((res) => res.json());
+
+  const formattedTags = tags.reduce(
+    (accum, { slug, publishedAt, updatedAt }) => ({
+      ...accum,
+      [`/tag/${slug}`]: {
+        page: "/tag/[slug]",
+        query: {
+          modifiedDate: getLatestDate(publishedAt, updatedAt),
+        },
+      },
+    }),
+    {}
+  );
+
+  return formattedTags;
+};
+
+module.exports = async () => {
   return {
     "/": {
       page: "/",
@@ -55,6 +97,7 @@ module.exports = async () => {
     "/about/manager": {
       page: "/about/manager",
     },
-    ...formattedPosts,
+    ...(await gatherPosts()),
+    ...(await gatherTags()),
   };
 };
