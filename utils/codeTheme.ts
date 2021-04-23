@@ -7,79 +7,108 @@ export default {
     {
       types: ["changed"],
       style: {
-        color: "rgb(162, 191, 252)",
+        color: "#A2BFFC",
+        fontStyle: "italic",
       },
     },
     {
       types: ["deleted"],
       style: {
-        color: "rgba(239, 83, 80, 0.56)",
+        color: "#EF535090",
+        fontStyle: "italic",
       },
     },
     {
-      types: ["inserted", "string", "attr-name", "url"],
+      types: ["inserted", "attr-name"],
       style: {
-        color: "rgb(173, 219, 103)",
+        color: "#C5E478",
+        fontStyle: "italic",
       },
     },
     {
       types: ["comment"],
       style: {
-        color: "rgb(99, 119, 119)",
+        color: "#637777",
+        fontStyle: "italic",
       },
     },
     {
-      types: ["variable"],
+      types: ["string", "variable"],
       style: {
-        color: "rgb(236, 196, 141)",
-      },
-    },
-    {
-      types: ["number"],
-      style: {
-        color: "rgb(247, 140, 108)",
+        color: "#ECC48D",
       },
     },
     {
       types: ["builtin", "char", "constant"],
       style: {
-        color: "rgb(130, 170, 255)",
+        color: "#82AAFF",
+      },
+    },
+    {
+      types: ["number"],
+      style: {
+        color: "#F78C6C",
       },
     },
     {
       types: ["punctuation", "function", "selector", "doctype"],
       style: {
-        color: "rgb(199, 146, 234)",
+        color: "#C792EA",
+        fontStyle: "italic",
+      },
+    },
+    {
+      types: ["regex"],
+      style: {
+        color: "#5CA7E4",
       },
     },
     {
       types: ["class-name"],
       style: {
-        color: "rgb(255, 203, 139)",
+        color: "#FFCB8B",
       },
     },
     {
-      types: ["tag", "operator", "keyword"],
+      types: ["tag"],
       style: {
-        color: "rgb(127, 219, 202)",
+        color: "#CAECE6",
+      },
+    },
+    {
+      types: ["operator", "keyword"],
+      style: {
+        color: "#7FDBCA",
       },
     },
     {
       types: ["boolean"],
       style: {
-        color: "rgb(255, 88, 116)",
+        color: "#FF5874",
       },
     },
     {
       types: ["property"],
       style: {
-        color: "rgb(128, 203, 196)",
+        color: "#80CBC4",
       },
     },
     {
       types: ["namespace"],
       style: {
-        color: "rgb(178, 204, 214)",
+        color: "#B2CCD6",
+      },
+    },
+    {
+      types: ["imports", "exports"],
+      style: {
+        color: "#D6DEEB",
+      },
+    },
+    {
+      types: ["url"],
+      style: {
+        color: "#C5E478",
       },
     },
   ],
