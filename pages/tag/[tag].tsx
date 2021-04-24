@@ -47,7 +47,7 @@ const Tag = ({ displayName, posts, slug }: Props): JSX.Element => (
       <Cover image={require("../../public/static/about.jpg?size=320")} />
       <div className="grid">
         <ExternalLinks />
-        <Heading level={1}>{`Posts about ${displayName}`}</Heading>
+        <Heading level={0}>{`Posts about ${displayName}`}</Heading>
         <ThematicBreak />
         <PostList posts={posts} />
       </div>
