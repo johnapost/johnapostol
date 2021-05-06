@@ -11,6 +11,23 @@ interface Props {
 const Heading = ({ children, level, noMargin, noWrap }: Props): JSX.Element => {
   let inner = <div />;
 
+  // For forcing h1
+  if (level === 0) {
+    inner = (
+      <>
+        <h1>{children}</h1>
+        <style jsx>{`
+          h1 {
+            font-family: "Lato", sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            ${!noMargin ? "margin-top: 2rem;" : ""}
+          }
+        `}</style>
+      </>
+    );
+  }
+
   // For post titles
   if (level === 1) {
     inner = (

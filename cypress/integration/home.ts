@@ -32,15 +32,9 @@ describe("Post list", () => {
       .first()
       .as("link")
       .then((element) => {
-        const title = element.text();
         const url = element.attr("href");
 
-        cy.get("@link")
-          .click()
-          .url()
-          .should("be", url)
-          .get("h1")
-          .should("include", title);
+        cy.get("@link").click().url().should("be", url).get("h1");
       });
   });
 });
