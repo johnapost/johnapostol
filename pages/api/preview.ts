@@ -1,18 +1,20 @@
 import { gql } from "graphql-request";
 import { NextApiHandler } from "next";
-import query from "../../utils/query";
+import requestCms from "../../utils/requestCms";
 
-const getPreviewPostBySlug = async (slug: string) => {
+const getPreviewPostBySlug = async (querySlug: string): Promise<string> => {
   const data = gql`
     {
-      post(where: { slug: "${slug}" }, stage: DRAFT) {
+      post(where: { slug: "${querySlug}" }, stage: DRAFT) {
         slug
       }
     }
   `;
 
-  const { post } = await query(data);
-  return post;
+  const {
+    post: { slug: postSlug },
+  } = await requestCms(data);
+  return postSlug;
 };
 
 const Preview: NextApiHandler = async (req, res) => {
@@ -25,9 +27,7 @@ const Preview: NextApiHandler = async (req, res) => {
   }
 
   // Fetch the headless CMS to check if the provided `slug` exists
-  const { slug: postSlug } = await getPreviewPostBySlug(
-    req.query.slug as string
-  );
+  const postSlug = await getPreviewPostBySlug(req.query.slug as string);
 
   // If the slug doesn't exist prevent preview mode from being enabled
   if (!postSlug) {
