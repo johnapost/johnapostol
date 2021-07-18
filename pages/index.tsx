@@ -10,7 +10,7 @@ import ThematicBreak from "../components/ThematicBreak";
 import { atLeastMedium } from "../utils/breakpoints";
 import ExternalLinks from "../components/ExternalLinks";
 import { gql } from "graphql-request";
-import query from "../utils/query";
+import requestCms from "../utils/requestCms";
 
 interface Props {
   posts: Post[];
@@ -102,7 +102,7 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   `;
 
-  const { posts } = await query(data);
+  const { posts } = await requestCms(data);
   return { props: { posts } };
 };
 

@@ -25,3 +25,4 @@ jobs:
           GRAPHCMS_API: ${{ secrets.GRAPHCMS_API }}
           GRAPHCMS_TOKEN: ${{ secrets.GRAPHCMS_TOKEN }}
           GRAPHCMS_PREVIEW_SECRET: ${{ secrets.GRAPHCMS_PREVIEW_SECRET }}
+          GRAPHCMS_MUTATION_SECRET: ${{ secrets.GRAPHCMS_MUTATION_SECRET }}

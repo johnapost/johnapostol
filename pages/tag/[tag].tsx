@@ -6,7 +6,7 @@ import Footer from "../../components/Footer";
 import Cover from "../../components/Cover";
 import { atLeastMedium } from "../../utils/breakpoints";
 import ExternalLinks from "../../components/ExternalLinks";
-import query from "../../utils/query";
+import requestCms from "../../utils/requestCms";
 import PostList, { Post } from "../../components/PostList";
 import ThematicBreak from "../../components/ThematicBreak";
 import Heading from "../../components/Heading";
@@ -102,7 +102,7 @@ Tag.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
   const {
     posts,
     tag: { displayName },
-  } = await query(data);
+  } = await requestCms(data);
   return { displayName, slug, posts };
 };
 
