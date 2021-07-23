@@ -1,38 +1,31 @@
 import { gql } from "graphql-request";
 import { NextApiHandler } from "next";
-import query from "../../utils/query";
+import requestCms from "../../utils/requestCms";
 
-const getPreviewPostBySlug = async (slug: string) => {
+const getPreviewPost = async (querySlug: string): Promise<string> => {
   const data = gql`
     {
-      post(where: { slug: "${slug}" }, stage: DRAFT) {
+      post(where: { slug: "${querySlug}" }, stage: DRAFT) {
         slug
       }
     }
   `;
 
-  const { post } = await query(data);
-  return post;
+  const {
+    post: { slug: postSlug },
+  } = await requestCms(data);
+  return postSlug;
 };
 
 const Preview: NextApiHandler = async (req, res) => {
-  // Check the secret and next parameters
-  if (
-    req.query.secret !== process.env.GRAPHCMS_PREVIEW_SECRET ||
-    !req.query.slug
-  ) {
-    return res.status(401).json({ message: "Invalid token" });
-  }
+  // Check the slug parameter
+  if (!req.query.slug) return res.status(401).json({ message: "Missing slug" });
 
-  // Fetch the headless CMS to check if the provided `slug` exists
-  const { slug: postSlug } = await getPreviewPostBySlug(
-    req.query.slug as string
-  );
+  // Check if the provided slug exists on the CMS
+  const postSlug = await getPreviewPost(req.query.slug as string);
 
-  // If the slug doesn't exist prevent preview mode from being enabled
-  if (!postSlug) {
-    return res.status(401).json({ message: "Invalid slug" });
-  }
+  // Stop if slug doesn't exist
+  if (!postSlug) return res.status(401).json({ message: "Invalid slug" });
 
   // Enable preview mode
   res.setPreviewData({});

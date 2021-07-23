@@ -18,7 +18,7 @@ import InlineCode from "../../components/InlineCode";
 import Link from "../../components/Link";
 import StructuredData from "../../components/StructuredData";
 import { gql } from "graphql-request";
-import query from "../../utils/query";
+import requestCms from "../../utils/requestCms";
 
 interface Props {
   date: string;
@@ -118,7 +118,7 @@ Post.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
 
   const {
     post: { title, preview, postBody, date },
-  } = await query(data);
+  } = await requestCms(data);
 
   return { title, preview, slug, postBody, date };
 };
