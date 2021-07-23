@@ -116,6 +116,9 @@ Post.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
     }
   `;
 
+  // Calculate readTime from postBody
+  // Pass as prop to post, rendering statically /facepalm
+
   const {
     post: { title, preview, postBody, date },
   } = await requestCms(data);
