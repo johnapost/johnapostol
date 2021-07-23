@@ -18,21 +18,14 @@ const getPreviewPostBySlug = async (querySlug: string): Promise<string> => {
 };
 
 const Preview: NextApiHandler = async (req, res) => {
-  // Check the secret and query parameters
-  if (
-    req.query.secret !== process.env.GRAPHCMS_PREVIEW_SECRET ||
-    !req.query.slug
-  ) {
-    return res.status(401).json({ message: "Invalid token" });
-  }
+  // Check the slug parameter
+  if (!req.query.slug) return res.status(401).json({ message: "Missing slug" });
 
-  // Check if the provided `slug` exists on the CMS
+  // Check if the provided slug exists on the CMS
   const postSlug = await getPreviewPostBySlug(req.query.slug as string);
 
-  // If the slug doesn't exist prevent preview mode from being enabled
-  if (!postSlug) {
-    return res.status(401).json({ message: "Invalid slug" });
-  }
+  // Stop if slug doesn't exist
+  if (!postSlug) return res.status(401).json({ message: "Invalid slug" });
 
   // Enable preview mode
   res.setPreviewData({});

@@ -48,11 +48,6 @@ const triggerDeploy = async () =>
   });
 
 const ReadTime: NextApiHandler = async (req, res) => {
-  // Check the secret and query parameters
-  if (req.query.secret !== process.env.GRAPHCMS_MUTATION_SECRET) {
-    return res.status(401).json({ message: "Invalid token" });
-  }
-
   // Check data payload
   const {
     data: { slug },

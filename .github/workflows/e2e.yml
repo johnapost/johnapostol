@@ -18,11 +18,8 @@ jobs:
           build: yarn build
           start: yarn start
           wait-on: 'http://localhost:3000'
-          env: GRAPHCMS_PREVIEW_SECRET=${{ secrets.GRAPHCMS_PREVIEW_SECRET }}
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GRAPHCMS_API: ${{ secrets.GRAPHCMS_API }}
           GRAPHCMS_TOKEN: ${{ secrets.GRAPHCMS_TOKEN }}
-          GRAPHCMS_PREVIEW_SECRET: ${{ secrets.GRAPHCMS_PREVIEW_SECRET }}
-          GRAPHCMS_MUTATION_SECRET: ${{ secrets.GRAPHCMS_MUTATION_SECRET }}
