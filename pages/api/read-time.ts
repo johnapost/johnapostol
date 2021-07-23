@@ -11,10 +11,10 @@ const calcReadTime = (postBody: string): number => {
   return Math.ceil(words / 265);
 };
 
-const getPostBody = async (slug: string): Promise<string> => {
+const getPostBody = async (id: string): Promise<string> => {
   const data = gql`
     {
-      post(where: { slug: "${slug}" }, stage: PUBLISHED) {
+      post(where: { id: "${id}" }, stage: PUBLISHED) {
         postBody
       }
     }
@@ -26,11 +26,11 @@ const getPostBody = async (slug: string): Promise<string> => {
   return postBody;
 };
 
-const updateReadTime = async (slug: string, readTime: number) => {
+const updateReadTime = async (id: string, readTime: number) => {
   const mutation = gql`
     mutation {
       updatePost(
-        where: { slug: "${slug}" }
+        where: { id: "${id}" }
         data: { readTime: ${readTime} }
       ) {
         readTime
@@ -38,25 +38,19 @@ const updateReadTime = async (slug: string, readTime: number) => {
     }
   `;
 
-  const {
-    updatePost: { id },
-  } = await requestCms(mutation);
-  return id;
+  await requestCms(mutation);
 };
 
-const publish = async (slug: string): Promise<string> => {
+const publish = async (id: string) => {
   const mutation = gql`
     mutation {
-      publishPost(where: { slug: "${slug}" }) {
+      publishPost(where: { id: "${id}" }) {
         id
       }
     }
   `;
 
-  const {
-    publishPost: { id },
-  } = await requestCms(mutation);
-  return id;
+  await requestCms(mutation);
 };
 
 const triggerDeploy = async () =>
@@ -67,19 +61,19 @@ const triggerDeploy = async () =>
 const ReadTime: NextApiHandler = async (req, res) => {
   // Check data payload
   const {
-    data: { slug },
+    data: { id },
   } = req.body;
 
-  const postBody = await getPostBody(slug);
+  const postBody = await getPostBody(id);
 
-  // If the slug doesn't exist, return error
-  if (!postBody) return res.status(401).json({ message: "Invalid slug" });
+  // If the id doesn't exist, return error
+  if (!postBody) return res.status(401).json({ message: "Invalid ID" });
 
   const readTime = calcReadTime(postBody);
 
   // Update readTime, publish and deploy
-  await updateReadTime(slug, readTime);
-  await publish(slug);
+  await updateReadTime(id, readTime);
+  await publish(id);
   await triggerDeploy();
 
   // Close the response
