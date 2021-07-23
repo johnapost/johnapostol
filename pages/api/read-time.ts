@@ -49,20 +49,22 @@ const triggerDeploy = async () =>
 
 const ReadTime: NextApiHandler = async (req, res) => {
   // Check the secret and query parameters
-  if (
-    req.query.secret !== process.env.GRAPHCMS_MUTATION_SECRET ||
-    !req.query.slug
-  ) {
+  if (req.query.secret !== process.env.GRAPHCMS_MUTATION_SECRET) {
     return res.status(401).json({ message: "Invalid token" });
   }
 
-  const postBody = await getPostBodyBySlug(req.query.slug as string);
+  // Check data payload
+  const {
+    data: { slug },
+  } = req.body;
+
+  const postBody = await getPostBodyBySlug(slug as string);
 
   // If the slug doesn't exist, return error
   if (!postBody) return res.status(401).json({ message: "Invalid slug" });
 
   const readTime = calcReadTime(postBody);
-  await postReadTimeBySlug(req.query.slug as string, Math.ceil(readTime));
+  await postReadTimeBySlug(slug as string, Math.ceil(readTime));
   await triggerDeploy();
 
   // Close the response
