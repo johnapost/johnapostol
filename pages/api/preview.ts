@@ -2,7 +2,7 @@ import { gql } from "graphql-request";
 import { NextApiHandler } from "next";
 import requestCms from "../../utils/requestCms";
 
-const getPreviewPostBySlug = async (querySlug: string): Promise<string> => {
+const getPreviewPost = async (querySlug: string): Promise<string> => {
   const data = gql`
     {
       post(where: { slug: "${querySlug}" }, stage: DRAFT) {
@@ -22,7 +22,7 @@ const Preview: NextApiHandler = async (req, res) => {
   if (!req.query.slug) return res.status(401).json({ message: "Missing slug" });
 
   // Check if the provided slug exists on the CMS
-  const postSlug = await getPreviewPostBySlug(req.query.slug as string);
+  const postSlug = await getPreviewPost(req.query.slug as string);
 
   // Stop if slug doesn't exist
   if (!postSlug) return res.status(401).json({ message: "Invalid slug" });

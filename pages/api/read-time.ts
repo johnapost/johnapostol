@@ -1,6 +1,7 @@
 import { gql } from "graphql-request";
 import { NextApiHandler } from "next";
 import requestCms from "../../utils/requestCms";
+import fetch from "isomorphic-unfetch";
 
 const calcReadTime = (postBody: string): number => {
   // Remove new lines, count words, and get count of words
@@ -10,7 +11,7 @@ const calcReadTime = (postBody: string): number => {
   return words / 265;
 };
 
-const getPostBodyBySlug = async (slug: string): Promise<string> => {
+const getPostBody = async (slug: string): Promise<string> => {
   const data = gql`
     {
       post(where: { slug: "${slug}" }, stage: PUBLISHED) {
@@ -25,7 +26,7 @@ const getPostBodyBySlug = async (slug: string): Promise<string> => {
   return postBody;
 };
 
-const postReadTimeBySlug = async (slug: string, readTime: number) => {
+const updateReadTime = async (slug: string, readTime: number) => {
   const mutation = gql`
     mutation {
       updatePost(
@@ -58,20 +59,28 @@ const publish = async (slug: string): Promise<string> => {
   return id;
 };
 
+const triggerDeploy = async () =>
+  await fetch(process.env.VERCEL_DEPLOY_HOOK as string, {
+    method: "POST",
+  });
+
 const ReadTime: NextApiHandler = async (req, res) => {
   // Check data payload
   const {
     data: { slug },
   } = req.body;
 
-  const postBody = await getPostBodyBySlug(slug);
+  const postBody = await getPostBody(slug);
 
   // If the slug doesn't exist, return error
   if (!postBody) return res.status(401).json({ message: "Invalid slug" });
 
   const readTime = calcReadTime(postBody);
-  await postReadTimeBySlug(slug, Math.ceil(readTime));
+
+  // Update readTime, publish and deploy
+  await updateReadTime(slug, Math.ceil(readTime));
   await publish(slug);
+  await triggerDeploy();
 
   // Close the response
   res.end();
