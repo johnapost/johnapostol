@@ -7,8 +7,8 @@ const calcReadTime = (postBody: string): number => {
   // Remove new lines, count words, and get count of words
   const words = postBody.replace(/\n/gm, "").trim().split(/\s+/).length;
 
-  // Divide by 265 for readTime
-  return words / 265;
+  // Divide by 265 and round up for readTime in minutes
+  return Math.ceil(words / 265);
 };
 
 const getPostBody = async (slug: string): Promise<string> => {
@@ -78,7 +78,7 @@ const ReadTime: NextApiHandler = async (req, res) => {
   const readTime = calcReadTime(postBody);
 
   // Update readTime, publish and deploy
-  await updateReadTime(slug, Math.ceil(readTime));
+  await updateReadTime(slug, readTime);
   await publish(slug);
   await triggerDeploy();
 
