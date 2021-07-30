@@ -1,4 +1,5 @@
 import React from "react";
+import { atLeastSmall } from "../utils/breakpoints";
 import ColumnWrapper from "./ColumnWrapper";
 
 interface Props {
@@ -18,7 +19,13 @@ const Blockquote = ({ children }: Props): JSX.Element => (
         font-weight: 400;
         line-height: 44.4px;
         margin-bottom: 1rem;
-        padding: 0 75px;
+        padding: 0 10px;
+      }
+
+      @media ${atLeastSmall} {
+        blockquote {
+          padding: 0 75px;
+        }
       }
     `}</style>
   </ColumnWrapper>
