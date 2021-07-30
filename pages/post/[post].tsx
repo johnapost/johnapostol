@@ -19,11 +19,13 @@ import Link from "../../components/Link";
 import StructuredData from "../../components/StructuredData";
 import { gql } from "graphql-request";
 import requestCms from "../../utils/requestCms";
+import calcReadTime from "../../utils/calcReadTime";
 
 interface Props {
   date: string;
   postBody: string;
   preview: string;
+  readTime: string;
   slug: string;
   title: string;
 }
@@ -116,14 +118,15 @@ Post.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
     }
   `;
 
-  // Calculate readTime from postBody
-  // Pass as prop to post, rendering statically /facepalm
-
   const {
     post: { title, preview, postBody, date },
   } = await requestCms(data);
 
-  return { title, preview, slug, postBody, date };
+  // Calculate readTime from postBody
+  // Pass as prop to post, rendering statically /facepalm
+  const readTime = calcReadTime(postBody);
+
+  return { title, preview, slug, postBody, date, readTime };
 };
 
 export default Post;
