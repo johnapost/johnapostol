@@ -14,7 +14,7 @@ type Props = {
 
 const PostBlock = ({
   index,
-  post: { date, preview, slug, tags, title },
+  post: { date, preview, readTime, slug, tags, title },
   lazyRef,
   hasViewed,
   optimizedImage,
@@ -37,7 +37,9 @@ const PostBlock = ({
             <p className="preview">{preview}</p>
           </a>
           <div className="meta">
-            <span className="date">{formattedDate}</span>
+            <span className="date">
+              {formattedDate} &mdash; {readTime} min
+            </span>
             {tags.length
               ? tags.map(({ displayName, slug }, tagIndex) => (
                   <a

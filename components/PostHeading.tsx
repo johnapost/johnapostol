@@ -8,10 +8,11 @@ import FadedRule from "./FadedRule";
 
 interface Props {
   date: string;
+  readTime: number;
   title: string;
 }
 
-const PostHeading = ({ date, title }: Props): JSX.Element => {
+const PostHeading = ({ date, readTime, title }: Props): JSX.Element => {
   const formattedDate = formatDate(date);
   const [ref, inView] = useInView({ threshold: 0.01 });
   const [hasStuck, setStuck] = useState(false);
@@ -38,10 +39,16 @@ const PostHeading = ({ date, title }: Props): JSX.Element => {
       >
         <div className="background" />
         <div className="navigation">
-          <img src={require("../public/static/me.jpg?size=320")} />
+          <Link href="/">
+            <a className="avatar" data-cy="avatar">
+              <img src={require("../public/static/me.jpg?size=320")} />
+            </a>
+          </Link>
           <div className="post-details">
             <div className="top">John Apostol</div>
-            <div className="bottom">{formattedDate}</div>
+            <div className="bottom">
+              {formattedDate} &mdash; {readTime} min
+            </div>
           </div>
           <div className="post-nav">
             <div className="top">{title}</div>

@@ -42,7 +42,7 @@ const About: NextPage = () => (
         <List>
           <ListItem>Spouse to the most fascinating person I know</ListItem>
           <ListItem>Happy to be Filipino-Canadian-American</ListItem>
-          <ListItem>Cis male using typical male pronouns or they</ListItem>
+          <ListItem>Cis male using masculine pronouns or they</ListItem>
           <ListItem>I have two wonderful cats, Yumi and Cheddar</ListItem>
         </List>
         <ThematicBreak />

@@ -4,12 +4,13 @@ import Head from "next/head";
 import { gql } from "graphql-request";
 import Footer from "../../components/Footer";
 import Cover from "../../components/Cover";
-import { atLeastMedium } from "../../utils/breakpoints";
 import ExternalLinks from "../../components/ExternalLinks";
 import requestCms from "../../utils/requestCms";
 import PostList, { Post } from "../../components/PostList";
 import ThematicBreak from "../../components/ThematicBreak";
 import Heading from "../../components/Heading";
+import { atLeastMedium } from "../../utils/breakpoints";
+import calcReadTime from "../../utils/calcReadTime";
 
 interface Props {
   displayName: string;
@@ -85,6 +86,7 @@ Tag.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
         stage: PUBLISHED
       ) {
         date
+        postBody
         preview
         slug
         tags {
@@ -103,7 +105,13 @@ Tag.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
     posts,
     tag: { displayName },
   } = await requestCms(data);
-  return { displayName, slug, posts };
+
+  const postsWithReadTime = posts.map((post: Post) => ({
+    ...post,
+    readTime: calcReadTime(post.postBody),
+  }));
+
+  return { displayName, slug, posts: postsWithReadTime };
 };
 
 export default Tag;
