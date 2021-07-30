@@ -106,8 +106,8 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const { posts } = await requestCms(data);
   const postsWithReadTime = posts.map((post: Post) => ({
-    readTime: calcReadTime(post.postBody),
     ...post,
+    readTime: calcReadTime(post.postBody),
   }));
 
   return { props: { posts: postsWithReadTime } };
