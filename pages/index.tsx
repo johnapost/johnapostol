@@ -11,6 +11,7 @@ import { atLeastMedium } from "../utils/breakpoints";
 import ExternalLinks from "../components/ExternalLinks";
 import { gql } from "graphql-request";
 import requestCms from "../utils/requestCms";
+import calcReadTime from "../utils/calcReadTime";
 
 interface Props {
   posts: Post[];
@@ -91,6 +92,7 @@ export const getStaticProps: GetStaticProps = async () => {
     {
       posts(orderBy: date_DESC, first: 5, stage: PUBLISHED) {
         date
+        postBody
         preview
         slug
         tags {
@@ -103,7 +105,12 @@ export const getStaticProps: GetStaticProps = async () => {
   `;
 
   const { posts } = await requestCms(data);
-  return { props: { posts } };
+  const postsWithReadTime = posts.map((post: Post) => ({
+    readTime: calcReadTime(post.postBody),
+    ...post,
+  }));
+
+  return { props: { posts: postsWithReadTime } };
 };
 
 export default Index;

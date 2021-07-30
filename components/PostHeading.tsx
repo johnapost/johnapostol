@@ -47,7 +47,7 @@ const PostHeading = ({ date, readTime, title }: Props): JSX.Element => {
           <div className="post-details">
             <div className="top">John Apostol</div>
             <div className="bottom">
-              {formattedDate} &mdash; {readTime} min read
+              {formattedDate} &mdash; {readTime} min
             </div>
           </div>
           <div className="post-nav">
