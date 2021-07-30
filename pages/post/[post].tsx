@@ -25,12 +25,19 @@ interface Props {
   date: string;
   postBody: string;
   preview: string;
-  readTime: string;
+  readTime: number;
   slug: string;
   title: string;
 }
 
-const Post = ({ date, postBody, preview, slug, title }: Props): JSX.Element => {
+const Post = ({
+  date,
+  postBody,
+  preview,
+  readTime,
+  slug,
+  title,
+}: Props): JSX.Element => {
   const renderers = {
     blockquote: Blockquote,
     code: CodeBlock,
@@ -76,7 +83,7 @@ const Post = ({ date, postBody, preview, slug, title }: Props): JSX.Element => {
           preview={preview}
         />
         <article>
-          <PostHeading date={date} title={title} />
+          <PostHeading date={date} title={title} readTime={readTime} />
           <ReactMarkdown source={postBody} renderers={renderers} />
         </article>
       </main>
@@ -122,8 +129,6 @@ Post.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
     post: { title, preview, postBody, date },
   } = await requestCms(data);
 
-  // Calculate readTime from postBody
-  // Pass as prop to post, rendering statically /facepalm
   const readTime = calcReadTime(postBody);
 
   return { title, preview, slug, postBody, date, readTime };
