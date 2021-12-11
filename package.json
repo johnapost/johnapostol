@@ -12,7 +12,8 @@
     "build:sitemap": "node ./dev-utils/buildSitemap.js",
     "dev": "next",
     "start": "next start",
-    "watch:dev": "next"
+    "watch:dev": "next",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
