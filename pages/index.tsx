@@ -43,6 +43,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
       </Head>
       <Cover />
       <div className="grid">
+        <ExternalLinks />
         <Paragraph>Hi there!</Paragraph>
         <Paragraph>
           I&rsquo;m a software person living in Austin, Texas. I like to spend
@@ -62,7 +63,6 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
           </Link>
           .
         </Paragraph>
-        <ExternalLinks />
         <ThematicBreak />
         <PostList posts={posts} />
       </div>

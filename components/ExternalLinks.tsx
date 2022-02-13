@@ -25,7 +25,6 @@ const ExternalLinks = (): JSX.Element => (
       .external {
         color: #362640;
         display: flex;
-        justify-content: center;
         margin: 2rem 0 0;
       }
 
@@ -33,8 +32,8 @@ const ExternalLinks = (): JSX.Element => (
         display: inline-block;
       }
 
-      .external a {
-        margin: 0 10px;
+      .external a + a {
+        margin: 0 0 0 15px;
       }
     `}</style>
   </ColumnWrapper>
