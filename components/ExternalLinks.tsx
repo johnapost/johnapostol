@@ -1,10 +1,9 @@
 import React from "react";
-import Link from "next/link";
 import ColumnWrapper from "../components/ColumnWrapper";
 import GitHub from "../components/GitHub";
 import LinkedIn from "../components/LinkedIn";
-import Medium from "../components/Medium";
 import Resume from "../components/Resume";
+import ADPList from './ADPList';
 
 const ExternalLinks = (): JSX.Element => (
   <ColumnWrapper>
@@ -12,22 +11,21 @@ const ExternalLinks = (): JSX.Element => (
       <a href="https://github.com/johnapost" target="__blank">
         <GitHub />
       </a>
-      <a href="https://medium.com/@johnapost" target="__blank">
-        <Medium />
-      </a>
       <a href="https://www.linkedin.com/in/johnapost/" target="__blank">
         <LinkedIn />
       </a>
-      <Link href="/about">
-        <a>
-          <Resume />
-        </a>
-      </Link>
+      <a href="https://adplist.org/mentors/john-apostol" target="__blank">
+        <ADPList />
+      </a>
+      <a href="https://gainful-primrose-5f8.notion.site/John-Apostol-Engineering-Manager-83166f3fabee4040b13953422c35d0f8" target="__blank">
+        <Resume />
+      </a>
     </div>
     <style jsx>{`
       .external {
         color: #362640;
         display: flex;
+        justify-content: center;
         margin: 2rem 0 0;
       }
 
@@ -35,8 +33,8 @@ const ExternalLinks = (): JSX.Element => (
         display: inline-block;
       }
 
-      .external a + a {
-        margin-left: 10px;
+      .external a {
+        margin: 0 10px;
       }
     `}</style>
   </ColumnWrapper>
