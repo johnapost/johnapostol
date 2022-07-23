@@ -12,7 +12,6 @@
     "build:sitemap": "node ./dev-utils/buildSitemap.js",
     "dev": "next",
     "start": "next start",
-    "watch:dev": "next",
     "prepare": "husky install"
   },
   "lint-staged": {
