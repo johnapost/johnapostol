@@ -48,7 +48,7 @@
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react": "7.23.2",
-    "husky": "^7.0.0",
+    "husky": "7.0.4",
     "imagemin-mozjpeg": "9.0.0",
     "imagemin-pngquant": "9.0.2",
     "isomorphic-unfetch": "3.1.0",
