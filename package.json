@@ -12,12 +12,7 @@
     "build:sitemap": "node ./dev-utils/buildSitemap.js",
     "dev": "next",
     "start": "next start",
-    "watch:dev": "next"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
