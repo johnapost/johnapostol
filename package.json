@@ -10,9 +10,9 @@
   "scripts": {
     "build": "npm run build:sitemap && NODE_OPTIONS=--openssl-legacy-provider next build && next export",
     "build:sitemap": "node ./dev-utils/buildSitemap.js",
-    "dev": "next",
-    "start": "next start",
-    "watch:dev": "next"
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider next",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider next start",
+    "watch:dev": "NODE_OPTIONS=--openssl-legacy-provider next"
   },
   "husky": {
     "hooks": {
