@@ -40,17 +40,56 @@ const Post: NextPage<Props> = ({
   slug,
   title,
 }: Props): React.JSX.Element => {
-  const renderers = {
-    blockquote: Blockquote,
-    code: CodeBlock,
-    heading: Heading,
-    inlineCode: InlineCode,
-    image: WithPostContext({ slug }, Image),
-    link: Link,
-    list: List,
-    listItem: ListItem,
-    paragraph: Paragraph,
-    thematicBreak: ThematicBreak,
+  const ImageWithContext = WithPostContext({ slug }, Image);
+
+  const components = {
+    blockquote: ({ children }: { children?: React.ReactNode }) => (
+      <Blockquote>{children}</Blockquote>
+    ),
+    code: ({
+      children,
+      className,
+      inline,
+    }: {
+      children?: React.ReactNode;
+      className?: string;
+      inline?: boolean;
+    }) => {
+      if (inline) return <InlineCode>{String(children)}</InlineCode>;
+      return <CodeBlock className={className}>{String(children)}</CodeBlock>;
+    },
+    h1: ({ children }: { children?: React.ReactNode }) => (
+      <Heading level={0}>{children}</Heading>
+    ),
+    h2: ({ children }: { children?: React.ReactNode }) => (
+      <Heading level={1}>{children}</Heading>
+    ),
+    h3: ({ children }: { children?: React.ReactNode }) => (
+      <Heading level={2}>{children}</Heading>
+    ),
+    img: ({ src, alt }: { src?: string | Blob; alt?: string }) => (
+      <ImageWithContext
+        src={typeof src === "string" ? src : ""}
+        alt={alt ?? ""}
+        context={{ slug }}
+      />
+    ),
+    a: ({ children, href }: { children?: React.ReactNode; href?: string }) => (
+      <Link href={href ?? ""}>{children}</Link>
+    ),
+    ul: ({ children }: { children?: React.ReactNode }) => (
+      <List>{children}</List>
+    ),
+    ol: ({ children }: { children?: React.ReactNode }) => (
+      <List ordered>{children}</List>
+    ),
+    li: ({ children }: { children?: React.ReactNode }) => (
+      <ListItem>{children}</ListItem>
+    ),
+    p: ({ children }: { children?: React.ReactNode }) => (
+      <Paragraph>{children}</Paragraph>
+    ),
+    hr: () => <ThematicBreak />,
   };
 
   return (
@@ -79,7 +118,7 @@ const Post: NextPage<Props> = ({
         />
         <article>
           <PostHeading date={date} title={title} readTime={readTime} />
-          <ReactMarkdown source={postBody} renderers={renderers} />
+          <ReactMarkdown components={components}>{postBody}</ReactMarkdown>
         </article>
       </main>
       <Footer />
