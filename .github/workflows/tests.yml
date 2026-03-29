@@ -1,7 +1,21 @@
-name: e2e
+name: tests
 on: [push]
 jobs:
-  test:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: "yarn"
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Run unit tests
+        run: yarn test
+  e2e:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

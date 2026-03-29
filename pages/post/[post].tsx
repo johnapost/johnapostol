@@ -48,16 +48,17 @@ const Post: NextPage<Props> = ({
     ),
     code: ({
       children,
-      className,
-      inline,
     }: {
       children?: React.ReactNode;
       className?: string;
-      inline?: boolean;
-    }) => {
-      if (inline) return <InlineCode>{String(children)}</InlineCode>;
-      return <CodeBlock className={className}>{String(children)}</CodeBlock>;
-    },
+    }) => <InlineCode>{String(children)}</InlineCode>,
+    pre: ({
+      children,
+      className,
+    }: {
+      children?: React.ReactNode;
+      className?: string;
+    }) => <CodeBlock className={className}>{String(children)}</CodeBlock>,
     h1: ({ children }: { children?: React.ReactNode }) => (
       <Heading level={0}>{children}</Heading>
     ),
