@@ -103,10 +103,13 @@ const generateSitemap = async (domain, targetFolder) => {
   const pathMap = await buildPathMap();
   const pages = Object.entries(pathMap);
 
-  const sitemap = `${xmlUrlWrapper(
-    pagesxmlUrlNode(domain, page, modifiedDate.toISOString()),
-  ).join(`
-`),
+  const sitemap = xmlUrlWrapper(
+    pages
+      .map(([page, { modifiedDate }]) =>
+        xmlUrlNode(domain, page, modifiedDate.toISOString()),
+      )
+      .join("\n"),
+  );
 
   fs.writeFile(`${writeLocation}`, sitemap, (err) => {
     if (err) throw err;
