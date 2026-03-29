@@ -104,18 +104,14 @@ const generateSitemap = async (domain, targetFolder) => {
   const pages = Object.entries(pathMap);
 
   const sitemap = `${xmlUrlWrapper(
-    pages
-      .map(([page, { modifiedDate }]) =>
-        xmlUrlNode(domain, page, modifiedDate.toISOString())
-      )
-      .join(`
-`)
-  )}`;
+    pagesxmlUrlNode(domain, page, modifiedDate.toISOString()),
+  ).join(`
+`),
 
   fs.writeFile(`${writeLocation}`, sitemap, (err) => {
     if (err) throw err;
     console.log(
-      `sitemap.xml with ${pages.length} entries was written to ${targetFolder}/${fileName}`
+      `sitemap.xml with ${pages.length} entries was written to ${targetFolder}/${fileName}`,
     );
   });
 };
