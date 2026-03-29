@@ -1,4 +1,4 @@
-name: e2e
+name: tests
 on: [push]
 jobs:
   unit:
@@ -15,7 +15,7 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Run unit tests
         run: yarn test
-  test:
+  e2e:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
