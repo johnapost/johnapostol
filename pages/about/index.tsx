@@ -17,7 +17,7 @@ const About: NextPage = () => (
       <Head>
         <meta
           name="description"
-          content="John Apostol is a lifelong learner and software person based in Austin, TX."
+          content="John Apostol is a lifelong learner and software person based in Suwanee, Georgia."
         />
         <title>John Apostol, lifelong learner</title>
         <link rel="canonical" href="https://johnapostol.com/about" />
@@ -30,7 +30,7 @@ const About: NextPage = () => (
         <meta property="og:title" content="John Apostol, lifelong learner" />
         <meta
           property="og:description"
-          content="John Apostol is a lifelong learner and software person based in Austin, TX."
+          content="John Apostol is a lifelong learner and software person based in Suwanee, Georgia."
         />
         <meta name="twitter:site" content="@johnapost" />
         <meta name="twitter:card" content="summary_large_image" />
