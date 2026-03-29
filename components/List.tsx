@@ -2,11 +2,11 @@ import React from "react";
 import ColumnWrapper from "./ColumnWrapper";
 
 interface Props {
-  children: JSX.Element[];
+  children: React.ReactNode;
   ordered?: boolean;
 }
 
-const List = ({ children, ordered = false }: Props): JSX.Element => (
+const List = ({ children, ordered = false }: Props): React.JSX.Element => (
   <ColumnWrapper>
     {ordered ? (
       <>

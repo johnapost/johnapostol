@@ -1,25 +1,21 @@
 import React from "react";
 import cn from "classnames";
+import NextImage from "next/image";
 import formatDate from "../utils/formatDate";
 import { atLeastSmall } from "../utils/breakpoints";
 import ColumnWrapper from "./ColumnWrapper";
 import { Post } from "./PostList";
 import Heading from "./Heading";
-import type { WithLazyLoadProps } from "./WithLazyLoad";
 
 type Props = {
   index: number;
   post: Post;
-} & WithLazyLoadProps;
+};
 
 const PostBlock = ({
   index,
   post: { date, preview, readTime, slug, tags, title },
-  lazyRef,
-  hasViewed,
-  optimizedImage,
-  lowQualityImage,
-}: Props): JSX.Element => {
+}: Props): React.JSX.Element => {
   const formattedDate = formatDate(date);
 
   return (
@@ -55,15 +51,13 @@ const PostBlock = ({
           </div>
         </div>
         <a href={`/post/${slug}`} className="hero" aria-label={title}>
-          {hasViewed ? (
-            <img
-              alt="Preview image"
-              srcSet={optimizedImage.srcSet}
-              src={optimizedImage.src}
-            />
-          ) : (
-            <img alt="Preview image" src={lowQualityImage} ref={lazyRef} />
-          )}
+          <NextImage
+            alt="Preview image"
+            src={`/static/${slug}/hero.jpg`}
+            width={250}
+            height={167}
+            style={{ width: "100%", height: "auto" }}
+          />
         </a>
       </div>
       <style jsx>{`
@@ -116,10 +110,6 @@ const PostBlock = ({
           display: block;
           min-width: 250px;
           width: auto;
-        }
-
-        img {
-          width: 100%;
         }
 
         @media ${atLeastSmall} {

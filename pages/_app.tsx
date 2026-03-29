@@ -9,10 +9,10 @@ const structuredData = JSON.stringify({
   "@type": "Organization",
   name: "John Apostol",
   url: "https://johnapostol.com",
-  logo: require("../public/static/me.jpg?size=320&url"),
+  logo: "https://johnapostol.com/static/me.jpg",
 });
 
-const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => (
+const MyApp = ({ Component, pageProps }: AppProps): React.JSX.Element => (
   <>
     <Head>
       {process.env.NODE_ENV === "production" && <GoogleAnalytics />}

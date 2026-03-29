@@ -8,13 +8,11 @@ const WithPostContext = <T extends Record<string, unknown>>(
   context: Context,
   Component: React.ComponentType<T>
 ): React.ComponentType<T> => {
-  return class extends React.Component<T> {
-    public static displayName = "WithPostContext";
-
-    public render(): JSX.Element {
-      return <Component context={context} {...(this.props as T)} />;
-    }
-  };
+  const WrappedComponent = (props: T): React.JSX.Element => (
+    <Component context={context} {...props} />
+  );
+  WrappedComponent.displayName = "WithPostContext";
+  return WrappedComponent;
 };
 
 export default WithPostContext;

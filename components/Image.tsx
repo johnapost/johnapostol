@@ -1,8 +1,6 @@
 import React from "react";
 import WideImage from "./WideImage";
 import CenterImage from "./CenterImage";
-import WithLazyLoad from "./WithLazyLoad";
-import type { WithLazyLoadProps } from "./WithLazyLoad";
 
 type Props = {
   alt: string;
@@ -10,13 +8,17 @@ type Props = {
   context: {
     slug: string;
   };
-} & WithLazyLoadProps;
+};
 
 type Components = {
   [key: string]: typeof CenterImage | typeof WideImage;
 };
 
-const Image = ({ alt, src, context: { slug } }: Props): JSX.Element | null => {
+const Image = ({
+  alt,
+  src,
+  context: { slug },
+}: Props): React.JSX.Element | null => {
   const [size, caption] = alt.split(": ");
   const components: Components = {
     center: CenterImage,
@@ -25,8 +27,8 @@ const Image = ({ alt, src, context: { slug } }: Props): JSX.Element | null => {
 
   if (!components[size]) return null;
 
-  const EnhancedComponent = WithLazyLoad({ slug, src }, components[size]);
-  return <EnhancedComponent caption={caption} />;
+  const Component = components[size];
+  return <Component caption={caption} src={src} slug={slug} />;
 };
 
 export default Image;

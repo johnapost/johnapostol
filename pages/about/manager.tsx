@@ -28,7 +28,7 @@ const Manager: NextPage = () => (
         />
         <meta
           property="og:image"
-          content={require("../../public/static/me.jpg?size=320")}
+          content="https://johnapostol.com/static/me.jpg"
         />
         <meta property="og:title" content="John Apostol, lifelong learner" />
         <meta
@@ -38,7 +38,7 @@ const Manager: NextPage = () => (
         <meta name="twitter:site" content="@johnapost" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Cover image={require("../../public/static/manager.jpg?size=320")} />
+      <Cover image="/static/manager.jpg" />
       <div className="grid">
         <ExternalLinks />
         <Heading level={1}>😁 Hello there, I&rsquo;m John!</Heading>

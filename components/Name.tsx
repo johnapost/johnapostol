@@ -1,6 +1,6 @@
 import React from "react";
 
-const Name = (): JSX.Element => (
+const Name = (): React.JSX.Element => (
   <h1 className="shadow">
     John Apostol
     <style jsx>{`

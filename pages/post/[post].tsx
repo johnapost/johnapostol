@@ -1,5 +1,5 @@
 import React from "react";
-import { NextPageContext } from "next";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import ReactMarkdown from "react-markdown";
 import Heading from "../../components/Heading";
@@ -23,6 +23,7 @@ import calcReadTime from "../../utils/calcReadTime";
 
 interface Props {
   date: string;
+  hero: string;
   postBody: string;
   preview: string;
   readTime: number;
@@ -30,33 +31,66 @@ interface Props {
   title: string;
 }
 
-const Post = ({
+const Post: NextPage<Props> = ({
   date,
+  hero,
   postBody,
   preview,
   readTime,
   slug,
   title,
-}: Props): JSX.Element => {
-  const renderers = {
-    blockquote: Blockquote,
-    code: CodeBlock,
-    heading: Heading,
-    inlineCode: InlineCode,
-    image: WithPostContext({ slug }, Image),
-    link: Link,
-    list: List,
-    listItem: ListItem,
-    paragraph: Paragraph,
-    thematicBreak: ThematicBreak,
+}: Props): React.JSX.Element => {
+  const ImageWithContext = WithPostContext({ slug }, Image);
+
+  const components = {
+    blockquote: ({ children }: { children?: React.ReactNode }) => (
+      <Blockquote>{children}</Blockquote>
+    ),
+    code: ({
+      children,
+      className,
+      inline,
+    }: {
+      children?: React.ReactNode;
+      className?: string;
+      inline?: boolean;
+    }) => {
+      if (inline) return <InlineCode>{String(children)}</InlineCode>;
+      return <CodeBlock className={className}>{String(children)}</CodeBlock>;
+    },
+    h1: ({ children }: { children?: React.ReactNode }) => (
+      <Heading level={0}>{children}</Heading>
+    ),
+    h2: ({ children }: { children?: React.ReactNode }) => (
+      <Heading level={1}>{children}</Heading>
+    ),
+    h3: ({ children }: { children?: React.ReactNode }) => (
+      <Heading level={2}>{children}</Heading>
+    ),
+    img: ({ src, alt }: { src?: string | Blob; alt?: string }) => (
+      <ImageWithContext
+        src={typeof src === "string" ? src : ""}
+        alt={alt ?? ""}
+        context={{ slug }}
+      />
+    ),
+    a: ({ children, href }: { children?: React.ReactNode; href?: string }) => (
+      <Link href={href ?? ""}>{children}</Link>
+    ),
+    ul: ({ children }: { children?: React.ReactNode }) => (
+      <List>{children}</List>
+    ),
+    ol: ({ children }: { children?: React.ReactNode }) => (
+      <List ordered>{children}</List>
+    ),
+    li: ({ children }: { children?: React.ReactNode }) => (
+      <ListItem>{children}</ListItem>
+    ),
+    p: ({ children }: { children?: React.ReactNode }) => (
+      <Paragraph>{children}</Paragraph>
+    ),
+    hr: () => <ThematicBreak />,
   };
-
-  let hero = "";
-
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    hero = require(`../../public/static/${slug}/hero.jpg`);
-  } catch {}
 
   return (
     <>
@@ -84,7 +118,7 @@ const Post = ({
         />
         <article>
           <PostHeading date={date} title={title} readTime={readTime} />
-          <ReactMarkdown source={postBody} renderers={renderers} />
+          <ReactMarkdown components={components}>{postBody}</ReactMarkdown>
         </article>
       </main>
       <Footer />
@@ -112,11 +146,29 @@ const Post = ({
   );
 };
 
-Post.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
-  const slug = asPath?.split("/post/")[1].split("?")[0] as string;
+export const getStaticPaths: GetStaticPaths = async () => {
   const data = gql`
     {
-      post(where: {slug: "${slug}"} ) {
+      posts(stage: PUBLISHED) {
+        slug
+      }
+    }
+  `;
+
+  const { posts } = await requestCms(data);
+
+  const paths = posts.map(({ slug }: { slug: string }) => ({
+    params: { post: slug },
+  }));
+
+  return { paths, fallback: false };
+};
+
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+  const slug = params?.post as string;
+  const data = gql`
+    {
+      post(where: {slug: "${slug}"}) {
         date
         postBody
         preview
@@ -130,8 +182,9 @@ Post.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
   } = await requestCms(data);
 
   const readTime = calcReadTime(postBody);
+  const hero = `/static/${slug}/hero.jpg`;
 
-  return { title, preview, slug, postBody, date, readTime };
+  return { props: { title, preview, slug, postBody, date, readTime, hero } };
 };
 
 export default Post;

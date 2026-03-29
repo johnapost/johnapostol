@@ -3,9 +3,9 @@ import ColumnWrapper from "../components/ColumnWrapper";
 import GitHub from "../components/GitHub";
 import LinkedIn from "../components/LinkedIn";
 import Resume from "../components/Resume";
-import ADPList from './ADPList';
+import ADPList from "./ADPList";
 
-const ExternalLinks = (): JSX.Element => (
+const ExternalLinks = (): React.JSX.Element => (
   <ColumnWrapper>
     <div className="external">
       <a href="https://github.com/johnapost" target="__blank">
@@ -17,7 +17,10 @@ const ExternalLinks = (): JSX.Element => (
       <a href="https://adplist.org/mentors/john-apostol" target="__blank">
         <ADPList />
       </a>
-      <a href="https://gainful-primrose-5f8.notion.site/John-Apostol-Engineering-Manager-83166f3fabee4040b13953422c35d0f8" target="__blank">
+      <a
+        href="https://gainful-primrose-5f8.notion.site/John-Apostol-Engineering-Manager-83166f3fabee4040b13953422c35d0f8"
+        target="__blank"
+      >
         <Resume />
       </a>
     </div>

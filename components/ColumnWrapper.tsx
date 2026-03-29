@@ -1,10 +1,10 @@
 import React from "react";
 
 interface Props {
-  children: JSX.Element | JSX.Element[];
+  children: React.ReactNode;
 }
 
-const ColumnWrapper = ({ children }: Props): JSX.Element => (
+const ColumnWrapper = ({ children }: Props): React.JSX.Element => (
   <div className="column-wrapper">
     {children}
     <style jsx>{`

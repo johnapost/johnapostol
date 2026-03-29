@@ -15,6 +15,19 @@ This is a **Next.js 10** personal website and blog (`johnapostol.com`) built wit
 
 Node version: **18.19.1** (see `.nvmrc`). Use `yarn` as the package manager.
 
+## Hard constraints
+
+- All pages must remain statically rendered (no SSR, no Edge Runtime)
+- Do not change visual layout, typography, or styling
+  unless a version upgrade absolutely requires it
+- Do not add new npm dependencies without explicit approval
+- Never modify Markdown files in /posts
+
+## Branch rules
+
+- Never commit directly to main
+- Use descriptive branch names: feature/_, fix/_, upgrade/\*
+
 ---
 
 ## Commands

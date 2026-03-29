@@ -1,5 +1,5 @@
 import React from "react";
-import { NextPageContext } from "next";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import { gql } from "graphql-request";
 import Footer from "../../components/Footer";
@@ -18,7 +18,11 @@ interface Props {
   slug: string;
 }
 
-const Tag = ({ displayName, posts, slug }: Props): JSX.Element => (
+const Tag: NextPage<Props> = ({
+  displayName,
+  posts,
+  slug,
+}: Props): React.JSX.Element => (
   <>
     <main role="main">
       <Head>
@@ -35,7 +39,7 @@ const Tag = ({ displayName, posts, slug }: Props): JSX.Element => (
         />
         <meta
           property="og:image"
-          content={require("../../public/static/me.jpg?size=320")}
+          content="https://johnapostol.com/static/me.jpg"
         />
         <meta property="og:title" content={`${displayName} | John Apostol`} />
         <meta
@@ -45,7 +49,7 @@ const Tag = ({ displayName, posts, slug }: Props): JSX.Element => (
         <meta name="twitter:site" content="@johnapost" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Cover image={require("../../public/static/about.jpg?size=320")} />
+      <Cover image="/static/about.jpg" />
       <div className="grid">
         <ExternalLinks />
         <Heading level={0}>{`Posts about ${displayName}`}</Heading>
@@ -76,8 +80,26 @@ const Tag = ({ displayName, posts, slug }: Props): JSX.Element => (
   </>
 );
 
-Tag.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
-  const slug = asPath?.split("/tag/")[1].split("?")[0] as string;
+export const getStaticPaths: GetStaticPaths = async () => {
+  const data = gql`
+    {
+      tags(stage: PUBLISHED) {
+        slug
+      }
+    }
+  `;
+
+  const { tags } = await requestCms(data);
+
+  const paths = tags.map(({ slug }: { slug: string }) => ({
+    params: { tag: slug },
+  }));
+
+  return { paths, fallback: false };
+};
+
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+  const slug = params?.tag as string;
   const data = gql`
     {
       posts(
@@ -111,7 +133,7 @@ Tag.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
     readTime: calcReadTime(post.postBody),
   }));
 
-  return { displayName, slug, posts: postsWithReadTime };
+  return { props: { displayName, slug, posts: postsWithReadTime } };
 };
 
 export default Tag;

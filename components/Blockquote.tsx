@@ -3,10 +3,10 @@ import { atLeastSmall } from "../utils/breakpoints";
 import ColumnWrapper from "./ColumnWrapper";
 
 interface Props {
-  children: JSX.Element[];
+  children: React.ReactNode;
 }
 
-const Blockquote = ({ children }: Props): JSX.Element => (
+const Blockquote = ({ children }: Props): React.JSX.Element => (
   <ColumnWrapper>
     <blockquote>
       <em>{children}</em>

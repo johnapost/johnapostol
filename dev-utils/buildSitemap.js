@@ -4,9 +4,6 @@
 const fs = require("fs");
 require("dotenv").config();
 
-// Read from the static map that's provided by next
-const exportPathMap = require("./exportPathMap");
-
 // Priority is determined by path depth. Feel free to modify this if needed:
 const getPriority = (url) =>
   ((100 - (url.split("/").length - 2) * 10) / 100).toFixed(2);
@@ -32,6 +29,65 @@ const xmlUrlNode = (domain, pageUrl, lastmod) => {
 </url>`;
 };
 
+const cmsQuery = async (query) => {
+  const res = await fetch(process.env.GRAPHCMS_API, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
+    },
+    body: JSON.stringify({ query }),
+  });
+  const { data } = await res.json();
+  return data;
+};
+
+const buildPathMap = async () => {
+  const { posts } = await cmsQuery(`
+    {
+      posts(stage: PUBLISHED) {
+        slug
+        publishedAt
+        updatedAt
+      }
+    }
+  `);
+
+  const { tags } = await cmsQuery(`
+    {
+      tags(stage: PUBLISHED) {
+        slug
+        publishedAt
+        updatedAt
+      }
+    }
+  `);
+
+  const staticPages = {
+    "/": { modifiedDate: new Date() },
+    "/about": { modifiedDate: new Date() },
+    "/about/manager": { modifiedDate: new Date() },
+  };
+
+  const postPages = posts.reduce((acc, { slug, publishedAt, updatedAt }) => {
+    const publishDate = new Date(publishedAt);
+    const updateDate = new Date(updatedAt);
+    const modifiedDate =
+      publishDate.getTime() >= updateDate.getTime() ? publishDate : updateDate;
+    return { ...acc, [`/post/${slug}`]: { modifiedDate } };
+  }, {});
+
+  const tagPages = tags.reduce((acc, { slug, publishedAt, updatedAt }) => {
+    const publishDate = new Date(publishedAt);
+    const updateDate = new Date(updatedAt);
+    const modifiedDate =
+      publishDate.getTime() >= updateDate.getTime() ? publishDate : updateDate;
+    return { ...acc, [`/tag/${slug}`]: { modifiedDate } };
+  }, {});
+
+  return { ...staticPages, ...postPages, ...tagPages };
+};
+
 const generateSitemap = async (domain, targetFolder) => {
   if (!domain) {
     throw new Error("No domain provided!");
@@ -44,24 +100,21 @@ const generateSitemap = async (domain, targetFolder) => {
     targetFolder.endsWith("/") ? targetFolder : `${targetFolder}/`
   }${fileName}`;
 
-  const pathMap = await exportPathMap();
+  const pathMap = await buildPathMap();
   const pages = Object.entries(pathMap);
 
-  const sitemap = `${xmlUrlWrapper(
-    pages.map(([page, pageObject]) => {
-      const modifiedDate = (
-        (pageObject && pageObject.query && pageObject.query.modifiedDate) ||
-        new Date()
-      ).toISOString();
-      return xmlUrlNode(domain, page, modifiedDate);
-    }).join(`
-`)
-  )}`;
+  const sitemap = xmlUrlWrapper(
+    pages
+      .map(([page, { modifiedDate }]) =>
+        xmlUrlNode(domain, page, modifiedDate.toISOString()),
+      )
+      .join("\n"),
+  );
 
   fs.writeFile(`${writeLocation}`, sitemap, (err) => {
     if (err) throw err;
     console.log(
-      `sitemap.xml with ${pages.length} entries was written to ${targetFolder}/${fileName}`
+      `sitemap.xml with ${pages.length} entries was written to ${targetFolder}/${fileName}`,
     );
   });
 };

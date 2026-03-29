@@ -7,7 +7,12 @@ interface Props {
   preview: string;
 }
 
-const StructuredData = ({ date, title, hero, preview }: Props): JSX.Element => {
+const StructuredData = ({
+  date,
+  title,
+  hero,
+  preview,
+}: Props): React.JSX.Element => {
   const data = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -17,7 +22,7 @@ const StructuredData = ({ date, title, hero, preview }: Props): JSX.Element => {
       url: "https://johnapostol.com/",
       logo: {
         "@type": "ImageObject",
-        url: require("../public/static/me.jpg?size=320"),
+        url: "https://johnapostol.com/static/me.jpg",
       },
     },
     author: {
