@@ -1,6 +1,6 @@
 import React from "react";
 
-const FadedRule = (): JSX.Element => (
+const FadedRule = (): React.JSX.Element => (
   <>
     <hr />
     <style jsx>{`

@@ -2,11 +2,11 @@ import React from "react";
 import ColumnWrapper from "./ColumnWrapper";
 
 interface Props {
-  children: JSX.Element | (JSX.Element | string)[] | string;
+  children: React.ReactNode;
   noWrap?: boolean;
 }
 
-const Paragraph = ({ children, noWrap }: Props): JSX.Element => {
+const Paragraph = ({ children, noWrap }: Props): React.JSX.Element => {
   const firstChild = children instanceof Array ? children[0] : children;
 
   // Render images without a wrapper

@@ -1,39 +1,27 @@
 import React from "react";
-import { WithLazyLoadProps } from "./WithLazyLoad";
+import NextImage from "next/image";
 
 type Props = {
   caption: string;
-} & WithLazyLoadProps;
+  src: string;
+  slug: string;
+};
 
-const WideImage = ({
-  caption,
-  hasViewed,
-  optimizedImage,
-  lazyRef,
-  lowQualityImage,
-}: Props): JSX.Element => (
+const WideImage = ({ caption, src, slug }: Props): React.JSX.Element => (
   <div className="full-width">
     <figure>
-      {hasViewed ? (
-        <img
-          alt={caption}
-          srcSet={optimizedImage.srcSet}
-          src={optimizedImage.src}
-        />
-      ) : (
-        <img ref={lazyRef} alt={caption} src={lowQualityImage} />
-      )}
+      <NextImage
+        alt={caption}
+        src={`/static/${slug}/${src}`}
+        width={1600}
+        height={900}
+        style={{ width: "100%", height: "auto", marginTop: "44px" }}
+      />
       {caption && <figcaption dangerouslySetInnerHTML={{ __html: caption }} />}
     </figure>
     <style jsx>{`
       .full-width {
         grid-column: 1 / 4;
-      }
-
-      img {
-        margin-top: 44px;
-        ${caption ? "margin-bottom: 15px;" : ""}
-        width: 100%;
       }
 
       figcaption {

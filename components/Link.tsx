@@ -2,17 +2,16 @@ import React from "react";
 import RepoCard from "./RepoCard";
 
 interface Props {
-  children: JSX.Element[];
+  children: React.ReactNode;
   href: string;
 }
 
-const Link = ({ children, href }: Props): JSX.Element => {
-  const [node] = children;
-  const {
-    props: { children: rawText },
-  } = node;
+const Link = ({ children, href }: Props): React.JSX.Element => {
+  const nodes = React.Children.toArray(children);
+  const node = nodes[0] as React.ReactElement<{ children?: string }>;
+  const rawText = node?.props?.children ?? "";
 
-  if (rawText.startsWith("repo")) {
+  if (typeof rawText === "string" && rawText.startsWith("repo")) {
     const preview = rawText.split("repo: ")[1];
 
     return <RepoCard preview={preview} href={href} />;

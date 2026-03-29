@@ -3,19 +3,15 @@ import Link from "next/link";
 import Name from "./Name";
 
 interface Props {
-  image?: NodeRequire;
+  image?: string;
 }
 
-const Cover = ({
-  image = require("../public/static/cover.jpg?size=320"),
-}: Props): JSX.Element => (
+const Cover = ({ image = "/static/cover.jpg" }: Props): React.JSX.Element => (
   <div className="outside">
     <div className="background" />
     <div className="inside">
       <Link href="/">
-        <a>
-          <Name />
-        </a>
+        <Name />
       </Link>
       <span>lifelong learner</span>
     </div>
@@ -60,10 +56,6 @@ const Cover = ({
         justify-content: center;
         position: relative;
         width: 100%;
-      }
-
-      a {
-        text-decoration: none;
       }
 
       span {

@@ -1,37 +1,26 @@
 import React from "react";
+import NextImage from "next/image";
 import ColumnWrapper from "./ColumnWrapper";
-import { WithLazyLoadProps } from "./WithLazyLoad";
 
 type Props = {
   caption: string;
-} & WithLazyLoadProps;
+  src: string;
+  slug: string;
+};
 
-const CenterImage = ({
-  caption,
-  hasViewed,
-  optimizedImage,
-  lazyRef,
-  lowQualityImage,
-}: Props): JSX.Element => (
+const CenterImage = ({ caption, src, slug }: Props): React.JSX.Element => (
   <ColumnWrapper>
     <figure>
-      {hasViewed ? (
-        <img
-          alt={caption}
-          srcSet={optimizedImage.srcSet}
-          src={optimizedImage.src}
-        />
-      ) : (
-        <img ref={lazyRef} alt={caption} src={lowQualityImage} />
-      )}
+      <NextImage
+        alt={caption}
+        src={`/static/${slug}/${src}`}
+        width={740}
+        height={494}
+        style={{ width: "100%", height: "auto", marginTop: "44px" }}
+      />
       <figcaption dangerouslySetInnerHTML={{ __html: caption }} />
     </figure>
     <style jsx>{`
-      img {
-        margin-top: 44px;
-        width: 100%;
-      }
-
       figcaption {
         font-size: 0.8rem;
         line-height: 22.4px;

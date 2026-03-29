@@ -1,4 +1,5 @@
 import React from "react";
+import NextImage from "next/image";
 import GitHub from "./GitHub";
 import { atLeastSmall } from "../utils/breakpoints";
 
@@ -7,7 +8,7 @@ interface Props {
   preview: string;
 }
 
-const RepoCard = ({ href, preview }: Props): JSX.Element => (
+const RepoCard = ({ href, preview }: Props): React.JSX.Element => (
   <a target="_blank" rel="noopener noreferrer" href={href}>
     <div className="card">
       <div className="description">
@@ -19,7 +20,14 @@ const RepoCard = ({ href, preview }: Props): JSX.Element => (
         </div>
         <div className="preview">{preview}</div>
       </div>
-      <img src={require("../public/static/me.jpg?size=320")} />
+      <div className="avatar">
+        <NextImage
+          src="/static/me.jpg"
+          alt="John Apostol"
+          width={125}
+          height={125}
+        />
+      </div>
     </div>
     <style jsx>{`
       a {
@@ -35,7 +43,7 @@ const RepoCard = ({ href, preview }: Props): JSX.Element => (
         margin: 0 1rem;
       }
 
-      img {
+      .avatar {
         display: none;
       }
 
@@ -76,7 +84,7 @@ const RepoCard = ({ href, preview }: Props): JSX.Element => (
           text-align: start;
         }
 
-        img {
+        .avatar {
           display: block;
           height: 125px;
           width: 125px;

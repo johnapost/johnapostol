@@ -25,7 +25,7 @@ const About: NextPage = () => (
         <meta property="og:url" content="https://johnapostol.com/about" />
         <meta
           property="og:image"
-          content={require("../../public/static/me.jpg?size=320")}
+          content="https://johnapostol.com/static/me.jpg"
         />
         <meta property="og:title" content="John Apostol, lifelong learner" />
         <meta
@@ -35,7 +35,7 @@ const About: NextPage = () => (
         <meta name="twitter:site" content="@johnapost" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Cover image={require("../../public/static/about.jpg?size=320")} />
+      <Cover image="/static/about.jpg" />
       <div className="grid">
         <ExternalLinks />
         <Heading level={2}>Human</Heading>
@@ -49,8 +49,8 @@ const About: NextPage = () => (
         <Heading level={2}>Leader</Heading>
         <List>
           <ListItem>
-            <Link href="/about/manager">
-              <a data-cy="manager">How I lead people</a>
+            <Link href="/about/manager" data-cy="manager">
+              How I lead people
             </Link>
           </ListItem>
           <ListItem>Teams grow and their needs change over time</ListItem>

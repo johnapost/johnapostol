@@ -2,13 +2,18 @@ import React from "react";
 import ColumnWrapper from "./ColumnWrapper";
 
 interface Props {
-  children: JSX.Element | JSX.Element[] | string;
+  children: React.ReactNode;
   level: number;
   noMargin?: boolean;
   noWrap?: boolean;
 }
 
-const Heading = ({ children, level, noMargin, noWrap }: Props): JSX.Element => {
+const Heading = ({
+  children,
+  level,
+  noMargin,
+  noWrap,
+}: Props): React.JSX.Element => {
   let inner = <div />;
 
   // For forcing h1

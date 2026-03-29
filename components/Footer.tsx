@@ -3,7 +3,7 @@ import ColumnWrapper from "./ColumnWrapper";
 import { atLeastMedium } from "../utils/breakpoints";
 import FadedRule from "./FadedRule";
 
-const Footer = (): JSX.Element => (
+const Footer = (): React.JSX.Element => (
   <>
     <FadedRule />
     <div className="footer">

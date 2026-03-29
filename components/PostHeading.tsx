@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import NextImage from "next/image";
 import ColumnWrapper from "../components/ColumnWrapper";
 import formatDate from "../utils/formatDate";
 import { useInView } from "react-intersection-observer";
@@ -12,7 +13,7 @@ interface Props {
   title: string;
 }
 
-const PostHeading = ({ date, readTime, title }: Props): JSX.Element => {
+const PostHeading = ({ date, readTime, title }: Props): React.JSX.Element => {
   const formattedDate = formatDate(date);
   const [ref, inView] = useInView({ threshold: 0.01 });
   const [hasStuck, setStuck] = useState(false);
@@ -39,10 +40,13 @@ const PostHeading = ({ date, readTime, title }: Props): JSX.Element => {
       >
         <div className="background" />
         <div className="navigation">
-          <Link href="/">
-            <a className="avatar" data-cy="avatar">
-              <img src={require("../public/static/me.jpg?size=320")} />
-            </a>
+          <Link href="/" className="avatar" data-cy="avatar">
+            <NextImage
+              src="/static/me.jpg"
+              alt="John Apostol"
+              width={50}
+              height={50}
+            />
           </Link>
           <div className="post-details">
             <div className="top">John Apostol</div>
@@ -52,15 +56,11 @@ const PostHeading = ({ date, readTime, title }: Props): JSX.Element => {
           </div>
           <div className="post-nav">
             <div className="top">{title}</div>
-            <Link href="/">
-              <a className="bottom" data-cy="home">
-                Home
-              </a>
+            <Link href="/" className="bottom" data-cy="home">
+              Home
             </Link>
-            <Link href="/about">
-              <a className="bottom" data-cy="about">
-                About
-              </a>
+            <Link href="/about" className="bottom" data-cy="about">
+              About
             </Link>
           </div>
         </div>
@@ -162,7 +162,7 @@ const PostHeading = ({ date, readTime, title }: Props): JSX.Element => {
           pointer-events: none;
         }
 
-        img {
+        :global(.avatar img) {
           border-radius: 100%;
           display: inline-block;
           height: 50px;
@@ -186,7 +186,7 @@ const PostHeading = ({ date, readTime, title }: Props): JSX.Element => {
           width: 200px;
         }
 
-        a.bottom {
+        :global(a.bottom) {
           margin: 0 15px 0 0;
         }
 

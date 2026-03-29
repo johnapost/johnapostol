@@ -23,6 +23,7 @@ import calcReadTime from "../../utils/calcReadTime";
 
 interface Props {
   date: string;
+  hero: string;
   postBody: string;
   preview: string;
   readTime: number;
@@ -32,12 +33,13 @@ interface Props {
 
 const Post: NextPage<Props> = ({
   date,
+  hero,
   postBody,
   preview,
   readTime,
   slug,
   title,
-}: Props): JSX.Element => {
+}: Props): React.JSX.Element => {
   const renderers = {
     blockquote: Blockquote,
     code: CodeBlock,
@@ -50,13 +52,6 @@ const Post: NextPage<Props> = ({
     paragraph: Paragraph,
     thematicBreak: ThematicBreak,
   };
-
-  let hero = "";
-
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    hero = require(`../../public/static/${slug}/hero.jpg`);
-  } catch {}
 
   return (
     <>
@@ -148,8 +143,9 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   } = await requestCms(data);
 
   const readTime = calcReadTime(postBody);
+  const hero = `/static/${slug}/hero.jpg`;
 
-  return { props: { title, preview, slug, postBody, date, readTime } };
+  return { props: { title, preview, slug, postBody, date, readTime, hero } };
 };
 
 export default Post;

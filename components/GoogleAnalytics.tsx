@@ -1,6 +1,6 @@
 import React from "react";
 
-const GoogleAnalytics = (): JSX.Element => (
+const GoogleAnalytics = (): React.JSX.Element => (
   <>
     <link rel="preconnect" href="https://www.google-analytics.com" />
     <script

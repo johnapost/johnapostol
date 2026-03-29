@@ -31,7 +31,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
         <meta property="og:url" content="https://johnapostol.com" />
         <meta
           property="og:image"
-          content={require("../public/static/me.jpg?size=320")}
+          content="https://johnapostol.com/static/me.jpg"
         />
         <meta property="og:title" content="John Apostol, lifelong learner" />
         <meta
@@ -58,8 +58,8 @@ const Index: NextPage<Props> = ({ posts }: Props) => (
         </Paragraph>
         <Paragraph>
           See my written works below or{" "}
-          <Link href="/about">
-            <a data-cy="about">read more about me</a>
+          <Link href="/about" data-cy="about">
+            read more about me
           </Link>
           .
         </Paragraph>

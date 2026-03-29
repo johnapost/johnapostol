@@ -18,7 +18,11 @@ interface Props {
   slug: string;
 }
 
-const Tag: NextPage<Props> = ({ displayName, posts, slug }: Props): JSX.Element => (
+const Tag: NextPage<Props> = ({
+  displayName,
+  posts,
+  slug,
+}: Props): React.JSX.Element => (
   <>
     <main role="main">
       <Head>
@@ -35,7 +39,7 @@ const Tag: NextPage<Props> = ({ displayName, posts, slug }: Props): JSX.Element 
         />
         <meta
           property="og:image"
-          content={require("../../public/static/me.jpg?size=320")}
+          content="https://johnapostol.com/static/me.jpg"
         />
         <meta property="og:title" content={`${displayName} | John Apostol`} />
         <meta
@@ -45,7 +49,7 @@ const Tag: NextPage<Props> = ({ displayName, posts, slug }: Props): JSX.Element 
         <meta name="twitter:site" content="@johnapost" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Cover image={require("../../public/static/about.jpg?size=320")} />
+      <Cover image="/static/about.jpg" />
       <div className="grid">
         <ExternalLinks />
         <Heading level={0}>{`Posts about ${displayName}`}</Heading>

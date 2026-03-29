@@ -1,6 +1,6 @@
 import React from "react";
 
-const ThematicBreak = (): JSX.Element => (
+const ThematicBreak = (): React.JSX.Element => (
   <div className="full-width">
     <hr />
     <style jsx>{`

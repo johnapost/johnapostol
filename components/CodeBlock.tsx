@@ -8,7 +8,7 @@ interface Props {
   value: string;
 }
 
-const CodeBlock = ({ language, value }: Props): JSX.Element => (
+const CodeBlock = ({ language, value }: Props): React.JSX.Element => (
   <ColumnWrapper>
     <Highlight
       {...defaultProps}
@@ -22,7 +22,7 @@ const CodeBlock = ({ language, value }: Props): JSX.Element => (
         tokens,
         getLineProps,
         getTokenProps,
-      }): JSX.Element => (
+      }): React.JSX.Element => (
         <div className="wrapper">
           <pre className={className} style={style}>
             {tokens.map((line, index) => (

@@ -4,7 +4,7 @@ interface Props {
   children: string;
 }
 
-const InlineCode = ({ children }: Props): JSX.Element => (
+const InlineCode = ({ children }: Props): React.JSX.Element => (
   <>
     <span>{children}</span>
     <style jsx>{`

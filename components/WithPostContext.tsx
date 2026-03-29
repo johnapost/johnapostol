@@ -11,7 +11,7 @@ const WithPostContext = <T extends Record<string, unknown>>(
   return class extends React.Component<T> {
     public static displayName = "WithPostContext";
 
-    public render(): JSX.Element {
+    public render(): React.JSX.Element {
       return <Component context={context} {...(this.props as T)} />;
     }
   };
