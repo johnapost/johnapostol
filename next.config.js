@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 const optimizedImages = require("next-optimized-images");
 const withPlugins = require("next-compose-plugins");
-const exportPathMap = require("./dev-utils/exportPathMap");
 
 module.exports = withPlugins([
   [
@@ -23,7 +22,4 @@ module.exports = withPlugins([
       },
     },
   ],
-  {
-    exportPathMap,
-  },
 ]);

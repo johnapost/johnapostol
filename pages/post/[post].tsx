@@ -1,5 +1,5 @@
 import React from "react";
-import { NextPageContext } from "next";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import ReactMarkdown from "react-markdown";
 import Heading from "../../components/Heading";
@@ -30,7 +30,7 @@ interface Props {
   title: string;
 }
 
-const Post = ({
+const Post: NextPage<Props> = ({
   date,
   postBody,
   preview,
@@ -112,11 +112,29 @@ const Post = ({
   );
 };
 
-Post.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
-  const slug = asPath?.split("/post/")[1].split("?")[0] as string;
+export const getStaticPaths: GetStaticPaths = async () => {
   const data = gql`
     {
-      post(where: {slug: "${slug}"} ) {
+      posts(stage: PUBLISHED) {
+        slug
+      }
+    }
+  `;
+
+  const { posts } = await requestCms(data);
+
+  const paths = posts.map(({ slug }: { slug: string }) => ({
+    params: { post: slug },
+  }));
+
+  return { paths, fallback: false };
+};
+
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+  const slug = params?.post as string;
+  const data = gql`
+    {
+      post(where: {slug: "${slug}"}) {
         date
         postBody
         preview
@@ -131,7 +149,7 @@ Post.getInitialProps = async ({ asPath }: NextPageContext): Promise<Props> => {
 
   const readTime = calcReadTime(postBody);
 
-  return { title, preview, slug, postBody, date, readTime };
+  return { props: { title, preview, slug, postBody, date, readTime } };
 };
 
 export default Post;
