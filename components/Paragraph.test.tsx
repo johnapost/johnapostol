@@ -28,7 +28,6 @@ describe("Paragraph", () => {
   it("renders image children directly without a <p> wrapper", () => {
     render(
       <Paragraph>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/photo.jpg" alt="test" />
       </Paragraph>
     );
@@ -41,7 +40,6 @@ describe("Paragraph", () => {
   it("does not wrap image children in ColumnWrapper", () => {
     render(
       <Paragraph>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/photo.jpg" alt="test" />
       </Paragraph>
     );
