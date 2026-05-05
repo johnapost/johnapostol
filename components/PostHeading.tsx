@@ -143,10 +143,12 @@ const PostHeading = ({ date, readTime, title }: Props): React.JSX.Element => {
 
         .sticky .background {
           height: 82px;
+          z-index: 10;
         }
 
         .sticky .navigation {
           height: 82px;
+          z-index: 11;
         }
 
         .sticky .background {
@@ -160,6 +162,7 @@ const PostHeading = ({ date, readTime, title }: Props): React.JSX.Element => {
           top: 82px;
           width: 100%;
           pointer-events: none;
+          z-index: 12;
         }
 
         :global(.avatar img) {
