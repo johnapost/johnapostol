@@ -32,14 +32,30 @@ const CodeBlock = ({
         }): React.JSX.Element => (
           <div className="wrapper">
             <pre className={className} style={style}>
-              {tokens.map((line, index) => (
-                <div key={index} {...getLineProps({ line, key: index })}>
-                  <span className="line-number">{index + 1}</span>
-                  {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token, key })} />
-                  ))}
-                </div>
-              ))}
+              {tokens.map((line, index) => {
+                const { key, className, ...lineProps } = getLineProps({
+                  line,
+                  key: index,
+                });
+
+                return (
+                  <div
+                    key={key}
+                    className={`${className} code-line`}
+                    {...lineProps}
+                  >
+                    <span className="line-number">{index + 1}</span>
+                    {line.map((token, tokenIndex) => {
+                      const { key, ...tokenProps } = getTokenProps({
+                        token,
+                        key: tokenIndex,
+                      });
+
+                      return <span key={key} {...tokenProps} />;
+                    })}
+                  </div>
+                );
+              })}
             </pre>
           </div>
         )}
@@ -49,20 +65,29 @@ const CodeBlock = ({
           font-size: 1.1rem;
           line-height: 1.5rem;
           margin: 29px -20px 0;
-          overflow: auto;
+          overflow: visible;
         }
 
         pre {
-          float: left;
-          min-width: 100%;
-          overflow: initial;
+          overflow-wrap: anywhere;
           padding: 1rem;
+          white-space: pre-wrap;
+          width: 100%;
+        }
+
+        .code-line {
+          display: block;
+          min-height: 1.5rem;
+          padding-left: 4rem;
+          position: relative;
         }
 
         .line-number {
-          display: inline-block;
+          left: 0;
           opacity: 0.3;
           padding: 0 0.5rem;
+          position: absolute;
+          text-align: right;
           user-select: none;
           width: 3rem;
         }
