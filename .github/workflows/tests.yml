@@ -42,3 +42,31 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GRAPHCMS_API: ${{ secrets.GRAPHCMS_API }}
           GRAPHCMS_TOKEN: ${{ secrets.GRAPHCMS_TOKEN }}
+  visual:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: ".nvmrc"
+          cache: "yarn"
+      - name: Cypress visual run
+        uses: cypress-io/github-action@v6
+        with:
+          build: yarn build
+          command: yarn cy:visual
+          start: yarn start
+          wait-on: "http://localhost:3000"
+        env:
+          GRAPHCMS_API: ${{ secrets.GRAPHCMS_API }}
+          GRAPHCMS_TOKEN: ${{ secrets.GRAPHCMS_TOKEN }}
+      - name: Upload visual diffs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-regression-artifacts
+          path: |
+            cypress/screenshots
+            cypress/snapshots

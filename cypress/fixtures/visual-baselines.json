@@ -1,0 +1,19 @@
+{
+  "urls": ["/", "/about/manager"],
+  "posts": [
+    "how-to-welcome-your-new-hire",
+    "how-i-custom-built-my-markdown-blog"
+  ],
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1280,
+      "height": 900
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  ]
+}

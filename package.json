@@ -10,6 +10,9 @@
   "scripts": {
     "build": "npm run build:sitemap && next build",
     "build:sitemap": "node ./dev-utils/buildSitemap.js",
+    "cy:run": "cypress run",
+    "cy:visual": "cypress run --spec \"cypress/integration/visual.ts\" --reporter cypress-image-snapshot/reporter",
+    "cy:visual:update": "cypress run --spec \"cypress/integration/visual.ts\" --env updateSnapshots=true",
     "test": "jest",
     "test:watch": "jest --watch",
     "dev": "next dev",
@@ -53,6 +56,7 @@
     "@typescript-eslint/parser": "6",
     "cypress": "4.12.1",
     "cypress-dotenv": "1.2.3",
+    "cypress-image-snapshot": "^4.0.1",
     "dotenv": "8.6.0",
     "eslint": "8.57.1",
     "eslint-config-prettier": "8.10.2",

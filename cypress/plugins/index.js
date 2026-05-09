@@ -12,12 +12,17 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 
-const dotenvPlugin = require('cypress-dotenv');
+const dotenvPlugin = require("cypress-dotenv");
+const {
+  addMatchImageSnapshotPlugin,
+} = require("cypress-image-snapshot/plugin");
 
 /**
  * @type {Cypress.PluginConfig}
  */
 module.exports = (on, config) => {
-  config = dotenvPlugin(config, {}, true)
-  return config
-}
+  config = dotenvPlugin(config, {}, true);
+  addMatchImageSnapshotPlugin(on, config);
+
+  return config;
+};
