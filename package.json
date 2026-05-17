@@ -48,7 +48,7 @@
     "@types/jest": "^30.0.0",
     "@types/react": "19",
     "@types/react-dom": "19",
-    "@types/styled-jsx": "2.2.9",
+    "@types/styled-jsx": "3.4.4",
     "@typescript-eslint/eslint-plugin": "8",
     "@typescript-eslint/parser": "8",
     "cypress": "4.12.1",
