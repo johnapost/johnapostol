@@ -52,7 +52,7 @@
     "@typescript-eslint/eslint-plugin": "8",
     "@typescript-eslint/parser": "8",
     "cypress": "4.12.1",
-    "cypress-dotenv": "1.2.3",
+    "cypress-dotenv": "3.0.1",
     "dotenv": "8.6.0",
     "eslint": "8.57.1",
     "eslint-config-prettier": "8.10.2",
