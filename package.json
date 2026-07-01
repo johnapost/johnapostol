@@ -51,7 +51,7 @@
     "@types/styled-jsx": "3.4.4",
     "@typescript-eslint/eslint-plugin": "8",
     "@typescript-eslint/parser": "8",
-    "cypress": "4.12.1",
+    "cypress": "15.18.0",
     "cypress-dotenv": "3.0.1",
     "dotenv": "17.4.2",
     "eslint": "10.4.1",
