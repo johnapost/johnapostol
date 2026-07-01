@@ -65,6 +65,6 @@
     "prettier": "3.8.3",
     "sort-package-json": "4.0.0",
     "ts-node": "10.9.2",
-    "typescript": "5"
+    "typescript": "6"
   }
 }
